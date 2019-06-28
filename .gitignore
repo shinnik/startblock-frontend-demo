@@ -1,0 +1,23 @@
+.idea/
+.shelf
+.idea_modules/
+build/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# misc
+*.css
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+coverage
+dist/
+node_modules/
+npm-debug.log*
+yarn-error.log
