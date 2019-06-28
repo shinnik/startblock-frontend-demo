@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import buttonModalContainer from './buttonModalContainer';
+import buttonModal from './buttonModal';
 
 export const reducers = combineReducers({
-    buttonModalContainer
+    buttonModal
 })

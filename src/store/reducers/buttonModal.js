@@ -1,4 +1,4 @@
-import * as actions from '../actions/buttonModalContainer';
+import * as actions from '../actions/buttonModal';
 
 const initialState = {
 
