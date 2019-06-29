@@ -5,7 +5,7 @@ import CellInfo from "../CellInfo/CellInfo";
 import styles from './MultiArrow.module.scss';
 
 
-const arr = [true, true, false];
+const arr = [true, true, false, false, true];
 const data = [
     {
         name: 'Alpha',
@@ -16,6 +16,16 @@ const data = [
         name: 'Beta',
         amount: 2,
         money: 1
+    },
+    {
+        name: 'Gamma',
+        amount: 512,
+        money: 59
+    },
+    {
+        name: 'Gamma',
+        amount: 512,
+        money: 59
     },
     {
         name: 'Gamma',
@@ -33,8 +43,9 @@ function MultiArrow() {
                     arr.map(((value, index, array) => <MediumArrow direction={value} last={index === array.length-1} /> ))
                 }
             </div>
+            <div className={styles.MediumDiv} />
             <div>
-                <div className={styles.AdditionalDiv}></div>
+                <div className={styles.AdditionalDiv}/>
                 {
                     data.map(value => <CellInfo name={value.name} amount={value.amount} money={value.money}/>)
                 }
