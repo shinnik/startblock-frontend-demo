@@ -1,8 +1,9 @@
 $x1:    100px;
-$y1:    50px;
+$y1:    60px;
 $border-thickness: 6.25477px;
 $border-color:  #FF8282;
-$triangle-size: 11px;
+$triangle-size: 15px;
+
 
 .MediumArrowRight {
     width: $y1;
@@ -11,16 +12,16 @@ $triangle-size: 11px;
     border-bottom: $border-thickness solid $border-color;
 }
 
-.MediumArrowRight:after {
+.RightTriangle {
     content: "";
-    position: absolute;
+    position: relative;
     width: 0;
     height: 0;
-    top: $x1;
-    left: $y1;
-    border-top: $triangle-size solid transparent;
+    top: $x1*0.885;
+    left: $y1*0.5;
+    border-top: $triangle-size solid white;
     border-left: 2*$triangle-size solid $border-color;
-    border-bottom: $triangle-size solid transparent;
+    border-bottom: $triangle-size solid white;
 }
 
 
@@ -31,13 +32,13 @@ $triangle-size: 11px;
     border-bottom: $border-thickness solid $border-color;
 }
 
-.MediumArrowLeft:after {
+.LeftTriangle {
     content: "";
-    position: absolute;
+    position: relative;
     width: 0;
     height: 0;
-    top: $x1;
-    left: $y1*0.5;
+    top: $x1*0.88;
+    left: $y1*0.2;
     border-top: $triangle-size solid transparent;
     border-right: 2*$triangle-size solid $border-color;
     border-bottom: $triangle-size solid transparent;
