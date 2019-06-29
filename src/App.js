@@ -4,7 +4,7 @@ import MediumArrow from "./lib/components/BranchArrows/MediumArrow/MediumArrow";
 function App() {
   return (
     <div className="App">
-        <MediumArrow/>
+        <MediumArrow direction={false}/>
     </div>
   );
 }
