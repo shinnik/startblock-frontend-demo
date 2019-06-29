@@ -1,15 +1,15 @@
 import React from 'react';
-import FlexHorizontal from "../../wrappers/flex-horizontal/Flex-Horizontal";
+import FlexHorizontalWrapper from "../../wrappers/flex-horizontal/FlexHorizontalWrapper";
 import MediumArrow from "../../components/BranchArrows/MediumArrow/MediumArrow";
 import CellInfo from "../CellInfo/CellInfo";
 import styles from './MultiArrow.module.scss';
 
 function MultiArrow({arr, data}) {
     return <div>
-        <FlexHorizontal>
+        <FlexHorizontalWrapper>
             <div>
                 {
-                    arr.map(((value, index, array) => <MediumArrow direction={value} last={index === array.length-1} /> ))
+                    arr.map(((value, index, array) => <MediumArrow direction={value} last={index === array.length-1} first={index === 0} /> ))
                 }
             </div>
             <div className={styles.MediumDiv} />
@@ -19,7 +19,7 @@ function MultiArrow({arr, data}) {
                     data.map(value => <CellInfo name={value.name} amount={value.amount} money={value.money}/>)
                 }
             </div>
-        </FlexHorizontal>
+        </FlexHorizontalWrapper>
     </div>
 }
 

@@ -7,10 +7,10 @@ import {currency, energy} from "../../constatnts/names";
 
 function ArrowAndInfo({direction, amount, money}) {
     return <div className={styles.ArrowAndInfo}>
-        <PaddingWrapper>
+        <div style={{paddingLeft: '20px', paddingTop: '20px'}}>
             <Typography variant='h5' color='secondary'>{amount && `${amount} ${energy}` || <br/>}</Typography>
             <Typography variant='h5' color="textSecondary" >{money && `${money} ${currency}` || <br/>}</Typography>
-        </PaddingWrapper>
+        </div>
         <div className={direction ? styles.TriangleUp : styles.TriangleDown} />
     </div>
 }

@@ -4,8 +4,8 @@ import ArrowAndInfo from "../../containers/ArrowAndInfo/ArrowAndInfo";
 import Delta from "../../containers/Delta/Delta";
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from "@material-ui/core";
 import MultiArrow from "../../containers/MultiArrow/MultiArrow";
+import Container from '@material-ui/core/Container';
 
 const data = [
     {
@@ -41,28 +41,75 @@ const shift = {
     left: '-5px'
 };
 
+const arr = [true, true, false];
+const multidata = [
+    {
+        name: 'Alpha',
+        amount: 52,
+        money: 5
+    },
+    {
+        name: 'Beta',
+        amount: 2,
+        money: 1
+    },
+    {
+        name: 'Gamma',
+        amount: 512,
+        money: 59
+    },
+];
+
+const arr2 = [true, true, false];
+const multidata2 = [
+    {
+        name: 'Alpha',
+        amount: 52,
+        money: 5
+    },
+    {
+        name: 'Beta',
+        amount: 2,
+        money: 1
+    },
+    {
+        name: 'Gamma',
+        amount: 512,
+        money: 59
+    },
+];
+
 function MainPage() {
 
     return <div className={styles.MainPage}>
-        <Box className={styles.Item1}>
-            <Typography style={shift} variant='h5'>{data[0].type && data[0].type}</Typography>
-            <ArrowAndInfo {...data[0]} />
-        </Box>
-        <Box className={styles.Item2}>
-            <Typography style={shift} variant='h5'>{data[1].type && data[1].type}</Typography>
-            <ArrowAndInfo {...data[1]} />
-        </Box>
-        <Box className={styles.Item3}>
-            <ArrowAndInfo {...data[2]} />
-            <Typography style={shift} variant='h5'>Соседние ячейки</Typography>
-        </Box>
-        <Box className={styles.Item4}>
-            <ArrowAndInfo {...data[3]} />
-            <Typography style={shift} variant='h5'>Нагрузка</Typography>
-        </Box>
+
+        <Container className={styles.Grid1} >
+            <Box className={styles.Item1}>
+                <Typography style={shift} variant='h5'>{data[0].type && data[0].type}</Typography>
+                <ArrowAndInfo {...data[0]} />
+            </Box>
+            <Box className={styles.Item2}>
+                <Typography style={shift} variant='h5'>{data[1].type && data[1].type}</Typography>
+                <ArrowAndInfo {...data[1]} />
+            </Box>
+        </Container>
+
         <Box className={styles.Item5}>
             <Delta {...profile} />
         </Box>
+
+        <Container className={styles.Grid2} >
+            <Box className={styles.Item3}>
+                <ArrowAndInfo {...data[2]} />
+                <Typography style={shift} variant='h5'>Соседние ячейки</Typography>
+                <MultiArrow data={multidata} arr={arr} />
+            </Box>
+            <Box className={styles.Item4}>
+                <ArrowAndInfo {...data[3]} />
+                <Typography style={shift} variant='h5'>Нагрузка</Typography>
+                <MultiArrow data={multidata2} arr={arr2} />
+            </Box>
+        </Container>
     </div>;
 }
 
