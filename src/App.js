@@ -5,6 +5,7 @@ import CellInfo from "./lib/containers/CellInfo/CellInfo";
 import MultiArrow from "./lib/containers/MultiArrow/MultiArrow";
 import ArrowAndInfo from "./lib/containers/ArrowAndInfo/ArrowAndInfo";
 import PaddingWrapper from "./lib/wrappers/padding/PaddingWrapper";
+import MainPage from "./lib/pages/MainPage/MainPage";
 
 const arr = [true, true, false, false, true];
 const data = [
@@ -38,10 +39,7 @@ const data = [
 function App() {
   return (
     <div className="App">
-        <PaddingWrapper>
-            <ArrowAndInfo direction={false} amount={123} money={321} />
-        </PaddingWrapper>
-       <MultiArrow arr={arr} data={data}/>
+        <MainPage name={'Delta'} type={'Энергетическая ячейка'} money={1125} />
     </div>
   );
 }
