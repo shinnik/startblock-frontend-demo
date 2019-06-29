@@ -5,6 +5,7 @@ import CellInfo from "./lib/containers/CellInfo/CellInfo";
 import MultiArrow from "./lib/containers/MultiArrow/MultiArrow";
 import ArrowAndInfo from "./lib/containers/ArrowAndInfo/ArrowAndInfo";
 import PaddingWrapper from "./lib/wrappers/padding/PaddingWrapper";
+import Delta from "./lib/containers/Delta/Delta";
 import MainPage from "./lib/pages/MainPage/MainPage";
 
 const arr = [true, true, false, false, true];
@@ -39,7 +40,7 @@ const data = [
 function App() {
   return (
     <div className="App">
-        <MainPage name={'Delta'} type={'Энергетическая ячейка'} money={1125} />
+        <MainPage/>
     </div>
   );
 }
