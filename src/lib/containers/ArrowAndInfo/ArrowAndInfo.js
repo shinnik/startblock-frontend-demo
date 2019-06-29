@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './ArrowAndInfo.module.scss';
-import PaddingWrapper from "../../wrappers/padding/PaddingWrapper";
 import Typography from '@material-ui/core/Typography';
 import {currency, energy} from "../../constatnts/names";
 

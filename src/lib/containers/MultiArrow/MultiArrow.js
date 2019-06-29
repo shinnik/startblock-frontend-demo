@@ -9,14 +9,14 @@ function MultiArrow({arr, data}) {
         <FlexHorizontalWrapper>
             <div>
                 {
-                    arr.map(((value, index, array) => <MediumArrow direction={value} last={index === array.length-1} first={index === 0} /> ))
+                    arr.map(((value, index, array) => <MediumArrow key={index} direction={value} last={index === array.length-1} first={index === 0} /> ))
                 }
             </div>
             <div className={styles.MediumDiv} />
             <div>
                 <div className={styles.AdditionalDiv}/>
                 {
-                    data.map(value => <CellInfo name={value.name} amount={value.amount} money={value.money}/>)
+                    data.map((value, index) => <CellInfo key={index} name={value.name} amount={value.amount} money={value.money}/>)
                 }
             </div>
         </FlexHorizontalWrapper>

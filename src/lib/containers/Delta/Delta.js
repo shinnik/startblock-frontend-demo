@@ -1,24 +1,44 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import styles from './Delta.module.scss';
 import Paper from '@material-ui/core/Paper/index';
 import Typography from '@material-ui/core/Typography/index';
 import {currency} from "../../constatnts/names";
 import Button from '@material-ui/core/Button/index';
-import Box from '@material-ui/core/Box';
-import {makeStyles} from "@material-ui/core";
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+const useStyles = makeStyles(theme => createStyles({
+    delta: {
+        backgroundColor: '#0099DC',
+    },
+    deltafont: {
+        color: 'white',
+        // fontFamily: 'Manrope',
+    },
+    button1: {
+        color: 'black',
+        backgroundColor: 'white'
+    },
+    button2: {
+        color: 'white',
+        border: '1px solid #FFFFFF'
+    }
+}));
 
 function Delta({name, type, money}) {
-    return <Box className={styles.Box}>
-        <Paper className={styles.Delta}>
-            <span className={styles.Item1} variant='h3'> {name} </span>
-            <span className={styles.Item5} variant='body1'> {type} </span>
-            <span className={styles.Item2} variant='h3'> {money} </span>
-            <span className={styles.Item6} variant='body1'> {currency} </span>
-            <Button className={styles.Item3} variant='contained' color='default'>Пополнить</Button>
-            <Button className={styles.Item4} variant='outlined' color='default' >Снять</Button>
-        </Paper>
-    </Box>
+    const classes = useStyles();
+
+    return <Paper className={`${classes.delta} ${styles.Delta}`}>
+            <Typography className={`${styles.Item1} ${classes.deltafont}`} variant='h3'> <b> {name} </b> </Typography>
+            <Typography className={`${styles.Item5} ${classes.deltafont}`} variant='body1'> {type} </Typography>
+            <Typography className={`${styles.Item2} ${classes.deltafont}`} variant='h3'> <b> {money} </b> </Typography>
+            <Typography className={`${styles.Item6} ${classes.deltafont}`} variant='body1'> {currency} </Typography>
+            <Button className={`${styles.Item3} ${classes.button1}`} variant='contained' color='default'>Пополнить</Button>
+            <Button className={`${styles.Item4} ${classes.button2}`} variant='outlined' color='default' >Снять</Button>
+    </Paper>
 }
 
 

@@ -9,8 +9,8 @@
 @media screen and (max-width: 500px) {
   .Delta {
     display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr 1fr;
-    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1.4fr 0.8fr 1.4fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-column-gap: 5px;
     padding: 20px;
   }
@@ -36,6 +36,7 @@
 
   .Item5 {
     grid-area: 2/1/2/1;
+    overflow-x: hidden;
   }
 
   .Item6 {
@@ -49,6 +50,7 @@
 @media screen and (min-width: 500px){
   .Delta {
     display: grid;
+    //width: 80vw;
     grid-template-columns: 1.4fr 0.8fr 1.4fr 1fr;
     grid-template-rows: 50px 1fr;
     grid-column-gap: 10px;
@@ -58,12 +60,12 @@
 
   .Item1 {
     grid-area: 1/1/1/1;
-    font-size: $largeFont;
+    align-self: center;
   }
 
   .Item2 {
     grid-area: 1/2/1/2;
-    font-size: $largeFont;
+    align-self: center;
   }
 
   .Item3 {
