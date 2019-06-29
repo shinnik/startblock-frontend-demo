@@ -7,34 +7,36 @@
 .Grid1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-column-gap: 40px;
 }
 
 .Grid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-column-gap: 40px;
 }
 
 .Item1 {
   grid-area: 1/1/1/1;
   align-self: end;
-  justify-self: center;
+  justify-self: end;
 }
 
 .Item2 {
   grid-area: 1/2/1/2;
-  justify-self: center;
+  justify-self: start;
   align-self: end;
 }
 
 .Item3 {
   grid-area: 1/1/1/1;
-  justify-self: center;
+  justify-self: end;
   align-self: start;
 }
 
 .Item4 {
   grid-area: 1/2/1/2;
-  justify-self: center;
+  justify-self: start;
   align-self: start;
 }
 
