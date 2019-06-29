@@ -1,0 +1,27 @@
+$x1:    100px;
+$y1:    50px;
+$border-thickness: 6.25477px;
+$border-color:  #FF8282;
+
+.MediumArrowRight {
+    width: $y1;
+    height: $x1;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+}
+
+.MediumArrowRight:after {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 100px solid #D0D4DC;
+    border-bottom: 50px solid transparent;
+}
+
+
+.MediumArrowLeft {
+    width: $y1;
+    height: $x1;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+}

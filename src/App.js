@@ -1,10 +1,10 @@
 import React from 'react';
-import ButtonModal from './lib/containers/ButtonModal/ButtonModal';
+import MediumArrow from "./lib/components/BranchArrows/MediumArrow/MediumArrow";
 
 function App() {
   return (
     <div className="App">
-      <ButtonModal/>
+        <MediumArrow/>
     </div>
   );
 }
