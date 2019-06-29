@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
         <PaddingWrapper>
-            <ArrowAndInfo direction={false} />
+            <ArrowAndInfo direction={false} amount={123} money={321} />
         </PaddingWrapper>
        <MultiArrow arr={arr} data={data}/>
     </div>
