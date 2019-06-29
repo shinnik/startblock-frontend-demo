@@ -1,0 +1,68 @@
+@import "../../../constatnts/constants";
+
+.FirstArrow {
+    width: $y1;
+    height: $x4;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+}
+
+.MediumArrow {
+    width: $y1;
+    height: $x3;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+}
+
+.LastArrow {
+    width: $y1;
+    height: $x3;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+    border-bottom-left-radius: $border-thickness*2;
+}
+
+.RightTriangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: $x3*0.885;
+    left: $y1*0.5;
+    border-top: $triangle-size solid white;
+    border-left: 2*$triangle-size solid $border-color;
+    border-bottom: $triangle-size solid white;
+}
+
+.RightTriangle__first {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: $x4*0.6;
+    left: $y1*0.5;
+    border-top: $triangle-size solid white;
+    border-left: 2*$triangle-size solid $border-color;
+    border-bottom: $triangle-size solid white;
+}
+
+.LeftTriangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: $x3*0.88;
+    left: $y1*0.2;
+    border-top: $triangle-size solid transparent;
+    border-right: 2*$triangle-size solid $border-color;
+    border-bottom: $triangle-size solid transparent;
+}
+
+.LeftTriangle__first {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: $x4*0.6;
+    left: $y1*0.2;
+    border-top: $triangle-size solid transparent;
+    border-right: 2*$triangle-size solid $border-color;
+    border-bottom: $triangle-size solid transparent;
+}
+

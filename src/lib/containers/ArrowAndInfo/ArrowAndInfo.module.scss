@@ -1,0 +1,30 @@
+@import "../../constatnts/constants";
+
+.ArrowAndInfo {
+  border-left: $border-thickness solid $border-color;
+}
+
+
+
+///@todo This triangle goes down in phones
+.TriangleUp {
+  width: 0;
+  height: 0;
+  position: relative;
+  top: -$x1*0.75;
+  left: -$triangle-size*1.2;
+  border-left: $triangle-size solid transparent;
+  border-right: $triangle-size solid transparent;
+  border-bottom: 2*$triangle-size solid $border-color;
+}
+
+.TriangleDown {
+  width: 0;
+  height: 0;
+  position: relative;
+  top: 0;
+  left: -$triangle-size*1.2;
+  border-left: $triangle-size solid white;
+  border-right: $triangle-size solid white;
+  border-top: 2*$triangle-size solid $border-color;
+}

@@ -1,12 +1,21 @@
 import React from 'react';
-import ButtonModal from './lib/containers/ButtonModal/ButtonModal';
+import MainPage from "./lib/pages/MainPage/MainPage";
+import {createMuiTheme} from "@material-ui/core";
+import {responsiveFontSizes} from "@material-ui/core/styles";
+import { ThemeProvider } from '@material-ui/styles';
+
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <ButtonModal/>
+        <ThemeProvider theme={theme}>
+            <MainPage/>
+        </ThemeProvider>
     </div>
   );
 }
