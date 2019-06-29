@@ -1,15 +1,14 @@
 import React from 'react';
 import MediumArrow from "./lib/components/BranchArrows/MediumArrow/MediumArrow";
+import FlexHorizontal from "./lib/wrappers/flex-horizontal/Flex-Horizontal";
+import CellInfo from "./lib/containers/CellInfo/CellInfo";
+import MultiArrow from "./lib/containers/MultiArrow/MultiArrow";
 
-const arr = [true, true, false];
 
 function App() {
   return (
     <div className="App">
-        asjdfgkjasdgfjasgdfasgdfhj
-        {
-            arr.map(((value, index, array) => <MediumArrow direction={value} last={index === array.length-1} /> ))
-        }
+       <MultiArrow/>
     </div>
   );
 }
