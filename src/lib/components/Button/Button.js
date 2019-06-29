@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 export const Button = ({ onClick, children, className, disabled, ...attrs }) => {
 

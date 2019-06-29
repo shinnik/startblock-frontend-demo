@@ -6,7 +6,8 @@ class ButtonModal extends PureComponent {
 
     render() {
         return (
-            <Button>
+            <Button className="btn__modal">
+                Вывести
             </Button>
         )
     }

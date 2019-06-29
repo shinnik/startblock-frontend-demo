@@ -1,10 +1,12 @@
 import React from 'react';
-import ButtonModal from './lib/containers/ButtonModal/ButtonModal';
+// import ButtonModal from './lib/containers/ButtonModal/ButtonModal';
+
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <ButtonModal/>
+      {/*<ButtonModal/>*/}
     </div>
   );
 }

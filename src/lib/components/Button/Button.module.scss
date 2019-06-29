@@ -1,0 +1,26 @@
+.btn {
+  &__modal {
+    width: 139px;
+    height: 56px;
+    background: #0099DC;
+    box-shadow: 0px 4px 8px rgba(48, 79, 254, 0.24);
+    border-radius: 3px;
+    border: 0;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.75px;
+  }
+}
+
+.disabled {
+  background-color: grey
+}
+
+.modalButton {
+
+
+}
