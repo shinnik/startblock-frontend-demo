@@ -5,11 +5,11 @@ import {currency, energy} from "../../constatnts/names";
 
 function CellInfo({name, amount, money}) {
     return <div className={styles.CellInfo}>
-        <b>{name}</b>
+        {name && <b>{name}</b>}
         <br/>
-        {`${amount} ${energy}`}
+        {amount && `${amount} ${energy}`}
         <br/>
-        {`${money} ${currency}`}
+        {money && `${money} ${currency}`}
     </div>
 }
 
