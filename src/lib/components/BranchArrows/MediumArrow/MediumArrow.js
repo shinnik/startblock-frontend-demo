@@ -2,19 +2,11 @@ import React from 'react';
 import styles from './MediumArrow.module.scss';
 
 
-function MediumArrow({direction}) {
-    if (direction)
-        return <div className={styles.MediumArrowRight}>
-            <div className={styles.RightTriangle}>
-
-            </div>
-        </div>;
-    else
-        return <div className={styles.MediumArrowLeft}>
-            <div className={styles.LeftTriangle}>
-
-            </div>
+function MediumArrow({direction, last}) {
+    return <div className={last ? styles.LastArrow : styles.MediumArrow}>
+        <div className={direction ? styles.RightTriangle : styles.LeftTriangle}>
         </div>
+    </div>;
 }
 
 

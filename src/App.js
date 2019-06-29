@@ -8,7 +8,7 @@ function App() {
     <div className="App">
         asjdfgkjasdgfjasgdfasgdfhj
         {
-            arr.map(((value) => <MediumArrow direction={value} />))
+            arr.map(((value, index, array) => <MediumArrow direction={value} last={index === array.length-1} /> ))
         }
     </div>
   );
