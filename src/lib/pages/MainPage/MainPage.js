@@ -13,6 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions/DialogActions";
+import TextField from '@material-ui/core/TextField';
 
 const data = [
     {
@@ -154,8 +155,8 @@ class MainPage extends PureComponent {
             <TextField
                 id="outlined-name"
                 label="Name"
-                value={values.name}
-                onChange={handleChange('name')}
+                // value={values.name}
+                // onChange={handleChange('name')}
                 margin="normal"
                 variant="outlined"
             />

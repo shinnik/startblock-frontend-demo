@@ -27,6 +27,13 @@ let theme = createMuiTheme({
             main: '#FF8282',
         },
     },
+    overrides: {
+        MuiPaper: {
+            elevation1: {
+                backgroundColor: '#0099DC',
+            }
+        }
+    }
 });
 theme = responsiveFontSizes(theme);
 

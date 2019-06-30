@@ -12,7 +12,7 @@ theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles(theme => createStyles({
     delta: {
-        backgroundColor: '#0099DC',
+        // backgroundColor: '#0099DC',
     },
     deltafont: {
         color: 'white',
