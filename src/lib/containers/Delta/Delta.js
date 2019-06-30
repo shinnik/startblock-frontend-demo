@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => createStyles({
     }
 }));
 
-function Delta({name, type, money}) {
+function Delta({name, type, money, pullOffFunc}) {
     const classes = useStyles();
 
     return <Paper className={`${classes.delta} ${styles.Delta}`}>
@@ -37,7 +37,7 @@ function Delta({name, type, money}) {
             <Typography className={`${styles.Item2} ${classes.deltafont}`} variant='h3'> <b> {money} </b> </Typography>
             <Typography className={`${styles.Item6} ${classes.deltafont}`} variant='body1'> {currency} </Typography>
             <Button className={`${styles.Item3} ${classes.button1}`} variant='contained' color='default'>Пополнить</Button>
-            <Button className={`${styles.Item4} ${classes.button2}`} variant='outlined' color='default' >Снять</Button>
+            <Button onClick={pullOffFunc} className={`${styles.Item4} ${classes.button2}`} variant='outlined' color='default' >Снять</Button>
     </Paper>
 }
 
