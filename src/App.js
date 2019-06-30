@@ -22,6 +22,11 @@ let theme = createMuiTheme({
             '"Segoe UI Symbol"',
         ].join(','),
     },
+    palette: {
+        secondary: {
+            main: '#FF8282',
+        },
+    },
 });
 theme = responsiveFontSizes(theme);
 

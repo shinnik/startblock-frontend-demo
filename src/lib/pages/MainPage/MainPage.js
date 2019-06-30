@@ -87,11 +87,11 @@ function MainPage() {
     return <div className={styles.MainPage}>
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>
-                <Typography style={shift} variant='h5'><b>{data[0].type && data[0].type}</b></Typography>
+                <Typography style={shift} variant='h4'><b>{data[0].type && data[0].type}</b></Typography>
                 <ArrowAndInfo {...data[0]} />
             </Box>
             <Box className={styles.Item2}>
-                <Typography style={shift} variant='h5'><b>{data[1].type && data[1].type}</b></Typography>
+                <Typography style={shift} variant='h4'><b>{data[1].type && data[1].type}</b></Typography>
                 <ArrowAndInfo {...data[1]} />
             </Box>
         </Container>
@@ -103,12 +103,12 @@ function MainPage() {
         <Container className={styles.Grid2} >
             <Box className={styles.Item3}>
                 <ArrowAndInfo {...data[2]} />
-                <Typography style={shift} variant='h5'><b>Соседние ячейки</b></Typography>
+                <Typography style={shift} variant='h4'><b>Соседние ячейки</b></Typography>
                 <MultiArrow data={multidata} arr={arr} />
             </Box>
             <Box className={styles.Item4}>
                 <ArrowAndInfo {...data[3]} />
-                <Typography style={shift} variant='h5'><b>Нагрузка</b></Typography>
+                <Typography style={shift} variant='h4'><b>Нагрузка</b></Typography>
                 <MultiArrow data={multidata2} arr={arr2} />
             </Box>
         </Container>
