@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import {currency, energy} from "../../constatnts/names";
 
 
+
 function ArrowAndInfo({direction, amount, money}) {
     return <div className={styles.ArrowAndInfo}>
         <div style={{paddingLeft: '20px', paddingTop: '20px'}}>

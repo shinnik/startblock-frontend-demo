@@ -5,7 +5,24 @@ import {responsiveFontSizes} from "@material-ui/core/styles";
 import { ThemeProvider } from '@material-ui/styles';
 import './App.scss';
 
-let theme = createMuiTheme();
+
+let theme = createMuiTheme({
+    typography: {
+        fontFamily: [
+            'Manrope',
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+    },
+});
 theme = responsiveFontSizes(theme);
 
 function App() {
