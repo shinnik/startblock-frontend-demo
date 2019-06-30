@@ -16,15 +16,14 @@ const useStyles = makeStyles(theme => createStyles({
     },
     deltafont: {
         color: 'white',
-        // fontFamily: 'Manrope',
     },
     button1: {
         color: 'black',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     button2: {
         color: 'white',
-        border: '1px solid #FFFFFF'
+        border: '1px solid #FFFFFF',
     }
 }));
 
