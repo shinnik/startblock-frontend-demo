@@ -27,4 +27,6 @@
   border-left: $triangle-size solid white;
   border-right: $triangle-size solid white;
   border-top: 2*$triangle-size solid $border-color;
+  border-left-style: double;
+  border-right-style: double;
 }
