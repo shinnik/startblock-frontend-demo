@@ -4,11 +4,7 @@ import Paper from '@material-ui/core/Paper/index';
 import Typography from '@material-ui/core/Typography/index';
 import {currency} from "../../constatnts/names";
 import Button from '@material-ui/core/Button/index';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { makeStyles, createStyles } from '@material-ui/styles';
-
-let theme = createMuiTheme();
-theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles(theme => createStyles({
     delta: {

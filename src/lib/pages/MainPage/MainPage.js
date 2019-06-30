@@ -10,17 +10,13 @@ import Dialog from "@material-ui/core/Dialog";
 import {withStyles} from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions/DialogActions";
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import {currency} from "../../constatnts/names";
 import Button from "@material-ui/core/Button";
 import {Paper, Table, TableHead, TableBody, TableRow, TableCell} from '@material-ui/core';
 import {LockOpen, Close} from '@material-ui/icons';
-import {Icon} from '@material-ui/core';
-import FlexHorizontalWrapper from "../../wrappers/flex-horizontal/FlexHorizontalWrapper";
 
 
 const data = [
@@ -132,7 +128,7 @@ const DialogContent = withStyles(theme => ({
 
 class MainPage extends PureComponent {
     state = {
-        open: true,
+        open: false,
     };
 
     handleClickOpen = () => {
@@ -188,7 +184,7 @@ class MainPage extends PureComponent {
                         </TableHead>
                         <TableBody>
                             {
-                                multidata.map((value, index) => <TableRow>
+                                multidata.map((value, index) => <TableRow key={index}>
                                     <TableCell align='left'><Typography variant='body1'>{value.name} </Typography> </TableCell>
                                     <TableCell align='right'><Typography variant='body1'>{value.blocked} </Typography> </TableCell>
                                     <TableCell align='center'> <IconButton color='primary'> <LockOpen /> </IconButton> </TableCell>
