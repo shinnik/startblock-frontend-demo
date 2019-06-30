@@ -29,8 +29,13 @@ let theme = createMuiTheme({
     },
     overrides: {
         MuiPaper: {
-            elevation1: {
+            elevation2: {
                 backgroundColor: '#0099DC',
+            }
+        },
+        MuiTableCell: {
+            head: {
+                color: 'black'
             }
         }
     }

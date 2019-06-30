@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => createStyles({
 function Delta({name, type, money, pullOffFunc}) {
     const classes = useStyles();
 
-    return <Paper className={`${classes.delta} ${styles.Delta}`}>
+    return <Paper elevation={2} className={`${classes.delta} ${styles.Delta}`}>
             <Typography className={`${styles.Item1} ${classes.deltafont}`} variant='h3'> <b> {name} </b> </Typography>
             <Typography className={`${styles.Item5} ${classes.deltafont}`} variant='body1'> {type} </Typography>
             <Typography className={`${styles.Item2} ${classes.deltafont}`} variant='h3'> <b> {money} </b> </Typography>

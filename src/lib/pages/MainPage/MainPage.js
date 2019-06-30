@@ -14,6 +14,13 @@ import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions/DialogActions";
 import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import {currency} from "../../constatnts/names";
+import Button from "@material-ui/core/Button";
+import {Paper, Table, TableHead, TableBody, TableRow, TableCell} from '@material-ui/core';
+import {LockOpen} from '@material-ui/icons';
+import {Icon} from '@material-ui/core';
+
 
 const data = [
     {
@@ -41,7 +48,8 @@ const data = [
 const profile = {
     name: 'Delta',
     type: 'Энергетическая ячейка',
-    money: 1125
+    money: 1125,
+    blocked: 504
 };
 
 const shift = {
@@ -49,43 +57,44 @@ const shift = {
     left: '-5px'
 };
 
-const arr = [true, true, false];
-const multidata = [
+const arr = [true, true, true];
+const multidata2 = [
     {
-        name: 'Alpha',
+        name: 'Туалет',
         amount: 52,
-        money: 5
     },
     {
-        name: 'Beta',
+        name: 'Комната',
         amount: 2,
-        money: 1
     },
     {
-        name: 'Gamma',
+        name: 'Кухня',
         amount: 512,
-        money: 59
     },
 ];
 
 const arr2 = [true, true, false];
-const multidata2 = [
+const multidata = [
     {
         name: 'Alpha',
         amount: 52,
-        money: 5
+        money: 5,
+        blocked: 8
     },
     {
         name: 'Beta',
         amount: 2,
-        money: 1
+        money: 1,
+        blocked: 401
     },
     {
         name: 'Gamma',
         amount: 512,
-        money: 59
+        money: 59,
+        blocked: 95
     },
 ];
+
 
 
 
@@ -132,7 +141,7 @@ const DialogActions = withStyles(theme => ({
 
 class MainPage extends PureComponent {
     state = {
-        open: false,
+        open: true,
     };
 
     handleClickOpen = () => {
@@ -152,14 +161,44 @@ class MainPage extends PureComponent {
             onClose={this.handleClose}
         >
             <DialogTitle>Вывод токенов</DialogTitle>
+            <DialogContent>
             <TextField
                 id="outlined-name"
-                label="Name"
+                label="Сумма"
                 // value={values.name}
                 // onChange={handleChange('name')}
                 margin="normal"
                 variant="outlined"
-            />
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">{currency}</InputAdornment>,
+                }}
+             />
+                <Button variant='contained' color='primary' >Вывести</Button>
+                <Typography>Баланс: {`${profile.money} ${currency}`}</Typography>
+                <br/>
+                <Typography>{`${profile.blocked} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
+                <Paper>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell align='center'><b>Пользователь</b></TableCell>
+                                <TableCell align='center'><b>{currency}</b></TableCell>
+                                <TableCell align='center'><b>Разблокировать</b></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {
+                                multidata.map((value, index) => <TableRow>
+                                    <TableCell align='left'>{value.name}</TableCell>
+                                    <TableCell align='right'>{value.blocked}</TableCell>
+                                    <TableCell align='center'> <IconButton color='primary'> <LockOpen /> </IconButton> </TableCell>
+                                </TableRow>)
+                            }
+                        </TableBody>
+                    </Table>
+                </Paper>
+            </DialogContent>
+
         </Dialog>
 
         <Container className={styles.Grid1} >
