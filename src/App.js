@@ -23,6 +23,9 @@ let theme = createMuiTheme({
         ].join(','),
     },
     palette: {
+        primary: {
+            main: '#0099DC'
+        },
         secondary: {
             main: '#FF8282',
         },

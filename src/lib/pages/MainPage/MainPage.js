@@ -18,8 +18,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import {currency} from "../../constatnts/names";
 import Button from "@material-ui/core/Button";
 import {Paper, Table, TableHead, TableBody, TableRow, TableCell} from '@material-ui/core';
-import {LockOpen} from '@material-ui/icons';
+import {LockOpen, Close} from '@material-ui/icons';
 import {Icon} from '@material-ui/core';
+import FlexHorizontalWrapper from "../../wrappers/flex-horizontal/FlexHorizontalWrapper";
 
 
 const data = [
@@ -95,30 +96,28 @@ const multidata = [
     },
 ];
 
-
-
-
 const styles2 = theme => ({
     root: {
         margin: 0,
-        padding: theme.spacing(2),
+        paddingTop: theme.spacing(5),
+        paddingLeft: theme.spacing(4)
     },
     closeButton: {
         position: 'absolute',
         right: theme.spacing(1),
         top: theme.spacing(1),
-        color: theme.palette.grey[500],
     },
 });
+
 
 const DialogTitle = withStyles(styles2)(props => {
     const { children, classes, onClose } = props;
     return (
         <MuiDialogTitle disableTypography className={classes.root}>
-            <Typography variant="h6">{children}</Typography>
+            <Typography variant="h3"><b>{children}</b></Typography>
             {onClose ? (
-                <IconButton aria-label="Close" className={classes.closeButton} onClick={onClose}>
-                    <CloseIcon />
+                <IconButton color='primary' aria-label="Close" className={classes.closeButton} onClick={onClose}>
+                    <Close />
                 </IconButton>
             ) : null}
         </MuiDialogTitle>
@@ -130,14 +129,6 @@ const DialogContent = withStyles(theme => ({
         padding: theme.spacing(2),
     },
 }))(MuiDialogContent);
-
-const DialogActions = withStyles(theme => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(1),
-    },
-}))(MuiDialogActions);
-
 
 class MainPage extends PureComponent {
     state = {
@@ -160,25 +151,34 @@ class MainPage extends PureComponent {
             open={this.state.open}
             onClose={this.handleClose}
         >
-            <DialogTitle>Вывод токенов</DialogTitle>
-            <DialogContent>
+            <DialogTitle onClose={this.handleClose}>Вывод токенов</DialogTitle>
+            <DialogContent><Box className={styles.DialogContent}>
+
+                <Box className={styles.FieldAndButton}>
             <TextField
                 id="outlined-name"
                 label="Сумма"
                 // value={values.name}
                 // onChange={handleChange('name')}
-                margin="normal"
                 variant="outlined"
+                style={{fontWeight: 'bold'}}
                 InputProps={{
                     endAdornment: <InputAdornment position="end">{currency}</InputAdornment>,
                 }}
              />
                 <Button variant='contained' color='primary' >Вывести</Button>
-                <Typography>Баланс: {`${profile.money} ${currency}`}</Typography>
+                </Box>
                 <br/>
-                <Typography>{`${profile.blocked} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
-                <Paper>
-                    <Table>
+                <Box className={styles.MoneyInfo}>
+                    <Typography variant='body2'>{`Баланс: ${profile.money} ${currency}`}</Typography>
+                    <Typography variant='body2' style={{justifySelf: 'end'}}>{`Готово к снятию:`}</Typography>
+                    <Typography variant='body2' color='primary'>{`${profile.money-profile.blocked} ${currency}`}</Typography>
+                </Box>
+                <br/>
+                <Typography variant='body2'>{`${profile.blocked} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
+                <br/>
+                <Paper className={styles.Table}>
+                    <Table size='small'>
                         <TableHead>
                             <TableRow>
                                 <TableCell align='center'><b>Пользователь</b></TableCell>
@@ -189,15 +189,15 @@ class MainPage extends PureComponent {
                         <TableBody>
                             {
                                 multidata.map((value, index) => <TableRow>
-                                    <TableCell align='left'>{value.name}</TableCell>
-                                    <TableCell align='right'>{value.blocked}</TableCell>
+                                    <TableCell align='left'><Typography variant='body1'>{value.name} </Typography> </TableCell>
+                                    <TableCell align='right'><Typography variant='body1'>{value.blocked} </Typography> </TableCell>
                                     <TableCell align='center'> <IconButton color='primary'> <LockOpen /> </IconButton> </TableCell>
                                 </TableRow>)
                             }
                         </TableBody>
                     </Table>
                 </Paper>
-            </DialogContent>
+            </Box></DialogContent>
 
         </Dialog>
 

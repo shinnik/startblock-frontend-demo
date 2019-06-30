@@ -6,6 +6,28 @@
 
 }
 
+.Table {
+  width: 400px;
+}
+
+.DialogContent {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.FieldAndButton {
+  display: grid;
+  grid-template-columns: 200px 130px;
+  grid-column-gap: 20px;
+}
+
+.MoneyInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+}
+
 .Grid1 {
   display: grid;
   grid-template-columns: 300px 200px;
