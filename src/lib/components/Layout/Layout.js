@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header } from '../../components/Header/Header'
+import { Header } from '../../components/Header/Header';
+
+import styles from './Layout.module.scss';
 
 export const Layout = ({ children }) => {
     return (
         <div>
             <Header/>
-            { children }
+            <div className={styles.Layout}>
+                { children }
+            </div>
         </div>
     )
 };

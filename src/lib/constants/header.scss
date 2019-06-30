@@ -1,1 +1,18 @@
-$background-color: #EEEEEE;
+$header-background-color: #EEEEEE;
+
+$tabs-indicator-color: #0099DC;
+$tabs-indicator-height: 4px;
+
+$tabs-font-family: 'Manrope', sans-serif;
+$tabs-font-size: 14px;
+$tabs-line-height: 19px;
+$tabs-text-align: center;
+$tabs-letter-spacing: 0.75px;
+$tabs-text-transform: uppercase;
+
+//js export
+:export {
+  indicatorColor: $tabs-indicator-color;
+  indicatorHeight: $tabs-indicator-height;
+}
+

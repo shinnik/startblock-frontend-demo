@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab';
+import React from 'react';
+import SettingsTab from '../../containers/SettingsTab/SettingsTab';
+import {HeaderTabs} from "../../containers/HeaderTabs/HeaderTabs";
+import { Icon } from '../../components/Icon/Icon';
+import { tabs } from '../../constants/navigations';
 
 import styles from './Header.module.scss';
 
-export const Header = (props) => {
 
-    const [current, setCurrent] = useState(0);
-    const tabs = ['Текущие данные', 'За месяц', 'Настройки'];
+
+export const Header = (props) => {
 
     return (
         <div className={styles.container}>
-            <Tabs
-                value={current}
-                onChange={(event, value) => setCurrent(value)}>
-                { tabs.map(tab => <Tab label={tab} component={() => <div></div>}/>) }
-            </Tabs>
+            <Icon/>
+            <HeaderTabs tabs={tabs} specials={<SettingsTab label='Настройки'/>}/>
         </div>
     )
 };

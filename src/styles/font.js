@@ -17,6 +17,15 @@ let theme = createMuiTheme({
             '"Segoe UI Symbol"',
         ].join(','),
     },
+    header: {
+        fontFamily: 'Manrope',
+        fontSize: '14px',
+        lineHeight: '19px',
+        textAlign: 'center',
+        letterSpacing: '0.75px',
+        textTransform: 'uppercase',
+        color: '#000000'
+    }
 });
 
 export default theme = responsiveFontSizes(theme);
