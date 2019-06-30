@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CellInfo.module.scss';
-import {currency, energy} from "../../constatnts/names";
+import {currency, energy} from "../../constants/names";
 import Typography from '@material-ui/core/Typography';
 
 

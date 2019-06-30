@@ -1,35 +1,18 @@
 import React from 'react';
 import MainPage from "./lib/pages/MainPage/MainPage";
-import {createMuiTheme} from "@material-ui/core";
-import {responsiveFontSizes} from "@material-ui/core/styles";
+import { Layout } from "./lib/components/Layout/Layout";
 import { ThemeProvider } from '@material-ui/styles';
+import font from './styles/font'
 import './App.scss';
 
-
-let theme = createMuiTheme({
-    typography: {
-        fontFamily: [
-            'Manrope',
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
-        ].join(','),
-    },
-});
-theme = responsiveFontSizes(theme);
 
 function App() {
   return (
     <div className="App">
-        <ThemeProvider theme={theme}>
-            <MainPage/>
+        <ThemeProvider theme={font}>
+            <Layout>
+                <MainPage/>
+            </Layout>
         </ThemeProvider>
     </div>
   );

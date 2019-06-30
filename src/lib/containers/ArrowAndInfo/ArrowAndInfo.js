@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ArrowAndInfo.module.scss';
 import Typography from '@material-ui/core/Typography';
-import {currency, energy} from "../../constatnts/names";
+import {currency, energy} from "../../constants/names";
 
 
 
