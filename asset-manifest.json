@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/startblock-frontend-demo/static/css/main.1345b339.chunk.css",
+    "main.css": "/startblock-frontend-demo/static/css/main.6de13f28.chunk.css",
     "main.js": "/startblock-frontend-demo/static/js/main.5fb54978.chunk.js",
     "main.js.map": "/startblock-frontend-demo/static/js/main.5fb54978.chunk.js.map",
     "runtime~main.js": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js",
@@ -8,9 +8,9 @@
     "static/js/2.2ca29e82.chunk.js": "/startblock-frontend-demo/static/js/2.2ca29e82.chunk.js",
     "static/js/2.2ca29e82.chunk.js.map": "/startblock-frontend-demo/static/js/2.2ca29e82.chunk.js.map",
     "index.html": "/startblock-frontend-demo/index.html",
-    "precache-manifest.596b3055dcfbd4bfba73652c6916b84b.js": "/startblock-frontend-demo/precache-manifest.596b3055dcfbd4bfba73652c6916b84b.js",
+    "precache-manifest.2c8801b855354856e01a4c4d751dcfcf.js": "/startblock-frontend-demo/precache-manifest.2c8801b855354856e01a4c4d751dcfcf.js",
     "service-worker.js": "/startblock-frontend-demo/service-worker.js",
-    "static/css/main.1345b339.chunk.css.map": "/startblock-frontend-demo/static/css/main.1345b339.chunk.css.map",
+    "static/css/main.6de13f28.chunk.css.map": "/startblock-frontend-demo/static/css/main.6de13f28.chunk.css.map",
     "static/media/App.scss": "/startblock-frontend-demo/static/media/manrope-thin.bdfba78b.woff"
   }
 }
