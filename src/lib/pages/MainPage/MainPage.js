@@ -23,7 +23,8 @@ const data = [
     {
         amount: 612291,
         direction: false,
-        type: 'Солнечная панель'
+        type: 'Солнечная панель',
+        money: 91
     },
     {
         amount: 612291,

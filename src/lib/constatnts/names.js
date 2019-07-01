@@ -1,2 +1,3 @@
-export const energy = 'кВт·ч';
+export const kWh = 'кВт·ч';
+export const watt = 'Вт';
 export const currency = 'MIPTik';
