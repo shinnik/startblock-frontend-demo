@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/startblock-frontend-demo/static/css/main.659bf84f.chunk.css",
+    "main.js": "/startblock-frontend-demo/static/js/main.4e619d26.chunk.js",
+    "main.js.map": "/startblock-frontend-demo/static/js/main.4e619d26.chunk.js.map",
+    "runtime~main.js": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js",
+    "runtime~main.js.map": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js.map",
+    "static/js/2.2ca29e82.chunk.js": "/startblock-frontend-demo/static/js/2.2ca29e82.chunk.js",
+    "static/js/2.2ca29e82.chunk.js.map": "/startblock-frontend-demo/static/js/2.2ca29e82.chunk.js.map",
+    "index.html": "/startblock-frontend-demo/index.html",
+    "precache-manifest.b005e9ad57bbf1612f56d8ae2b1907df.js": "/startblock-frontend-demo/precache-manifest.b005e9ad57bbf1612f56d8ae2b1907df.js",
+    "service-worker.js": "/startblock-frontend-demo/service-worker.js",
+    "static/css/main.659bf84f.chunk.css.map": "/startblock-frontend-demo/static/css/main.659bf84f.chunk.css.map",
+    "static/media/App.scss": "/startblock-frontend-demo/static/media/manrope-thin.bdfba78b.woff"
+  }
+}
