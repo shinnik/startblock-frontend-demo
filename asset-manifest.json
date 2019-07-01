@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/startblock-frontend-demo/static/css/main.659bf84f.chunk.css",
-    "main.js": "/startblock-frontend-demo/static/js/main.4e619d26.chunk.js",
-    "main.js.map": "/startblock-frontend-demo/static/js/main.4e619d26.chunk.js.map",
-    "runtime~main.js": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js",
-    "runtime~main.js.map": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js.map",
-    "static/js/2.2ca29e82.chunk.js": "/startblock-frontend-demo/static/js/2.2ca29e82.chunk.js",
-    "static/js/2.2ca29e82.chunk.js.map": "/startblock-frontend-demo/static/js/2.2ca29e82.chunk.js.map",
-    "index.html": "/startblock-frontend-demo/index.html",
-    "precache-manifest.b005e9ad57bbf1612f56d8ae2b1907df.js": "/startblock-frontend-demo/precache-manifest.b005e9ad57bbf1612f56d8ae2b1907df.js",
-    "service-worker.js": "/startblock-frontend-demo/service-worker.js",
-    "static/css/main.659bf84f.chunk.css.map": "/startblock-frontend-demo/static/css/main.659bf84f.chunk.css.map",
-    "static/media/App.scss": "/startblock-frontend-demo/static/media/manrope-thin.bdfba78b.woff"
+    "main.css": "/startblockfrontenddemo/static/css/main.a03c41b7.chunk.css",
+    "main.js": "/startblockfrontenddemo/static/js/main.4e619d26.chunk.js",
+    "main.js.map": "/startblockfrontenddemo/static/js/main.4e619d26.chunk.js.map",
+    "runtime~main.js": "/startblockfrontenddemo/static/js/runtime~main.016eab17.js",
+    "runtime~main.js.map": "/startblockfrontenddemo/static/js/runtime~main.016eab17.js.map",
+    "static/js/2.2ca29e82.chunk.js": "/startblockfrontenddemo/static/js/2.2ca29e82.chunk.js",
+    "static/js/2.2ca29e82.chunk.js.map": "/startblockfrontenddemo/static/js/2.2ca29e82.chunk.js.map",
+    "index.html": "/startblockfrontenddemo/index.html",
+    "precache-manifest.46167b042a05c2bb5d5de00f61c1cd76.js": "/startblockfrontenddemo/precache-manifest.46167b042a05c2bb5d5de00f61c1cd76.js",
+    "service-worker.js": "/startblockfrontenddemo/service-worker.js",
+    "static/css/main.a03c41b7.chunk.css.map": "/startblockfrontenddemo/static/css/main.a03c41b7.chunk.css.map",
+    "static/media/App.scss": "/startblockfrontenddemo/static/media/manrope-thin.bdfba78b.woff"
   }
 }
