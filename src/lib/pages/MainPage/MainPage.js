@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { useState } from 'react';
 import styles from './MainPage.module.scss';
 import ArrowAndInfo from "../../containers/ArrowAndInfo/ArrowAndInfo";
 import Delta from "../../containers/Delta/Delta";
@@ -6,17 +6,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import MultiArrow from "../../containers/MultiArrow/MultiArrow";
 import Container from '@material-ui/core/Container';
-import Dialog from "@material-ui/core/Dialog";
-import {withStyles} from "@material-ui/core";
-import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
-import IconButton from "@material-ui/core/IconButton";
-import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import {currency} from "../../constatnts/names";
-import Button from "@material-ui/core/Button";
-import {Paper, Table, TableHead, TableBody, TableRow, TableCell} from '@material-ui/core';
-import {LockOpen, Close} from '@material-ui/icons';
+import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 
 
 const data = [
@@ -72,131 +62,38 @@ const multidata2 = [
 ];
 
 const arr2 = [true, true, false];
+
+//state = {locked, unlocking, unlocked}
 const multidata = [
     {
         name: 'Alpha',
         amount: 52,
         money: 5,
-        blocked: 8
+        blocked: 8,
+        state: 'locked'
     },
     {
         name: 'Beta',
         amount: 2,
         money: 1,
-        blocked: 401
+        blocked: 401,
+        state: 'unlocking'
     },
     {
         name: 'Gamma',
         amount: 512,
         money: 59,
-        blocked: 95
+        blocked: 95,
+        state: 'unlocked'
     },
 ];
 
-const styles2 = theme => ({
-    root: {
-        margin: 0,
-        paddingTop: theme.spacing(5),
-        paddingLeft: theme.spacing(4)
-    },
-    closeButton: {
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-    },
-});
 
+function MainPage() {
+    const [open, setOpen] = useState(false);
 
-const DialogTitle = withStyles(styles2)(props => {
-    const { children, classes, onClose } = props;
-    return (
-        <MuiDialogTitle disableTypography className={classes.root}>
-            <Typography variant="h3"><b>{children}</b></Typography>
-            {onClose ? (
-                <IconButton color='primary' aria-label="Close" className={classes.closeButton} onClick={onClose}>
-                    <Close />
-                </IconButton>
-            ) : null}
-        </MuiDialogTitle>
-    );
-});
-
-const DialogContent = withStyles(theme => ({
-    root: {
-        padding: theme.spacing(2),
-    },
-}))(MuiDialogContent);
-
-class MainPage extends PureComponent {
-    state = {
-        open: false,
-    };
-
-    handleClickOpen = () => {
-        this.setState({
-            open: true,
-        });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
-
-    render() {
     return <div className={styles.MainPage}>
-        <Dialog
-            open={this.state.open}
-            onClose={this.handleClose}
-        >
-            <DialogTitle onClose={this.handleClose}>Вывод токенов</DialogTitle>
-            <DialogContent><Box className={styles.DialogContent}>
-
-                <Box className={styles.FieldAndButton}>
-            <TextField
-                id="outlined-name"
-                label="Сумма"
-                // value={values.name}
-                // onChange={handleChange('name')}
-                variant="outlined"
-                style={{fontWeight: 'bold'}}
-                InputProps={{
-                    endAdornment: <InputAdornment position="end">{currency}</InputAdornment>,
-                }}
-             />
-                <Button variant='contained' color='primary' >Вывести</Button>
-                </Box>
-                <br/>
-                <Box className={styles.MoneyInfo}>
-                    <Typography variant='body2'>{`Баланс: ${profile.money} ${currency}`}</Typography>
-                    <Typography variant='body2' style={{justifySelf: 'end'}}>{`Готово к снятию:`}</Typography>
-                    <Typography variant='body2' color='primary'>{`${profile.money-profile.blocked} ${currency}`}</Typography>
-                </Box>
-                <br/>
-                <Typography variant='body2'>{`${profile.blocked} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
-                <br/>
-                <Paper className={styles.Table}>
-                    <Table size='small'>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell align='center'><b>Пользователь</b></TableCell>
-                                <TableCell align='center'><b>{currency}</b></TableCell>
-                                <TableCell align='center'><b>Разблокировать</b></TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {
-                                multidata.map((value, index) => <TableRow key={index}>
-                                    <TableCell align='left'><Typography variant='body1'>{value.name} </Typography> </TableCell>
-                                    <TableCell align='right'><Typography variant='body1'>{value.blocked} </Typography> </TableCell>
-                                    <TableCell align='center'> <IconButton color='primary'> <LockOpen /> </IconButton> </TableCell>
-                                </TableRow>)
-                            }
-                        </TableBody>
-                    </Table>
-                </Paper>
-            </Box></DialogContent>
-
-        </Dialog>
+       <MainWindowDialog open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} />
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>
@@ -210,7 +107,7 @@ class MainPage extends PureComponent {
         </Container>
 
         <Box className={styles.Item5}>
-            <Delta {...profile} pullOffFunc={this.handleClickOpen}/>
+            <Delta {...profile} pullOffFunc={() => setOpen(true)}/>
         </Box>
 
         <Container className={styles.Grid2} >
@@ -226,7 +123,6 @@ class MainPage extends PureComponent {
             </Box>
         </Container>
     </div>;
-    }
 }
 
 export default MainPage;
