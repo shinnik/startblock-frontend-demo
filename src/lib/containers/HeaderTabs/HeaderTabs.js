@@ -20,12 +20,13 @@ export const HeaderTabs = ({ specials, tabs }) => {
 
     const pathname = window.location.pathname;
     const mapPathToId = (currentPath) => {
-        const currentTab = tabs.filter(tab => tab.path === currentPath)[0];
+        const currentTab = tabs.filter(tab => tab.path === currentPath.split('/')[2])[0];
+        console.log(currentTab);
         if (currentTab) {
             const currentId = currentTab.id;
             return currentId;
         } else return tabs.length
-    }
+    };
     const [current, setCurrent] = useState(mapPathToId(pathname));
 
     return (
