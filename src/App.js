@@ -8,20 +8,21 @@ import theme from './styles/theme'
 import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-        <ThemeProvider theme={theme}>
-            <Router>
-                <Layout>
-                    <Switch>
-                        <Route exact path='/' component={() => <MainPage/>}/>
-                        <Route path='/settings' component={() => <SettingsPage/>}/>
-                    </Switch>
-                </Layout>
-            </Router>
-        </ThemeProvider>
-    </div>
-  );
+    return (
+        <div className="App">
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <Layout>
+                        <Switch>
+                            <Route exact path='/' component={() => <MainPage flag="current" />} />
+                            <Route path='/month' component={() => <MainPage flag="month" />} />
+                            <Route path='/settings' component={() => <SettingsPage />} />
+                        </Switch>
+                    </Layout>
+                </Router>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 export default App;
