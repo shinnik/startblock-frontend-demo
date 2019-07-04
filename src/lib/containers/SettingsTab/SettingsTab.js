@@ -31,7 +31,6 @@ export default withStyles({
     root: {
         opacity: '1 !important',
         marginLeft: 'auto',
-        marginRight: '32px',
         minWidth: 'auto !important',
         fontSize: '14px !important',
         translateX: '1px'

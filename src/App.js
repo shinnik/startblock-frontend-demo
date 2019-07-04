@@ -14,10 +14,10 @@ function App() {
                 <Router>
                     <Layout>
                         <Switch>
-                            <Route exact path='/' component={() => <MainPage flag="current" />} />
-                            <Route path='/month' component={() => <MainPage flag="month" />} />
+                            <Route exact path='/current' component={() => <MainPage flag="current" />} />
+                            <Route path='/month/' component={() => <MainPage flag="month" />} />
                             <Route path='/settings' component={() => <SettingsPage />} />
-                            <Redirect to='/'/>
+                            <Redirect to='/current'/>
                         </Switch>
                     </Layout>
                 </Router>

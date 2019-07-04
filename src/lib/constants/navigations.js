@@ -2,10 +2,10 @@ export const tabs = [
     {
         id: 0,
         label: 'Текущие данные',
-        path: '/'
+        path: 'current'
     },
     {
         id: 1,
         label: 'За месяц',
-        path: '/month'
+        path: 'month'
     }];
