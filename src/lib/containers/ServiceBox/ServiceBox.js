@@ -4,31 +4,12 @@ import Typography from "@material-ui/core/Typography/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch/Switch";
 import { texts } from '../../constants/texts'
+import { p2pradios } from '../../models/radiobuttons';
 import { DndList } from "../DndList/DndList";
 import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
 
-import styles from './ServiceBox.module.scss';
 
-const radios = [{
-    value: '1',
-    label: (
-        <div style={{display: 'flex', flexDirection: 'column', color: 'white'}}>
-            <Typography variant="body2">Максимальный доход</Typography>
-            <Typography variant="body2">написать пояснение</Typography>
-        </div>
-    )
-},
-{
-    value: '2',
-    label: (
-        <div style={{display: 'flex', flexDirection: 'column', color: 'white'}}>
-            <Typography variant="body2">Минимальный риск отклонения</Typography>
-            <Typography variant="body2">написать пояснение</Typography>
-        </div>
-    )
-}]
-
-
+import styles from './ServiceBox.module.scss'
 
 const StyledSwitch = withStyles({
     switchBase: {
@@ -72,7 +53,6 @@ export const ServiceBox = ({ variant }) => {
                         <Typography style={{ fontWeight: 500, color: '#FFF' }}
                                     variant="h5"
                                     component="h2"
-                                    gutterBottom
                                     >
                             { texts[variant].header }
                         </Typography>
@@ -83,7 +63,7 @@ export const ServiceBox = ({ variant }) => {
                         </Typography>
                     </div>
                     { variant === 'load' && checked && <DndList/> }
-                    { variant === 'p2p' && checked && <RadioButtonsGroup variants={radios} /> }
+                    { variant === 'p2p' && checked && <RadioButtonsGroup variants={p2pradios} /> }
                 </div>
              }
         </>
