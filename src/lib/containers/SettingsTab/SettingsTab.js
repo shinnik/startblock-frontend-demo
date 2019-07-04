@@ -22,7 +22,7 @@ const settingsTabRef = React.forwardRef(({ children, ...props }, ref) => {
 
 const SettingsTab = ({ label, ...props }) => {
     return (
-        <Tab label={label} {...props} component={settingsTabRef}/>
+        <Tab label={label} {...props} component={settingsTabRef} />
     )
 };
 
@@ -32,6 +32,7 @@ export default withStyles({
         marginLeft: 'auto',
         marginRight: '32px',
         minWidth: 'auto !important',
-        fontSize: '14px !important'
+        fontSize: '14px !important',
+        translateX: '1px'
     }
 })(SettingsTab)
