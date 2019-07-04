@@ -3,48 +3,32 @@ import classNames from 'classnames';
 import Typography from "@material-ui/core/Typography/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch/Switch";
+import { texts } from '../../constants/texts'
+import { DndList } from "../DndList/DndList";
+import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
 
 import styles from './ServiceBox.module.scss';
-import {DndList} from "../DndList/DndList";
-import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
 
 const radios = [{
     value: '1',
     label: (
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-            <Typography variant="body2">TODO</Typography>
-            <Typography variant="body1">написать пояснение</Typography>
+        <div style={{display: 'flex', flexDirection: 'column', color: 'white'}}>
+            <Typography variant="body2">Максимальный доход</Typography>
+            <Typography variant="body2">написать пояснение</Typography>
         </div>
     )
 },
 {
     value: '2',
     label: (
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-            <Typography variant="body2">TODO</Typography>
-            <Typography variant="body1">написать пояснение</Typography>
+        <div style={{display: 'flex', flexDirection: 'column', color: 'white'}}>
+            <Typography variant="body2">Минимальный риск отклонения</Typography>
+            <Typography variant="body2">написать пояснение</Typography>
         </div>
     )
 }]
 
-const texts = {
-    load: {
-        header: 'Управляемая нагрузка',
-        textActive: 'Чтобы сэкономить, умные розетки будут выключаться при\n' +
-            'подорожании энергии. Перетащите наверх списка те, что\n должны отключаться реже:',
-        textInactive: 'Чтобы сэкономить, умные розетки будут выключаться при подорожании энергии.'
-    },
-    p2p: {
-        header: 'P2P торговля энергией',
-        textActive: 'TODO\nНаписать пояснение',
-        textInactive: 'TODO\nНаписать пояснение'
-    },
-    balance: {
-        header: 'Баланс спроса и предложения',
-        textActive: 'TODO\nНаписать пояснение',
-        textInactive: 'TODO\nНаписать пояснение'
-    }
-};
+
 
 const StyledSwitch = withStyles({
     switchBase: {
