@@ -1,58 +1,28 @@
 import React from 'react';
-import MainPage from "./lib/pages/MainPage/MainPage";
-import {createMuiTheme} from "@material-ui/core";
-import {responsiveFontSizes} from "@material-ui/core/styles";
 import { ThemeProvider } from '@material-ui/styles';
+import MainPage from "./lib/pages/MainPage/MainPage";
+import { SettingsPage } from "./lib/pages/SettingsPage/SettingsPage";
+import { Layout } from "./lib/components/Layout/Layout";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import theme from './styles/theme'
 import './App.scss';
 
-
-let theme = createMuiTheme({
-    typography: {
-        fontFamily: [
-            'Manrope',
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
-        ].join(','),
-    },
-    palette: {
-        primary: {
-            main: '#0099DC'
-        },
-        secondary: {
-            main: '#FF8282',
-        },
-    },
-    overrides: {
-        MuiPaper: {
-            elevation2: {
-                backgroundColor: '#0099DC',
-            }
-        },
-        MuiTableCell: {
-            head: {
-                color: 'black'
-            }
-        }
-    }
-});
-theme = responsiveFontSizes(theme);
-
 function App() {
-  return (
-    <div className="App">
-        <ThemeProvider theme={theme}>
-            <MainPage/>
-        </ThemeProvider>
-    </div>
-  );
+    return (
+        <div className="App">
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <Layout>
+                        <Switch>
+                            <Route exact path='/' component={() => <MainPage flag="current" />} />
+                            <Route path='/month' component={() => <MainPage flag="month" />} />
+                            <Route path='/settings' component={() => <SettingsPage />} />
+                        </Switch>
+                    </Layout>
+                </Router>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 export default App;
