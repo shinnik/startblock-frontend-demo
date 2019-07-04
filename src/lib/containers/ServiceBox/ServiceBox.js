@@ -6,6 +6,26 @@ import Switch from "@material-ui/core/Switch/Switch";
 
 import styles from './ServiceBox.module.scss';
 import {DndList} from "../DndList/DndList";
+import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
+
+const radios = [{
+    value: '1',
+    label: (
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+            <Typography variant="body2">TODO</Typography>
+            <Typography variant="body1">написать пояснение</Typography>
+        </div>
+    )
+},
+{
+    value: '2',
+    label: (
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+            <Typography variant="body2">TODO</Typography>
+            <Typography variant="body1">написать пояснение</Typography>
+        </div>
+    )
+}]
 
 const texts = {
     load: {
@@ -79,6 +99,7 @@ export const ServiceBox = ({ variant }) => {
                         </Typography>
                     </div>
                     { variant === 'load' && checked && <DndList/> }
+                    { variant === 'p2p' && checked && <RadioButtonsGroup variants={radios} /> }
                 </div>
              }
         </>

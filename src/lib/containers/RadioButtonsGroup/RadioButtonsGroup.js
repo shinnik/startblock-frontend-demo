@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Radio from '@material-ui/core/Radio';
 import { makeStyles } from '@material-ui/core/styles';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -17,8 +17,14 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function RadioButtonsGroup({ value, onChange, variants }) {
-    // const [value, setValue] = React.useState("nothing");
+    
     const classes = useStyles();
+    const [val, setVal] = React.useState("nothing");
+
+    if (!value || !onChange) {
+        value = val;
+        onChange = setVal;
+    }
 
     function handleChange(event) {
         onChange(event.target.value);

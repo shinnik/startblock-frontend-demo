@@ -3,6 +3,7 @@ import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from "classnames";
 import { Link } from 'react-router-dom';
+
 import styles from './SettingsTab.module.scss';
 
 const settingsTabRef = React.forwardRef(({ children, ...props }, ref) => {
