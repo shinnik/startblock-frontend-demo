@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Radio from '@material-ui/core/Radio';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
 import styles from './RadioButtonsGroup.module.scss';
+
+const WhiteRadio = withStyles({
+    root: {
+        color: '#FFFFFF',
+        '&$checked': {
+            color: '#FFFFFF',
+        },
+        '&:hover': {
+            backgroundColor: 'transparent'
+        }
+    },
+    checked: {},
+    hover: {}
+})(props => <Radio color="default" {...props} />);
 
 const useStyles = makeStyles(theme => ({
     label: {
@@ -16,9 +30,17 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function RadioButtonsGroup({ value, onChange }) {
-    // const [value, setValue] = React.useState("nothing");
+export default function RadioButtonsGroup({ value, onChange, variants }) {
+
     const classes = useStyles();
+    const [val, setVal] = React.useState("nothing");
+
+    if (!value || !onChange) {
+        // use local state if you do not want
+        // external intervention
+        value = val;
+        onChange = setVal;
+    }
 
     function handleChange(event) {
         onChange(event.target.value);
@@ -28,34 +50,19 @@ export default function RadioButtonsGroup({ value, onChange }) {
         <div className={styles.Container}>
             <FormControl component="fieldset">
                 <RadioGroup aria-label="position" name="position" value={value} onChange={handleChange} column="true">
-                    <FormControlLabel
-                        value="nothing"
-                        control={<Radio color="default" />}
-                        label="Ничего нет"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
-                    <FormControlLabel
-                        value="generator"
-                        control={<Radio color="default" />}
-                        label="Бензогенератор"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
-                    <FormControlLabel
-                        value="sun"
-                        control={<Radio color="default" />}
-                        label="Солнечная панель"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
-                    <FormControlLabel
-                        value="acc"
-                        control={<Radio color="default" />}
-                        label="Аккумуляторная батарея"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
+                    { variants.map(({ value, label, color = null }, index) => {
+                        return (
+                            <FormControlLabel
+                            key={index}
+                            value={value}
+                            control={color !== 'white' ? <Radio color="default" disableRipple />
+                                : <WhiteRadio disableRipple/>}
+                            label={label}
+                            labelPlacement="end"
+                            className={classes.label}
+                            />
+                        )
+                    }) }
                 </RadioGroup>
             </FormControl>
         </div>

@@ -1,6 +1,6 @@
 import Tabs from "@material-ui/core/Tabs/Tabs";
-import {withStyles} from "@material-ui/core";
-import React, {useState} from "react";
+import { withStyles } from "@material-ui/core";
+import React, { useState } from "react";
 import NavigationTab from "../NavigationTab/NavigationTab";
 
 import variables from '../../constants/header.scss';
@@ -14,18 +14,26 @@ const StyledTabs = withStyles(({ header }) => ({
         backgroundColor: variables.indicatorColor,
         height: variables.indicatorHeight
     }
-}))(props => <Tabs { ...props }/>);
+}))(props => <Tabs {...props} />);
 
 export const HeaderTabs = ({ specials, tabs }) => {
 
-    const [current, setCurrent] = useState(0);
+    const pathname = window.location.pathname;
+    const mapPathToId = (currentPath) => {
+        const currentTab = tabs.filter(tab => tab.path === currentPath)[0];
+        if (currentTab) {
+            const currentId = currentTab.id;
+            return currentId;
+        } else return tabs.length
+    }
+    const [current, setCurrent] = useState(mapPathToId(pathname));
 
     return (
         <StyledTabs
             value={current}
             onChange={(event, value) => setCurrent(value)}>
-            { tabs.map(({ label, path }) => <NavigationTab label={label} path={path}/>) }
-            { specials }
+            {tabs.map(({ label, path, id }) => <NavigationTab key={id} label={label} path={path} />)}
+            {specials}
         </StyledTabs>
     )
 }

@@ -3,28 +3,13 @@ import classNames from 'classnames';
 import Typography from "@material-ui/core/Typography/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch/Switch";
+import { texts } from '../../constants/texts'
+import { p2pradios } from '../../models/radiobuttons';
+import { DndList } from "../DndList/DndList";
+import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
 
-import styles from './ServiceBox.module.scss';
-import {DndList} from "../DndList/DndList";
 
-const texts = {
-    load: {
-        header: 'Управляемая нагрузка',
-        textActive: 'Чтобы сэкономить, умные розетки будут выключаться при\n' +
-            'подорожании энергии. Перетащите наверх списка те, что\n должны отключаться реже:',
-        textInactive: 'Чтобы сэкономить, умные розетки будут выключаться при подорожании энергии.'
-    },
-    p2p: {
-        header: 'P2P торговля энергией',
-        textActive: 'TODO\nНаписать пояснение',
-        textInactive: 'TODO\nНаписать пояснение'
-    },
-    balance: {
-        header: 'Баланс спроса и предложения',
-        textActive: 'TODO\nНаписать пояснение',
-        textInactive: 'TODO\nНаписать пояснение'
-    }
-};
+import styles from './ServiceBox.module.scss'
 
 const StyledSwitch = withStyles({
     switchBase: {
@@ -68,7 +53,6 @@ export const ServiceBox = ({ variant }) => {
                         <Typography style={{ fontWeight: 500, color: '#FFF' }}
                                     variant="h5"
                                     component="h2"
-                                    gutterBottom
                                     >
                             { texts[variant].header }
                         </Typography>
@@ -79,6 +63,7 @@ export const ServiceBox = ({ variant }) => {
                         </Typography>
                     </div>
                     { variant === 'load' && checked && <DndList/> }
+                    { variant === 'p2p' && checked && <RadioButtonsGroup variants={p2pradios} /> }
                 </div>
              }
         </>

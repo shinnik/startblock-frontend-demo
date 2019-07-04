@@ -18,16 +18,17 @@ const reorder = (list, startIndex, endIndex) => {
 
 export const DndList = () => {
     const state = {
-        items: [{
-            id: 1,
-            content: 'Кухня'
-        },
+        items: [
             {
-                id: 2,
+                id: '1',
+                content: 'Кухня'
+            },
+            {
+                id: '2',
                 content: 'Комната'
             },
             {
-                id: 3,
+                id: '3',
                 content: 'Туалет'
             }]
     };
