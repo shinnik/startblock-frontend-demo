@@ -5,7 +5,6 @@ import NavigationTab from "../NavigationTab/NavigationTab";
 
 import variables from '../../constants/header.scss';
 
-console.log(variables);
 const StyledTabs = withStyles(({ header }) => ({
     root: {
         width: '100%',
@@ -27,7 +26,6 @@ export const HeaderTabs = ({ specials, tabs }) => {
             return currentId;
         } else return tabs.length
     }
-    console.log(window.location.pathname.split('/')[1]);
     const [current, setCurrent] = useState(mapPathToId(pathname));
 
     return (

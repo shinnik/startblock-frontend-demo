@@ -14,6 +14,12 @@ import {DndList} from "../../containers/DndList/DndList";
 export const SettingsPage = (props) => {
 
     const [radioButtonId, setRadioButtonId] = React.useState("nothing");
+    const radios = [
+    {value: 'nothing', label: 'Ничего нет'}, 
+    {value: 'generator', label: 'Бензогенератор'}, 
+    {value: 'sun', label: 'Солнечная панель'}, 
+    {value: 'acc', label: 'Аккумуляторная батарея'}
+    ];
 
     return (
         <div>
@@ -34,7 +40,7 @@ export const SettingsPage = (props) => {
                             gutterBottom>
                     Подключенные генераторы и накопители
                 </Typography>
-                <RadioButtonsGroup value={radioButtonId} onChange={setRadioButtonId}/>
+                <RadioButtonsGroup value={radioButtonId} onChange={setRadioButtonId} variants={radios}/>
             </div>
            { radioButtonId &&
            <div className={styles.block}>

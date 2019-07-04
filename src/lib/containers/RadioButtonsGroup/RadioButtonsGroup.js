@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function RadioButtonsGroup({ value, onChange }) {
+export default function RadioButtonsGroup({ value, onChange, variants }) {
     // const [value, setValue] = React.useState("nothing");
     const classes = useStyles();
 
@@ -28,34 +28,18 @@ export default function RadioButtonsGroup({ value, onChange }) {
         <div className={styles.Container}>
             <FormControl component="fieldset">
                 <RadioGroup aria-label="position" name="position" value={value} onChange={handleChange} column="true">
-                    <FormControlLabel
-                        value="nothing"
-                        control={<Radio color="default" />}
-                        label="Ничего нет"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
-                    <FormControlLabel
-                        value="generator"
-                        control={<Radio color="default" />}
-                        label="Бензогенератор"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
-                    <FormControlLabel
-                        value="sun"
-                        control={<Radio color="default" />}
-                        label="Солнечная панель"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
-                    <FormControlLabel
-                        value="acc"
-                        control={<Radio color="default" />}
-                        label="Аккумуляторная батарея"
-                        labelPlacement="end"
-                        className={classes.label}
-                    />
+                    { variants.map(({ value, label }, index) => {
+                        return (
+                            <FormControlLabel
+                            key={index}
+                            value={value}
+                            control={<Radio color="default" />}
+                            label={label}
+                            labelPlacement="end"
+                            className={classes.label}
+                            />
+                        )   
+                    }) }
                 </RadioGroup>
             </FormControl>
         </div>
