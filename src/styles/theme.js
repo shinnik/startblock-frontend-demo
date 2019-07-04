@@ -25,6 +25,26 @@ let theme = createMuiTheme({
         letterSpacing: '0.75px',
         textTransform: 'uppercase',
         color: '#000000'
+    },
+    palette: {
+        primary: {
+            main: '#0099DC'
+        },
+        secondary: {
+            main: '#FF8282',
+        },
+    },
+    overrides: {
+        MuiPaper: {
+            elevation2: {
+                backgroundColor: '#0099DC',
+            }
+        },
+        MuiTableCell: {
+            head: {
+                color: 'black'
+            }
+        }
     }
 });
 
