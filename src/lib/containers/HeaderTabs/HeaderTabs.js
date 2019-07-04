@@ -5,7 +5,6 @@ import NavigationTab from "../NavigationTab/NavigationTab";
 
 import variables from '../../constants/header.scss';
 
-console.log(variables);
 const StyledTabs = withStyles(({ header }) => ({
     root: {
         width: '100%',
