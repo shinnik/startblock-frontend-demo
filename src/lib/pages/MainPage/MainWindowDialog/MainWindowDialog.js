@@ -4,15 +4,14 @@ import Box from "@material-ui/core/Box";
 import styles from "../MainPage.module.scss";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import {currency} from "../../../constatnts/names";
+import { currency } from "../../../constants/names";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {Paper, Table, TableBody, TableCell, TableHead, TableRow, withStyles} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import {Close, LockOpen} from "@material-ui/icons";
+import { Close } from "@material-ui/icons";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
-import {switchCase} from "@babel/types";
 import LockState from "./LockState";
 
 
