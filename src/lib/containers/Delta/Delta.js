@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Delta.module.scss';
 import Paper from '@material-ui/core/Paper/index';
 import Typography from '@material-ui/core/Typography/index';
-import {currency} from "../../constatnts/names";
+import {currency} from "../../constants/names";
 import Button from '@material-ui/core/Button/index';
 import { makeStyles, createStyles } from '@material-ui/styles';
 

@@ -8,7 +8,6 @@ import MultiArrow from "../../containers/MultiArrow/MultiArrow";
 import Container from '@material-ui/core/Container';
 import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 
-
 const data = [
     {
         amount: 612291,

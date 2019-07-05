@@ -1,0 +1,9 @@
+@import '../../constants/layout';
+
+.Layout {
+  display: flex;
+  flex-direction: column;
+  margin-top: $layout-margin-top;
+  padding: 0 32px 0 32px;
+  align-items: center;
+}
