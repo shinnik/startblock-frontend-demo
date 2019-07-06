@@ -3,27 +3,27 @@ import { InputPair } from "../../containers/InputPair/InputPair";
 import { capacityInput, costInput, powerInput } from "../../containers/InputPair/inputTypes";
 import Typography from "@material-ui/core/Typography/Typography";
 
+export const ParametersBlock = (props) => {
 
-export const ParametersBlock = ({ variant }) => {
+    let first;
+    let second;
 
-    let first; let second;
-
-    const mapVariantToInputTypes = variant => {
-        if (variant === 'generator' || variant === 'sun') {
+    const mapVariantToInputTypes = ({ value }) => {
+        if (value === 'generator' || value === 'sun') {
             first = powerInput;
             second = costInput;
         }
-        if (variant === 'acc') {
+        if (value === 'acc') {
             first = powerInput;
             second = capacityInput;
         }
     };
 
-    mapVariantToInputTypes(variant);
+    mapVariantToInputTypes(props.variant);
 
     return (
         <>
-            { first && second && (
+            {first && second && (
                 <>
                     <Typography style={{fontWeight: 600}}
                                 variant="h5"
@@ -34,7 +34,7 @@ export const ParametersBlock = ({ variant }) => {
                     <InputPair first={first ? first : {}}
                                second={second ? second : {}}/>
                 </>
-                ) }
+            )}
 
         </>
     )

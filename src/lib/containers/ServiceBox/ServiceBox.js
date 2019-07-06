@@ -5,11 +5,11 @@ import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch/Switch";
 import { texts } from '../../constants/texts'
 import { p2pradios } from '../../models/radiobuttons';
-import { DndList } from "../DndList/DndList";
 import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
 
 
 import styles from './ServiceBox.module.scss'
+import {ManagedLoadSpecific} from "../ManagedLoadSpecific/ManagedLoadSpecific";
 
 const StyledSwitch = withStyles({
     switchBase: {
@@ -26,7 +26,7 @@ const StyledSwitch = withStyles({
     track: { backgroundColor: 'rgba(34, 31, 31, 0.26)', opacity: 1 },
 })(Switch);
 
-export const ServiceBox = ({ variant }) => {
+export const ServiceBox = ({ variant, specific = null }) => {
 
     const [checked, setChecked] = useState(true);
     const boxClasses = classNames(
@@ -62,8 +62,8 @@ export const ServiceBox = ({ variant }) => {
                             { texts[variant][`text${checked ? 'Active' : 'Inactive'}`]}
                         </Typography>
                     </div>
-                    { variant === 'load' && checked && <DndList/> }
-                    { variant === 'p2p' && checked && <RadioButtonsGroup variants={p2pradios} /> }
+                    { variant === 'load' && checked && <ManagedLoadSpecific/>}
+                    { variant === 'p2p' && checked && <RadioButtonsGroup variant='p2p' /> }
                 </div>
              }
         </>

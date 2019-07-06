@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import classNames from 'classnames';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TextField from "@material-ui/core/TextField/TextField";
-import { withStyles } from "@material-ui/core/styles";
 
-import styles from "../DndList/DndList.module.scss";
-
-const StyledTextField = withStyles
+import styles from "./DndList.module.scss";
 
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -69,7 +66,7 @@ export const DndList = () => {
                                         <i className={handlerClasses} {...provided.dragHandleProps}>drag_indicator</i>
                                         <TextField
                                             id={item.id}
-                                            label={`Название розетки №${index + 1}`}
+                                            label={`Название розетки №${item.id}`}
                                             margin='normal'
                                             variant='outlined'
                                             value={item.content}
