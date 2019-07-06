@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/startblock-frontend-demo/static/css/main.0ad3ff7a.chunk.css",
-    "main.js": "/startblock-frontend-demo/static/js/main.87a39b2c.chunk.js",
-    "main.js.map": "/startblock-frontend-demo/static/js/main.87a39b2c.chunk.js.map",
+    "main.css": "/startblock-frontend-demo/static/css/main.f9e9aa3a.chunk.css",
+    "main.js": "/startblock-frontend-demo/static/js/main.d6419842.chunk.js",
+    "main.js.map": "/startblock-frontend-demo/static/js/main.d6419842.chunk.js.map",
     "runtime~main.js": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js",
     "runtime~main.js.map": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js.map",
-    "static/js/2.58c0f658.chunk.js": "/startblock-frontend-demo/static/js/2.58c0f658.chunk.js",
-    "static/js/2.58c0f658.chunk.js.map": "/startblock-frontend-demo/static/js/2.58c0f658.chunk.js.map",
+    "static/js/2.9115f3c0.chunk.js": "/startblock-frontend-demo/static/js/2.9115f3c0.chunk.js",
+    "static/js/2.9115f3c0.chunk.js.map": "/startblock-frontend-demo/static/js/2.9115f3c0.chunk.js.map",
     "index.html": "/startblock-frontend-demo/index.html",
-    "precache-manifest.dd7896fecab3e99fdcdf9c3cbe0aaab3.js": "/startblock-frontend-demo/precache-manifest.dd7896fecab3e99fdcdf9c3cbe0aaab3.js",
+    "precache-manifest.6d2b0e60c9158afb7e0a3fbe8b6e8ee9.js": "/startblock-frontend-demo/precache-manifest.6d2b0e60c9158afb7e0a3fbe8b6e8ee9.js",
     "service-worker.js": "/startblock-frontend-demo/service-worker.js",
-    "static/css/main.0ad3ff7a.chunk.css.map": "/startblock-frontend-demo/static/css/main.0ad3ff7a.chunk.css.map",
+    "static/css/main.f9e9aa3a.chunk.css.map": "/startblock-frontend-demo/static/css/main.f9e9aa3a.chunk.css.map",
     "static/media/A.svg": "/startblock-frontend-demo/static/media/A.df8e9f1e.svg",
     "static/media/E.svg": "/startblock-frontend-demo/static/media/E.3ee2f07b.svg",
     "static/media/I.svg": "/startblock-frontend-demo/static/media/I.c1bce14e.svg",
+    "static/media/Priority.svg": "/startblock-frontend-demo/static/media/Priority.96d0eea1.svg",
     "static/media/Triangle.svg": "/startblock-frontend-demo/static/media/Triangle.98540fe6.svg",
     "static/media/App.scss": "/startblock-frontend-demo/static/media/manrope-regular.f9736c4c.ttf"
   }
