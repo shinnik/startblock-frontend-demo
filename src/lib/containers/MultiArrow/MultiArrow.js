@@ -4,7 +4,7 @@ import MediumArrow from "../../components/BranchArrows/MediumArrow/MediumArrow";
 import CellInfo from "../CellInfo/CellInfo";
 import styles from './MultiArrow.module.scss';
 
-function MultiArrow({data}) {
+function MultiArrow({data, flag}) {
     return <div>
         <FlexHorizontalWrapper>
             <div>
@@ -16,7 +16,7 @@ function MultiArrow({data}) {
             <div>
                 <div className={styles.AdditionalDiv}/>
                 {
-                    data.map((value, index) => <CellInfo key={index} name={value.name} amount={value.amount} money={value.money} {...value}/>)
+                    data.map((value, index) => <CellInfo flag={flag} key={index} name={value.name} amount={value.amount} money={value.money} {...value}/>)
                 }
             </div>
         </FlexHorizontalWrapper>

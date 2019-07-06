@@ -53,7 +53,7 @@ const DialogContent = withStyles(theme => ({
 
 const tableRowStyles = theme => ({
     unusual: {
-        backgroundColor: '#fdfdfd'
+        backgroundColor: '#fdfdfd',
     }
 });
 
@@ -87,10 +87,10 @@ const MainWindowDialog = ({open, onClose, profile, multidata}) => {
             <Box className={styles.MoneyInfo}>
                 <Typography variant='body2'>{`Баланс: ${profile.money} ${currency}`}</Typography>
                 <Typography variant='body2' style={{justifySelf: 'end'}}>{`Готово к снятию:`}</Typography>
-                <Typography variant='body2' color='primary'>{`${profile.money-profile.blocked} ${currency}`}</Typography>
+                <Typography variant='body2' color='primary'>{`${profile.money-multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency}`}</Typography>
             </Box>
             <br/>
-            <Typography variant='body2'>{`${profile.blocked} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
+            <Typography variant='body2'>{`${multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
             <br/>
             <Paper className={styles.Table}>
                 <Table size='small'>

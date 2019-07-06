@@ -3,6 +3,7 @@ import styles from "../MediumArrow.module.scss";
 
 
 function Triangle({direction, first, active}) {
+    console.log(direction, first, active);
     if (direction) {
         if (first) {
             if (active)
@@ -21,7 +22,7 @@ function Triangle({direction, first, active}) {
             if (active)
                 return <div className={styles.LeftTriangle__first} />;
             else
-                return <div className={styles.LeftTriangle__first_grey} />;
+                return <div className={styles.LeftTriangle__first__grey} />;
         }
         else {
             if (active)

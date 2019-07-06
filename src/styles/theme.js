@@ -44,8 +44,14 @@ let theme = createMuiTheme({
             head: {
                 color: 'black'
             }
+        },
+        MuiTableRow: {
+            root: {
+                height: '60px'
+            }
         }
     }
 });
+
 
 export default theme = responsiveFontSizes(theme);

@@ -8,141 +8,12 @@ import MultiArrow from "../../containers/MultiArrow/MultiArrow";
 import Container from '@material-ui/core/Container';
 import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 
-const data = [
-    {
-        amount: 612291,
-        direction: false,
-        type: 'Солнечная панель',
-        money: 91
-    },
-    {
-        amount: 612291,
-        money: 91,
-        direction: false,
-        type: 'Сеть'
-    },
-    {
-        amount: 612291,
-        money: 91,
-        direction: true,
-    },
-    {
-        amount: 612291,
-        direction: false,
-    }
-];
-
-const profile = {
-    name: 'Delta',
-    type: 'Энергетическая ячейка',
-    money: 1125,
-    blocked: 504
-};
-
 const shift = {
     position: 'relative',
-    left: '-5px'
+    left: '-9px'
 };
 
-const multidata2 = [
-    {
-        name: 'Туалет',
-        amount: 52,
-        output: false,
-        active: false
-    },
-    {
-        name: 'Комната',
-        amount: 2,
-        output: false,
-        active: false
-    },
-    {
-        name: 'Кухня',
-        amount: 512,
-        output: false,
-        active: true
-    },
-    {
-        name: 'Туалет',
-        amount: 52,
-        output: false,
-        active: false
-    },
-    {
-        name: 'Комната',
-        amount: 2,
-        output: false,
-        active: true
-    },
-    {
-        name: 'Кухня',
-        amount: 512,
-        output: false,
-        active: true
-    },
-];
-
-//state = {locked, unlocking, unlocked}
-const multidata = [
-    {
-        name: 'Alpha',
-        amount: 52,
-        money: 5,
-        blocked: 8,
-        state: 'locked',
-        output: true,
-        active: true
-    },
-    {
-        name: 'Beta',
-        amount: 2,
-        money: 1,
-        blocked: 401,
-        state: 'unlocking',
-        output: true,
-        active: false
-    },
-    {
-        name: 'Gamma',
-        amount: 512,
-        money: 59,
-        blocked: 95,
-        state: 'unlocked',
-        output: true,
-        active: true
-    },
-    {
-        name: 'Alpha',
-        amount: 52,
-        money: 5,
-        blocked: 8,
-        state: 'locked',
-        output: true,
-        active: false
-    },
-    {
-        name: 'Beta',
-        amount: 2,
-        money: 1,
-        blocked: 401,
-        state: 'unlocking',
-        output: true,
-        active: false
-    },
-    {
-        name: 'Gamma',
-        amount: 512,
-        money: 59,
-        blocked: 95,
-        state: 'unlocked',
-        output: true,
-        active: false
-    },
-];
-
-
-function MainPage({flag}) {
+function MainPage({flag, multidata, multidata2, data, profile}) {
     const [open, setOpen] = useState(false);
 
     return <div className={styles.MainPage}>
@@ -151,11 +22,11 @@ function MainPage({flag}) {
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>
                 <Typography style={shift} variant='h4'><b>{data[0].type && data[0].type}</b></Typography>
-                <ArrowAndInfo {...data[0]} />
+                <ArrowAndInfo {...data[0]} flag={flag} />
             </Box>
             <Box className={styles.Item2}>
                 <Typography style={shift} variant='h4'><b>{data[1].type && data[1].type}</b></Typography>
-                <ArrowAndInfo {...data[1]} />
+                <ArrowAndInfo {...data[1]} flag={flag} />
             </Box>
         </Container>
 
@@ -165,14 +36,14 @@ function MainPage({flag}) {
 
         <Container className={styles.Grid2} >
             <Box className={styles.Item3}>
-                <ArrowAndInfo {...data[2]} />
+                <ArrowAndInfo {...data[2]} flag={flag} />
                 <Typography style={shift} variant='h4'><b>Соседние ячейки</b></Typography>
-                <MultiArrow data={multidata} />
+                <MultiArrow data={multidata} flag={flag} />
             </Box>
             <Box className={styles.Item4}>
-                <ArrowAndInfo {...data[3]} />
+                <ArrowAndInfo {...data[3]} flag={flag} />
                 <Typography style={shift} variant='h4'><b>Нагрузка</b></Typography>
-                <MultiArrow data={multidata2} />
+                <MultiArrow data={multidata2} flag={flag} />
             </Box>
         </Container>
     </div>;

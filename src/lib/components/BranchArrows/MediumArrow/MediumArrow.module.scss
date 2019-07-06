@@ -145,6 +145,7 @@
             position: relative;
             width: 0;
             height: 0;
+            top: $x4*0.6;
             left: $y1*0.2;
             border-top: $triangle-size solid transparent;
             border-right: 2*$triangle-size solid transparent;
@@ -168,7 +169,7 @@
     height: $border-thickness;
     position: relative;
     left: -$border-thickness;
-    top: $x4;
+    //top: $x4*0.1;
     border-left: $border-thickness solid $border-color;
 
 }
