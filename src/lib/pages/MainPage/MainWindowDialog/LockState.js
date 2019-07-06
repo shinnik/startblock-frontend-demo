@@ -1,6 +1,7 @@
 import React from 'react';
-import IconButton from "@material-ui/core/IconButton";
+import {IconButton, Typography} from "@material-ui/core";
 import {LockOpen} from "@material-ui/icons";
+import Ellipse from "./LoadingIcon/Ellipse";
 
 function LockState({state}) {
     switch (state) {
@@ -8,11 +9,11 @@ function LockState({state}) {
             return <IconButton color='primary'> <LockOpen/>
             </IconButton>;
         case 'unlocking':
-            return <div>Unlocking</div>;
+            return <div align={'center'} > <Ellipse /> </div>;
         case 'unlocked':
-            return <div>Unlocked</div>;
+            return <Typography align={'center'} variant={'body1'} color={'textSecondary'}>Готово</Typography>;
         default:
-            return <div>ERROR</div>;
+            return <Typography color={'error'}>ERROR</Typography>;
     }
 }
 

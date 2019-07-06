@@ -7,7 +7,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { currency } from "../../../constants/names";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {Paper, Table, TableBody, TableCell, TableHead, TableRow, withStyles} from "@material-ui/core";
+import {makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, withStyles} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import { Close } from "@material-ui/icons";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
@@ -51,8 +51,17 @@ const DialogContent = withStyles(theme => ({
     },
 }))(MuiDialogContent);
 
+const tableRowStyles = theme => ({
+    unusual: {
+        backgroundColor: '#fdfdfd'
+    }
+});
 
-function MainWindowDialog({open, onClose, profile, multidata}) {
+const useStyles = makeStyles(tableRowStyles);
+
+const MainWindowDialog = ({open, onClose, profile, multidata}) => {
+    const mystyles = useStyles();
+
     return  <Dialog
         open={open}
         onClose={onClose}
@@ -94,9 +103,9 @@ function MainWindowDialog({open, onClose, profile, multidata}) {
                     </TableHead>
                     <TableBody>
                         {
-                            multidata.map((value, index) => <TableRow key={index}>
-                                <TableCell align='left'><Typography variant='body1'>{value.name} </Typography> </TableCell>
-                                <TableCell align='right'><Typography variant='body1'>{value.blocked} </Typography> </TableCell>
+                            multidata.map((value, index) => <TableRow className={value.state !== 'locked' ? mystyles.unusual : ''}  key={index}>
+                                <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
+                                <TableCell align='right'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
                                 <TableCell align='center'> <LockState state={value.state} />
                                 </TableCell>
                             </TableRow>)

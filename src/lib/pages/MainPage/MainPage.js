@@ -44,23 +44,44 @@ const shift = {
     left: '-5px'
 };
 
-const arr = [true, true, true];
 const multidata2 = [
     {
         name: 'Туалет',
         amount: 52,
+        output: false,
+        active: false
     },
     {
         name: 'Комната',
         amount: 2,
+        output: false,
+        active: false
     },
     {
         name: 'Кухня',
         amount: 512,
+        output: false,
+        active: true
+    },
+    {
+        name: 'Туалет',
+        amount: 52,
+        output: false,
+        active: false
+    },
+    {
+        name: 'Комната',
+        amount: 2,
+        output: false,
+        active: true
+    },
+    {
+        name: 'Кухня',
+        amount: 512,
+        output: false,
+        active: true
     },
 ];
-
-const arr2 = [true, true, false];
 
 //state = {locked, unlocking, unlocked}
 const multidata = [
@@ -69,26 +90,59 @@ const multidata = [
         amount: 52,
         money: 5,
         blocked: 8,
-        state: 'locked'
+        state: 'locked',
+        output: true,
+        active: true
     },
     {
         name: 'Beta',
         amount: 2,
         money: 1,
         blocked: 401,
-        state: 'unlocking'
+        state: 'unlocking',
+        output: true,
+        active: false
     },
     {
         name: 'Gamma',
         amount: 512,
         money: 59,
         blocked: 95,
-        state: 'unlocked'
+        state: 'unlocked',
+        output: true,
+        active: true
+    },
+    {
+        name: 'Alpha',
+        amount: 52,
+        money: 5,
+        blocked: 8,
+        state: 'locked',
+        output: true,
+        active: false
+    },
+    {
+        name: 'Beta',
+        amount: 2,
+        money: 1,
+        blocked: 401,
+        state: 'unlocking',
+        output: true,
+        active: false
+    },
+    {
+        name: 'Gamma',
+        amount: 512,
+        money: 59,
+        blocked: 95,
+        state: 'unlocked',
+        output: true,
+        active: false
     },
 ];
 
 
-function MainPage() {
+function MainPage({flag}) {
     const [open, setOpen] = useState(false);
 
     return <div className={styles.MainPage}>
@@ -113,12 +167,12 @@ function MainPage() {
             <Box className={styles.Item3}>
                 <ArrowAndInfo {...data[2]} />
                 <Typography style={shift} variant='h4'><b>Соседние ячейки</b></Typography>
-                <MultiArrow data={multidata} arr={arr} />
+                <MultiArrow data={multidata} />
             </Box>
             <Box className={styles.Item4}>
                 <ArrowAndInfo {...data[3]} />
                 <Typography style={shift} variant='h4'><b>Нагрузка</b></Typography>
-                <MultiArrow data={multidata2} arr={arr2} />
+                <MultiArrow data={multidata2} />
             </Box>
         </Container>
     </div>;
