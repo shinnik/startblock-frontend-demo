@@ -1,1 +1,2 @@
-export const SELECT_TYPE = 'SELECT_TYPE';
+export const SELECT_RADIO = 'SELECT_RADIO';
+export const SELECT_P2P_RADIO = 'SELECT_P2P_RADIO';

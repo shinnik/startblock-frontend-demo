@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import buttonModal from './buttonModal';
-import settingsPage from './settingsPage';
+import { radioGroupReducer }from './radioButtonsGroup';
 
 export const reducers = combineReducers({
-    sp: settingsPage
+    settings: radioGroupReducer
 })

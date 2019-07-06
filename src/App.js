@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import MainPage from "./lib/pages/MainPage/MainPage";
-import { SettingsPage } from "./lib/pages/SettingsPage/SettingsPage";
+import SettingsPage from "./lib/pages/SettingsPage/SettingsPage";
 import { Layout } from "./lib/components/Layout/Layout";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import theme from './styles/theme'

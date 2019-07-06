@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
 import { InputPair } from "../../containers/InputPair/InputPair";
-import { nameInput, IpInput, capacityInput, costInput, powerInput } from "../../containers/InputPair/inputTypes";
+import { nameInput, IpInput } from "../../containers/InputPair/inputTypes";
 import RadioButtonsGroup from '../../containers/RadioButtonsGroup/RadioButtonsGroup'
 
 import styles from './SettingsPage.module.scss'
-import {ParametersBlock} from "../../containers/ParametersBlock/ParametersBlock";
+import { ParametersBlock }from "../../containers/ParametersBlock/ParametersBlock";
 import {ServiceBox} from "../../containers/ServiceBox/ServiceBox";
+import { p2pradios } from "../../models/radiobuttons";
 
-export const SettingsPage = (props) => {
-
-    const [radioButtonId, setRadioButtonId] = React.useState("nothing");
-    const radios = [
-    {value: 'nothing', label: 'Ничего нет'},
-    {value: 'generator', label: 'Бензогенератор'},
-    {value: 'sun', label: 'Солнечная панель'},
-    {value: 'acc', label: 'Аккумуляторная батарея'}
-    ];
+const SettingsPage = ({ selectedRadio, radios, setRadioButton }) => {
 
     return (
         <div>
@@ -39,11 +31,11 @@ export const SettingsPage = (props) => {
                             gutterBottom>
                     Подключенные генераторы и накопители
                 </Typography>
-                <RadioButtonsGroup value={radioButtonId} onChange={setRadioButtonId} variants={radios}/>
+                <RadioButtonsGroup current={selectedRadio} onChange={setRadioButton} variants={radios} />
             </div>
-           { radioButtonId &&
+           { selectedRadio &&
            <div className={styles.block}>
-                <ParametersBlock variant={radioButtonId}/>
+                <ParametersBlock variant={selectedRadio} />
             </div> }
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
@@ -53,7 +45,7 @@ export const SettingsPage = (props) => {
                     Сервисы
                 </Typography>
                 <ServiceBox variant='load'/>
-                <ServiceBox variant='p2p'/>
+                <ServiceBox variant='p2p' specific={p2pradios}/>
                 <ServiceBox variant='balance'/>
             </div>
         </div>
@@ -62,7 +54,7 @@ export const SettingsPage = (props) => {
 
 const mapStateToProps = state => {
     return ({
-
+        selectedRadio: state.settings.selectedRadio
     })
 };
 

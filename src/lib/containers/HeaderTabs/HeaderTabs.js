@@ -7,7 +7,7 @@ import variables from '../../constants/header.scss';
 
 const StyledTabs = withStyles(({ header }) => ({
     root: {
-        width: 'calc(100% - 182px)',
+        width: 'calc(88% - 32px)',
         ...header
     },
     indicator: {
@@ -21,8 +21,7 @@ export const HeaderTabs = ({ specials, tabs }) => {
     const pathname = window.location.pathname;
     console.log(pathname);
     const mapPathToId = (currentPath) => {
-        const currentTab = tabs.filter(tab => currentPath.includes(`${tab.path}`))[0];
-        console.log(currentTab);
+        const currentTab = tabs.filter(tab => tab.path === currentPath.split('/')[1])[0];
         if (currentTab) {
             const currentId = currentTab.id;
             return currentId;
