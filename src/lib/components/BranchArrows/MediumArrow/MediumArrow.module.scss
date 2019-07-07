@@ -166,7 +166,7 @@
 }
 
 .FirstExtraBorder {
-    height: $border-thickness;
+    height: $border-thickness*1.07;
     position: relative;
     left: -$border-thickness;
     //top: $x4*0.1;
@@ -175,7 +175,7 @@
 }
 
 .ExtraBorder {
-    height: $border-thickness;
+    height: $border-thickness*1.07;
     position: relative;
     left: -$border-thickness;
     top: $x3*0.7;
