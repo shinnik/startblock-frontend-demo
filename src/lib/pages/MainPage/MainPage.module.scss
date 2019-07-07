@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 700px;
-
 }
 
 .Table {
@@ -30,20 +28,21 @@
 
 .Grid1 {
   display: grid;
-  grid-template-columns: 300px 300px;
+  grid-template-columns: 1.5fr 1fr;
   grid-column-gap: 40px;
   justify-content: center;
-  //Костыли
-  position: relative;
-  left: 50px;
-  //----
 }
 
 .Grid2 {
   display: grid;
-  grid-template-columns: 300px 200px;
+  grid-template-columns: 1.5fr 1fr;
   grid-column-gap: 40px;
   justify-content: center;
+}
+
+.Grid1, .Grid2 {
+  position: relative;
+  left: 2vw;
 }
 
 .Item1 {
