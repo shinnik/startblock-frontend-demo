@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/startblock-frontend-demo/static/css/main.f9e9aa3a.chunk.css",
-    "main.js": "/startblock-frontend-demo/static/js/main.d6419842.chunk.js",
-    "main.js.map": "/startblock-frontend-demo/static/js/main.d6419842.chunk.js.map",
+    "main.js": "/startblock-frontend-demo/static/js/main.b5b4af1a.chunk.js",
+    "main.js.map": "/startblock-frontend-demo/static/js/main.b5b4af1a.chunk.js.map",
     "runtime~main.js": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js",
     "runtime~main.js.map": "/startblock-frontend-demo/static/js/runtime~main.20bca592.js.map",
     "static/js/2.9115f3c0.chunk.js": "/startblock-frontend-demo/static/js/2.9115f3c0.chunk.js",
     "static/js/2.9115f3c0.chunk.js.map": "/startblock-frontend-demo/static/js/2.9115f3c0.chunk.js.map",
     "index.html": "/startblock-frontend-demo/index.html",
-    "precache-manifest.6d2b0e60c9158afb7e0a3fbe8b6e8ee9.js": "/startblock-frontend-demo/precache-manifest.6d2b0e60c9158afb7e0a3fbe8b6e8ee9.js",
+    "precache-manifest.de1a4c78ed6ebf8730726e668c8ac581.js": "/startblock-frontend-demo/precache-manifest.de1a4c78ed6ebf8730726e668c8ac581.js",
     "service-worker.js": "/startblock-frontend-demo/service-worker.js",
     "static/css/main.f9e9aa3a.chunk.css.map": "/startblock-frontend-demo/static/css/main.f9e9aa3a.chunk.css.map",
     "static/media/A.svg": "/startblock-frontend-demo/static/media/A.df8e9f1e.svg",
