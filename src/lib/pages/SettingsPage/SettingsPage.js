@@ -10,7 +10,7 @@ import { ParametersBlock }from "../../containers/ParametersBlock/ParametersBlock
 import {ServiceBox} from "../../containers/ServiceBox/ServiceBox";
 import { p2pradios } from "../../models/radiobuttons";
 
-const SettingsPage = ({ selectedRadio, radios, setRadioButton }) => {
+const SettingsPage = ({ selectedRadio }) => {
 
     return (
         <div>
@@ -31,7 +31,7 @@ const SettingsPage = ({ selectedRadio, radios, setRadioButton }) => {
                             gutterBottom>
                     Подключенные генераторы и накопители
                 </Typography>
-                <RadioButtonsGroup current={selectedRadio} onChange={setRadioButton} variants={radios} />
+                <RadioButtonsGroup />
             </div>
            { selectedRadio &&
            <div className={styles.block}>
