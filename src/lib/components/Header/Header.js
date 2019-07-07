@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SettingsTab from '../../containers/SettingsTab/SettingsTab';
 import {HeaderTabs} from "../../containers/HeaderTabs/HeaderTabs";
 import { Icon } from '../../components/Icon/Icon';
@@ -6,14 +6,24 @@ import { tabs } from '../../constants/navigations';
 
 import styles from './Header.module.scss';
 
-
+// location is here to let material-ui's
+// Tabs component know that somewhere
+// current location was changed
+export const Location = React.createContext({
+    path: null,
+    setPath: () => {}
+});
 
 export const Header = (props) => {
 
+    const [ path, setPath ] = useState(null);
+
     return (
         <div className={styles.container}>
-            <Icon/>
-            <HeaderTabs tabs={tabs} specials={<SettingsTab label='Настройки'/>}/>
+            <Location.Provider value={{ path, setPath }}>
+                <Icon/>
+                <HeaderTabs tabs={tabs} specials={<SettingsTab label='Настройки'/>}/>
+            </Location.Provider>
         </div>
     )
 };

@@ -3,7 +3,6 @@ import styles from "../MediumArrow.module.scss";
 
 
 function Triangle({direction, first, active}) {
-    console.log(direction, first, active);
     if (direction) {
         if (first) {
             if (active)

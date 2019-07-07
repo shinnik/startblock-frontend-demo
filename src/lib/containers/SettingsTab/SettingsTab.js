@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from "classnames";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import styles from './SettingsTab.module.scss';
+import {Location} from "../../components/Header/Header";
 
 const settingsTabRef = React.forwardRef(({ children, ...props }, ref) => {
 
@@ -13,11 +14,15 @@ const settingsTabRef = React.forwardRef(({ children, ...props }, ref) => {
         styles['settings-tab-icon']
     );
 
+    const { setPath } = useContext(Location);
+
     return (
-        <Link to="settings" role="tab" {...props} ref={ref}>
-            {children}
-            <i className={iconClasses}>settings</i>
-        </Link>
+        <div ref={ref} onClick={() => setPath('settings')} style={{ marginLeft: 'auto' }}>
+            <NavLink to="settings" role="tab" {...props}>
+                {children}
+                <i className={iconClasses}>settings</i>
+            </NavLink>
+        </div>
     )
 });
 

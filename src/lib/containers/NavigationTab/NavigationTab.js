@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Tab from "@material-ui/core/Tab/Tab";
 import { withStyles } from "@material-ui/styles";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import { Location } from "../../components/Header/Header";
 
 const navigationTabRef = React.forwardRef(({ children, path, ...props }, ref) => {
 
+    const { setPath } = useContext(Location);
+
     return (
-        <Link to={path} role="tab" {...props} ref={ref}>
-            {children}
-        </Link>
+        <div ref={ref} onClick={() => setPath(path)}>
+            <NavLink to={path} role="tab" {...props}>
+                {children}
+            </NavLink>
+        </div>
     )
 });
 
 const NavigationTab = ({ label, path, ...props }) => {
+
     return (
         <Tab label={label} path={path} {...props} component={navigationTabRef} />
     )
