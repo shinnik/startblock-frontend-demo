@@ -15,17 +15,6 @@ data[1] = {
     type: 'Сеть'
 };
 
-const tmp = response.response.neighbors.reduce((acc, curr) => acc + (curr.output ? curr.performance : -curr.performance), 0);
-data[2] = {
-    amount: tmp,
-    money: response.response.neighbors.reduce((acc, curr) => acc + (curr.output ? curr.cost : -curr.cost), 0),
-    direction: tmp <= 0  //?????????
-};
-
-data[3] = {
-    amount: response.response.load.reduce((acc, curr) => acc + curr.performance, 0),
-    direction: false
-};
 
 export const profile = {
     name: response.response.profile.name,
@@ -62,4 +51,18 @@ export const multidata = response.response.neighbors.map(value => {
     }
 });
 
+console.log(multidata);
+
+
+const tmp = response.response.neighbors.reduce((acc, curr) => acc + (-1)**!curr.output*curr.performance, 0);
+data[2] = {
+    amount: tmp,
+    money: multidata.reduce((acc, curr) => acc + curr.active*curr.money*(-1)**!curr.output, 0),
+    direction: tmp <= 0  //?????????
+};
+
+data[3] = {
+    amount: response.response.load.reduce((acc, curr) => acc + curr.performance, 0),
+    direction: false
+};
 
