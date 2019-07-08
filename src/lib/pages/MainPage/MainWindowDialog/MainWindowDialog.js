@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Dialog from "@material-ui/core/Dialog";
 import Box from "@material-ui/core/Box";
 import styles from "../MainPage.module.scss";
@@ -59,9 +59,6 @@ const tableRowStyles = theme => ({
 
 const useStyles = makeStyles(tableRowStyles);
 
-function HandleUnlockClick() {
-    console.log('Unlock pressed');
-}
 
 const MainWindowDialog = ({open, onClose, profile, multidata}) => {
     const mystyles = useStyles();
@@ -110,7 +107,7 @@ const MainWindowDialog = ({open, onClose, profile, multidata}) => {
                             multidata.map((value, index) => <TableRow className={value.state !== 'locked' ? mystyles.unusual : ''}  key={index}>
                                 <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
                                 <TableCell align='right'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
-                                <TableCell align='center'> <LockState state={value.state} />
+                                <TableCell align='center'> <LockState id={index} istate={value.state} />
                                 </TableCell>
                             </TableRow>)
                         }
