@@ -13,17 +13,13 @@ function App() {
     return (
         <div className="App">
             <ThemeProvider theme={theme}>
-                <Router>
+                <Router basename='/startblock-frontend-demo'>
                     <Layout>
                         <Switch>
-                            <Route path="*" render={() => (
-                                <Switch>
-                                    <Route exact path='/startblock-frontend-demo/current' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata2={mockData.multidata2} multidata={mockData.multidata} flag="current" />} />
-                                    <Route path='/startblock-frontend-demo/month' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata={mockData.multidata} multidata2={mockData.multidata2} flag="month" />} />
-                                    <Route path='/startblock-frontend-demo/settings' component={() => <SettingsPage />} />
-                                    <Redirect to="/startblock-frontend-demo/current"/>
-                                </Switch>
-                            )}/>
+                            <Route exact path='/current' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata2={mockData.multidata2} multidata={mockData.multidata} flag="current" />} />
+                            <Route path='/month' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata={mockData.multidata} multidata2={mockData.multidata2} flag="month" />} />
+                            <Route path='/settings' component={() => <SettingsPage />} />
+                            <Redirect to="/current"/>
                         </Switch>
                     </Layout>
                 </Router>
