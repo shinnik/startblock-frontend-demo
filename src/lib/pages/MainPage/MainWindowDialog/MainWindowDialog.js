@@ -62,6 +62,10 @@ const useStyles = makeStyles(tableRowStyles);
 
 const MainWindowDialog = ({open, onClose, profile, multidata}) => {
     const mystyles = useStyles();
+    // useEffect(() => {
+    //     profile.blocked = multidata.reduce((acc, curr) => acc + curr.blocked_money*(curr.state === 'locked'))
+    // });
+
 
     return  <Dialog
         open={open}

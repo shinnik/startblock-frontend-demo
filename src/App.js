@@ -6,7 +6,7 @@ import { Layout } from "./lib/components/Layout/Layout";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import theme from './styles/theme'
 import './App.scss';
-import * as mockData from './mockData';
+import * as mockData from './store/mockData/mockData';
 
 
 function App() {
