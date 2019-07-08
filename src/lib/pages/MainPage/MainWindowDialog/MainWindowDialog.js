@@ -59,6 +59,10 @@ const tableRowStyles = theme => ({
 
 const useStyles = makeStyles(tableRowStyles);
 
+function HandleUnlockClick() {
+    console.log('Unlock pressed');
+}
+
 const MainWindowDialog = ({open, onClose, profile, multidata}) => {
     const mystyles = useStyles();
 
