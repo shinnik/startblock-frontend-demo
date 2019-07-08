@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import MainPage from "./lib/pages/MainPage/MainPage";
 import SettingsPage from "./lib/pages/SettingsPage/SettingsPage";
 import { Layout } from "./lib/components/Layout/Layout";
-import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import theme from './styles/theme'
 import './App.scss';
 import * as mockData from './store/mockData/mockData';
@@ -13,7 +13,7 @@ function App() {
     return (
         <div className="App">
             <ThemeProvider theme={theme}>
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <Layout>
                         <Switch>
                             <Route path='/current' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata2={mockData.multidata2} multidata={mockData.multidata} flag="current" />} />
