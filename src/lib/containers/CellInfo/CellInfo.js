@@ -10,8 +10,8 @@ function CellInfo({ name, amount, money, flag }) {
 
     return <div className={styles.CellInfo}>
         {name && <Typography color={'textPrimary'} variant='h5'><b>{name}</b></Typography>}
-        {amount && <Typography color={'secondary'} variant='h6'>{`${amount} ${watt}`}</Typography>}
-        {money && <Typography color={'textSecondary'} variant='h6'>{`${money} ${cost}`}</Typography>}
+        {amount !== undefined && <Typography color={'secondary'} variant='h6'>{`${amount} ${watt}`}</Typography>}
+        {money !== undefined && <Typography color={'textSecondary'} variant='h6'>{`${money} ${cost}`}</Typography>}
     </div>
 }
 
