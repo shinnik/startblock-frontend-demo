@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography/index';
 import {currency} from "../../constants/names";
 import Button from '@material-ui/core/Button/index';
 import { makeStyles, createStyles } from '@material-ui/styles';
+import AnimatedNumbers from 'animated-number-react';
 
 const useStyles = makeStyles(theme => createStyles({
     delta: {
@@ -29,7 +30,7 @@ function Delta({name, type, money, pullOffFunc}) {
     return <Paper elevation={2} className={`${classes.delta} ${styles.Delta}`}>
             <Typography className={`${styles.Item1} ${classes.deltafont}`} variant='h3'> <b> {name} </b> </Typography>
             <Typography className={`${styles.Item5} ${classes.deltafont}`} variant='body1'> {type} </Typography>
-            <Typography className={`${styles.Item2} ${classes.deltafont}`} variant='h3'> <b> {money} </b> </Typography>
+        <Typography className={`${styles.Item2} ${classes.deltafont}`} variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
             <Typography className={`${styles.Item6} ${classes.deltafont}`} variant='body1'> {currency} </Typography>
             <Button className={`${styles.Item3} ${classes.button1}`} variant='contained' color='default'>Пополнить</Button>
             <Button onClick={pullOffFunc} className={`${styles.Item4} ${classes.button2}`} variant='outlined' color='default' >Снять</Button>

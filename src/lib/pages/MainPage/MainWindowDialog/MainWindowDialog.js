@@ -13,6 +13,7 @@ import { Close } from "@material-ui/icons";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
 import LockState from "./LockState";
+import AnimatedNumber from 'animated-number-react';
 
 
 

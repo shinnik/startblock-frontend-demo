@@ -4,7 +4,6 @@ import { Layout } from "./lib/components/Layout/Layout";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import theme from './styles/theme'
 import './App.scss';
-import * as mockData from './store/mockData/mockData';
 import {Loader} from "./lib/components/Loader/Loader";
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
@@ -19,8 +18,8 @@ function App() {
                         <Layout>
                             <Suspense fallback={<Loader/>}>
                                 <Switch>
-                                    <Route path='/current' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata2={mockData.multidata2} multidata={mockData.multidata} flag="current" />} />
-                                    <Route path='/month' component={() => <MainPage profile={mockData.profile} data={mockData.data} multidata={mockData.multidata} multidata2={mockData.multidata2} flag="month" />} />
+                                    <Route path='/current' component={() => <MainPage flag="current" />} />
+                                    <Route path='/month' component={() => <MainPage flag="month" />} />
                                     <Route path='/settings' component={() => <SettingsPage />} />
                                     <Redirect to="/current"/>
                                 </Switch>

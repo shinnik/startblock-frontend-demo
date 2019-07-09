@@ -24,5 +24,5 @@ export const radioGroupReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 

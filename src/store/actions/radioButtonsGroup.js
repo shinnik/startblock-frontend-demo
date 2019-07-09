@@ -20,4 +20,4 @@ export const setP2pRadioButtonAction = (selectedValue) => {
             selectedP2pRadio
         })
     }
-}
+};
