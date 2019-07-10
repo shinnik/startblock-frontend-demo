@@ -3,13 +3,11 @@ import {parseResponse} from "../../utils/parseResponse";
 
 
 export const handleUnlocked = (id) => {
-    return dispatch => {
-        dispatch({
-            type: actionTypes.MODAL_WINDOW_UNLOCKED,
-            payload: {
-                id
-            }
-        })
+    return {
+        type: actionTypes.MODAL_WINDOW_UNLOCKED,
+        payload: {
+            id
+        }
     }
 };
 

@@ -16,7 +16,7 @@ const shift = {
     left: '-9px'
 };
 
-function MainPage({flag, multidata, multidata2, data, profile, onFetchData}) {
+function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock}) {
     const [open, setOpen] = useState(false);
     useEffect(() => {
         new Promise(resolve => {
@@ -39,9 +39,8 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData}) {
     }, []);
 
 
-
     return <div className={styles.MainPage}>
-       <MainWindowDialog open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} />
+       <MainWindowDialog open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>

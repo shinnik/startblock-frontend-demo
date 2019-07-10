@@ -13,7 +13,7 @@ import { Close } from "@material-ui/icons";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
 import LockState from "./LockState";
-import AnimatedNumber from 'animated-number-react';
+import {connect} from "react-redux";
 
 
 
@@ -61,12 +61,8 @@ const tableRowStyles = theme => ({
 const useStyles = makeStyles(tableRowStyles);
 
 
-const MainWindowDialog = ({open, onClose, profile, multidata}) => {
+function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
     const mystyles = useStyles();
-    // useEffect(() => {
-    //     profile.blocked = multidata.reduce((acc, curr) => acc + curr.blocked_money*(curr.state === 'locked'))
-    // });
-
 
     return  <Dialog
         open={open}
@@ -112,7 +108,7 @@ const MainWindowDialog = ({open, onClose, profile, multidata}) => {
                             multidata.map((value, index) => <TableRow className={value.state !== 'locked' ? mystyles.unusual : ''}  key={index}>
                                 <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
                                 <TableCell align='right'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
-                                <TableCell align='center'> <LockState id={index} istate={value.state} />
+                                <TableCell align='center'> <LockState id={index} istate={value.state} onUnlock={onUnlock} />
                                 </TableCell>
                             </TableRow>)
                         }
@@ -123,5 +119,6 @@ const MainWindowDialog = ({open, onClose, profile, multidata}) => {
 
     </Dialog>
 }
+
 
 export default MainWindowDialog;

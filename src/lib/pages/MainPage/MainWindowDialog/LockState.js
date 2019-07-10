@@ -3,9 +3,9 @@ import {IconButton, Typography} from "@material-ui/core";
 import {LockOpen} from "@material-ui/icons";
 import Ellipse from "./LoadingIcon/Ellipse";
 
-function LockState({istate, id}) {
+function LockState({istate, id, onUnlock}) {
     const [state, setState] = useState(istate);
-    useEffect((id) => {
+    useEffect(() => {
         if (state === 'unlocking') {
             new Promise((res, rej) => {
                 setTimeout(() => res(0), 1000);
@@ -13,6 +13,7 @@ function LockState({istate, id}) {
                 .then(value => {
                     if (value === 0) {
                         setState('unlocked');
+                        onUnlock(id);
                     }
                 })
         }
