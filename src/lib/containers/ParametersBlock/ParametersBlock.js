@@ -3,24 +3,8 @@ import { InputPair } from "../../containers/InputPair/InputPair";
 import { capacityInput, costInput, powerInput } from "../../containers/InputPair/inputTypes";
 import Typography from "@material-ui/core/Typography/Typography";
 
-export const ParametersBlock = ({ variant, inputs }) => {
-
-    // let first;
-    // let second;
-    //
-    // const mapVariantToInputTypes = ({ value }) => {
-    //     if (value === 'generator' || value === 'sun') {
-    //         first = powerInput;
-    //         second = costInput;
-    //     }
-    //     if (value === 'acc') {
-    //         first = powerInput;
-    //         second = capacityInput;
-    //     }
-    // };
-    //
-    // mapVariantToInputTypes(props.variant);
-
+export const ParametersBlock = ({ onTyping, inputs }) => {
+    if (inputs) console.log(inputs.get('0'));
     return (
         <>
             {inputs && (
@@ -31,8 +15,8 @@ export const ParametersBlock = ({ variant, inputs }) => {
                                 gutterBottom>
                         Параметры бензогенератора
                     </Typography>
-                    <InputPair first={inputs[0]}
-                               second={inputs[1]}/>
+                    <InputPair onTyping={onTyping} first={inputs.get('0')}
+                               second={inputs.get('1')}/>
                 </>
             )}
 

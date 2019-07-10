@@ -32,29 +32,31 @@ const useStyles = makeStyles(theme => ({
 
 export const InputPair = ({ first, second, onTyping }) => {
     const classes = useStyles();
-    const [name, setName] = useState(first.value);
-    const [ip, setIp] = useState(second.value);
+    console.log(first, 'FIRST');
+    console.log(second, 'SECOND');
     return (
         <form>
-            { !_isEmpty(first) && <TextField
-                {...first}
-                value={name}
+            { <TextField
+                value={first.value}
                 InputLabelProps={{
                     shrink: true,
                 }}
-                onChange={first.onChange || ((event) => setName(event.target.value))}
+                margin='normal'
+                variant='outlined'
+                onChange={(event) => onTyping(0, event.target.value)}
                 className={classes[first.id]}
                 InputProps={{classes: { root: styles['textfield-input-custom'] }, endAdornment: <InputAdornment position="end">{first.units}</InputAdornment>}}
             /> }
-            { !_isEmpty(second) && <TextField
-                {...second}
-                value={ip}
+            { <TextField
+                value={second.value}
                 InputLabelProps={{
                     shrink: true,
                 }}
-                onChange={(event) => setIp(event.target.value)}
+                margin='normal'
+                variant='outlined'
+                onChange={(event) => onTyping(1, event.target.value)}
                 className={classes[second.id]}
-                InputProps={{ classes: { input: styles[second.id] },endAdornment: <InputAdornment position="end">{second.units}</InputAdornment>}}
+                InputProps={{ classes: { input: styles[second.id] }, endAdornment: <InputAdornment position="end">{second.units}</InputAdornment>}}
             /> }
 
         </form>

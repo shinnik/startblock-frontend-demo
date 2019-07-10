@@ -7,12 +7,12 @@ import RadioButtonsGroup from '../../containers/RadioButtonsGroup/RadioButtonsGr
 
 import styles from './SettingsPage.module.scss'
 import { ParametersBlock }from "../../containers/ParametersBlock/ParametersBlock";
-import {ServiceBox} from "../../containers/ServiceBox/ServiceBox";
-import { p2pradios } from "../../models/radiobuttons";
-import {onGeneratorSelect} from "../../../store/actions/settingsPage";
+import { ServiceBox } from "../../containers/ServiceBox/ServiceBox";
+import { onGeneratorSelect, onParameterTyping } from "../../../store/actions/settingsPage";
 
-const SettingsPage = ({ generator, radios, onGeneratorChoose }) => {
-
+const SettingsPage = ({ currentGeneratorNumber, radios, onGeneratorChoose, onParameterChange }) => {
+    const currentGenerator = radios.get(currentGeneratorNumber);
+    console.log(currentGenerator.get('value'));
     return (
         <div>
             <div className={styles.block}>
@@ -33,12 +33,12 @@ const SettingsPage = ({ generator, radios, onGeneratorChoose }) => {
                     Подключенные генераторы и накопители
                 </Typography>
                 <RadioButtonsGroup radios={radios}
-                                   currentValue={generator.value}
+                                   currentValue={currentGeneratorNumber}
                                    onChange={onGeneratorChoose} />
             </div>
-           { generator.value &&
+           { currentGeneratorNumber !== 0 &&
            <div className={styles.block}>
-                <ParametersBlock inputs={generator.inputTypes} variant={generator.value} />
+                <ParametersBlock onTyping={onParameterChange} inputs={currentGenerator.get('inputTypes')} />
             </div> }
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
@@ -59,8 +59,8 @@ const mapStateToProps = state => {
     return ({
         // name: state.settings.name,
         // ip: state.settings.ip,
-        generator: state.settings.generator, // values inside
-        radios: state.settings.radios,
+        currentGeneratorNumber: state.settings.get('currentGeneratorNumber'),
+        radios: state.settings.get('radios'),
         // managedLoad: state.settings.managedLoad,
         // p2p: state.settings.p2p,
         // balance: state.settings.balance
@@ -72,7 +72,7 @@ const mapDispatchToProps = dispatch => {
         // onNameChange: (value) => dispatch(onNameTyping(value)),
         // onIpChange: (value) => dispatch(onIpTyping(value)),
         onGeneratorChoose: (value) => dispatch(onGeneratorSelect(value)),
-
+        onParameterChange: (param, value) => dispatch(onParameterTyping(param, value))
         // onToggleLoad: (value) => dispatch(onChangeLoad(value)),
         // onImportancyChange: (importancies) => dispatch(onReorderList(importancies)),
         // onRosetteNameChange: (index, value) => dispatch(onListInputTyping(index, value)),

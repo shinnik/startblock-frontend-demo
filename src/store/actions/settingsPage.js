@@ -1,12 +1,16 @@
 import * as actions from './actionTypes';
 
-export const onGeneratorSelect = (selectedValue) => {
-    return (dispatch, getState) => {
-        const { settings: { radios } } = getState();
-        const selectedGenerator = radios.find(radio => radio.value === selectedValue);
-        dispatch ({
-            type: actions.SELECT_RADIO,
-            selectedGenerator
-        })
+export const onGeneratorSelect = selectedValue => {
+  console.log(selectedValue);
+    return {
+      type: actions.SELECT_RADIO,
+      selectedGenerator: selectedValue
     }
 };
+
+export const onParameterTyping = (param, value) => {
+  return {
+    type: actions.CHANGE_PARAMETER_VALUE,
+    payload: { param, value }
+  }
+}

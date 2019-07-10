@@ -6,8 +6,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
 import styles from './RadioButtonsGroup.module.scss';
-import {setRadioButtonAction, setP2pRadioButtonAction} from "../../../store/actions/settingsPage";
-import connect from "react-redux/es/connect/connect";
 
 const WhiteRadio = withStyles({
     root: {
@@ -35,19 +33,19 @@ const useStyles = makeStyles(theme => ({
 export default function RadioButtonsGroup({ onChange, currentValue, radios }) {
 
     const classes = useStyles();
-
+    
     return (
         <div className={styles.Container}>
             <FormControl component="fieldset">
-                <RadioGroup aria-label="position" name="position" value={currentValue} onChange={(e) => onChange(e.target.value)} column="true">
-                    { radios.map(({ value, label, color = null }, index) => {
+                <RadioGroup aria-label="position" name="position" value={currentValue.toString()} onChange={(e) => onChange(e.target.value)} column="true">
+                    { radios.map((radio, index) => {
                         return (
                             <FormControlLabel
                             key={index}
-                            value={value}
-                            control={color !== 'white' ? <Radio color="default" disableRipple />
+                            value={index.toString()}
+                            control={radio.get('color') !== 'white' ? <Radio color="default" disableRipple />
                                 : <WhiteRadio disableRipple/>}
-                            label={label}
+                            label={radio.get('label')}
                             labelPlacement="end"
                             className={classes.label}
                             />
@@ -58,21 +56,3 @@ export default function RadioButtonsGroup({ onChange, currentValue, radios }) {
         </div>
     );
 }
-//
-// const mapStateToProps = state => {
-//     return ({
-//         radios: state.settings.radios,
-//         p2pradios: state.settings.p2pradios,
-//         selectedRadio: state.settings.selectedRadio,
-//         selectedP2pRadio: state.settings.selectedP2pRadio
-//     })
-// };
-//
-// const mapDispatchToProps = dispatch => {
-//     return ({
-//         setRadioButton: (e) => dispatch(setRadioButtonAction(e.target.value)),
-//         setP2pRadioButton: (e) => dispatch(setP2pRadioButtonAction(e.target.value))
-//     })
-// };
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(RadioButtonsGroup);
