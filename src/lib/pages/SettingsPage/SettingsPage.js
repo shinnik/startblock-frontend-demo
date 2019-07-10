@@ -9,8 +9,9 @@ import styles from './SettingsPage.module.scss'
 import { ParametersBlock }from "../../containers/ParametersBlock/ParametersBlock";
 import {ServiceBox} from "../../containers/ServiceBox/ServiceBox";
 import { p2pradios } from "../../models/radiobuttons";
+import {onGeneratorSelect} from "../../../store/actions/settingsPage";
 
-const SettingsPage = ({ selectedRadio }) => {
+const SettingsPage = ({ generator, radios, onGeneratorChoose }) => {
 
     return (
         <div>
@@ -31,11 +32,13 @@ const SettingsPage = ({ selectedRadio }) => {
                             gutterBottom>
                     Подключенные генераторы и накопители
                 </Typography>
-                <RadioButtonsGroup />
+                <RadioButtonsGroup radios={radios}
+                                   currentValue={generator.value}
+                                   onChange={onGeneratorChoose} />
             </div>
-           { selectedRadio &&
+           { generator.value &&
            <div className={styles.block}>
-                <ParametersBlock variant={selectedRadio} />
+                <ParametersBlock inputs={generator.inputTypes} variant={generator.value} />
             </div> }
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
@@ -45,21 +48,36 @@ const SettingsPage = ({ selectedRadio }) => {
                     Сервисы
                 </Typography>
                 <ServiceBox variant='load'/>
-                <ServiceBox variant='p2p' specific={p2pradios}/>
+                <ServiceBox variant='p2p' />
                 <ServiceBox variant='balance'/>
             </div>
         </div>
     )
-}
+};
 
 const mapStateToProps = state => {
     return ({
-        selectedRadio: state.settings.selectedRadio
+        // name: state.settings.name,
+        // ip: state.settings.ip,
+        generator: state.settings.generator, // values inside
+        radios: state.settings.radios,
+        // managedLoad: state.settings.managedLoad,
+        // p2p: state.settings.p2p,
+        // balance: state.settings.balance
     })
 };
 
 const mapDispatchToProps = dispatch => {
     return ({
+        // onNameChange: (value) => dispatch(onNameTyping(value)),
+        // onIpChange: (value) => dispatch(onIpTyping(value)),
+        onGeneratorChoose: (value) => dispatch(onGeneratorSelect(value)),
+
+        // onToggleLoad: (value) => dispatch(onChangeLoad(value)),
+        // onImportancyChange: (importancies) => dispatch(onReorderList(importancies)),
+        // onRosetteNameChange: (index, value) => dispatch(onListInputTyping(index, value)),
+        // onToggleTrade: (value) => dispatch(onChangeTrade(value)),
+        // onStrategyChange: (value) => dispatch(onSelectStrategy(value))
 
     })
 };

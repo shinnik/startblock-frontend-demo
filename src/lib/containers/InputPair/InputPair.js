@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export const InputPair = ({ first, second }) => {
+export const InputPair = ({ first, second, onTyping }) => {
     const classes = useStyles();
     const [name, setName] = useState(first.value);
     const [ip, setIp] = useState(second.value);

@@ -6,7 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
 import styles from './RadioButtonsGroup.module.scss';
-import {setRadioButtonAction, setP2pRadioButtonAction} from "../../../store/actions/radioButtonsGroup";
+import {setRadioButtonAction, setP2pRadioButtonAction} from "../../../store/actions/settingsPage";
 import connect from "react-redux/es/connect/connect";
 
 const WhiteRadio = withStyles({
@@ -32,24 +32,15 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function RadioButtonsGroup({ setRadioButton, setP2pRadioButton, radios, p2pradios, selectedP2pRadio, selectedRadio, variant }) {
+export default function RadioButtonsGroup({ onChange, currentValue, radios }) {
 
-    let selected = selectedRadio.value;
-    let items = radios;
-    let onChange = setRadioButton;
     const classes = useStyles();
-
-    if (variant === 'p2p') {
-        selected = selectedP2pRadio.value;
-        items = p2pradios;
-        onChange = setP2pRadioButton;
-    }
 
     return (
         <div className={styles.Container}>
             <FormControl component="fieldset">
-                <RadioGroup aria-label="position" name="position" value={selected} onChange={onChange} column="true">
-                    { items.map(({ value, label, color = null }, index) => {
+                <RadioGroup aria-label="position" name="position" value={currentValue} onChange={(e) => onChange(e.target.value)} column="true">
+                    { radios.map(({ value, label, color = null }, index) => {
                         return (
                             <FormControlLabel
                             key={index}
@@ -67,21 +58,21 @@ function RadioButtonsGroup({ setRadioButton, setP2pRadioButton, radios, p2pradio
         </div>
     );
 }
-
-const mapStateToProps = state => {
-    return ({
-        radios: state.settings.radios,
-        p2pradios: state.settings.p2pradios,
-        selectedRadio: state.settings.selectedRadio,
-        selectedP2pRadio: state.settings.selectedP2pRadio
-    })
-};
-
-const mapDispatchToProps = dispatch => {
-    return ({
-        setRadioButton: (e) => dispatch(setRadioButtonAction(e.target.value)),
-        setP2pRadioButton: (e) => dispatch(setP2pRadioButtonAction(e.target.value))
-    })
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RadioButtonsGroup);
+//
+// const mapStateToProps = state => {
+//     return ({
+//         radios: state.settings.radios,
+//         p2pradios: state.settings.p2pradios,
+//         selectedRadio: state.settings.selectedRadio,
+//         selectedP2pRadio: state.settings.selectedP2pRadio
+//     })
+// };
+//
+// const mapDispatchToProps = dispatch => {
+//     return ({
+//         setRadioButton: (e) => dispatch(setRadioButtonAction(e.target.value)),
+//         setP2pRadioButton: (e) => dispatch(setP2pRadioButtonAction(e.target.value))
+//     })
+// };
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(RadioButtonsGroup);

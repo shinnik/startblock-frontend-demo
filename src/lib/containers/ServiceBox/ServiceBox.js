@@ -63,7 +63,7 @@ export const ServiceBox = ({ variant, specific = null }) => {
                         </Typography>
                     </div>
                     { variant === 'load' && checked && <ManagedLoadSpecific/>}
-                    { variant === 'p2p' && checked && <RadioButtonsGroup variant='p2p' /> }
+                    {/*{ variant === 'p2p' && checked && <RadioButtonsGroup /> }*/}
                 </div>
              }
         </>
