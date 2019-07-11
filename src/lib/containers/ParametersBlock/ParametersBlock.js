@@ -4,7 +4,6 @@ import { capacityInput, costInput, powerInput } from "../../containers/InputPair
 import Typography from "@material-ui/core/Typography/Typography";
 
 export const ParametersBlock = ({ onTyping, inputs }) => {
-    if (inputs) console.log(inputs.get('0'));
     return (
         <>
             {inputs && (

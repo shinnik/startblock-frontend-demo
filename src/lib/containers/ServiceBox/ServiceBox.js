@@ -26,19 +26,18 @@ const StyledSwitch = withStyles({
     track: { backgroundColor: 'rgba(34, 31, 31, 0.26)', opacity: 1 },
 })(Switch);
 
-export const ServiceBox = ({ variant, specific = null }) => {
+export const ServiceBox = ({ variant, active, render = null, onToggle }) => {
 
-    const [checked, setChecked] = useState(true);
     const boxClasses = classNames(
-        {[styles[`box__${variant}--active`]]: checked === true},
-        {[styles[`box__${variant}--inactive`]]: checked === false},
+        {[styles[`box__${variant}--active`]]: active === true},
+        {[styles[`box__${variant}--inactive`]]: active === false},
         styles[`box__${variant}`],
         styles['box']
     );
 
     const textBlockClasses = classNames(
-        {[styles[`textbox--active`]]: checked === true},
-        {[styles[`textbox--inactive`]]: checked === false},
+        {[styles[`textbox--active`]]: active === true},
+        {[styles[`textbox--inactive`]]: active === false},
         styles['textbox']
     )
 
@@ -47,8 +46,8 @@ export const ServiceBox = ({ variant, specific = null }) => {
             { variant &&
                 <div className={boxClasses}>
                     <div className={ styles[`box__header`] }>
-                        <StyledSwitch checked={ checked }
-                                      onChange={ () => setChecked(!checked) }
+                        <StyledSwitch checked={ active }
+                                      onChange={ () => onToggle(!active) }
                                       disableRipple/>
                         <Typography style={{ fontWeight: 500, color: '#FFF' }}
                                     variant="h5"
@@ -59,11 +58,11 @@ export const ServiceBox = ({ variant, specific = null }) => {
                     </div>
                     <div className={textBlockClasses}>
                         <Typography variant="body2">
-                            { texts[variant][`text${checked ? 'Active' : 'Inactive'}`]}
+                            { texts[variant][`text${active ? 'Active' : 'Inactive'}`]}
                         </Typography>
                     </div>
-                    { variant === 'load' && checked && <ManagedLoadSpecific/>}
-                    {/*{ variant === 'p2p' && checked && <RadioButtonsGroup /> }*/}
+                    { variant === 'load' && active && render() }
+                    { variant === 'p2p' && active && render() }
                 </div>
              }
         </>

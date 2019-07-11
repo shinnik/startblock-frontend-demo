@@ -32,31 +32,31 @@ const useStyles = makeStyles(theme => ({
 
 export const InputPair = ({ first, second, onTyping }) => {
     const classes = useStyles();
-    console.log(first, 'FIRST');
-    console.log(second, 'SECOND');
     return (
         <form>
             { <TextField
-                value={first.value}
+                value={first.get('value')}
                 InputLabelProps={{
                     shrink: true,
                 }}
                 margin='normal'
                 variant='outlined'
-                onChange={(event) => onTyping(0, event.target.value)}
-                className={classes[first.id]}
-                InputProps={{classes: { root: styles['textfield-input-custom'] }, endAdornment: <InputAdornment position="end">{first.units}</InputAdornment>}}
+                label={first.get('label')}
+                onInput={(event) => onTyping('0', event.target.value)}
+                className={classes[first.get('id')]}
+                InputProps={{classes: { root: styles['textfield-input-custom'] }, endAdornment: <InputAdornment position="end">{first.get('units')}</InputAdornment>}}
             /> }
             { <TextField
-                value={second.value}
+                value={second.get('value')}
                 InputLabelProps={{
                     shrink: true,
                 }}
+                label={second.get('label')}
                 margin='normal'
                 variant='outlined'
-                onChange={(event) => onTyping(1, event.target.value)}
-                className={classes[second.id]}
-                InputProps={{ classes: { input: styles[second.id] }, endAdornment: <InputAdornment position="end">{second.units}</InputAdornment>}}
+                onChange={(event) => onTyping('1', event.target.value)}
+                className={classes[second.get('id')]}
+                InputProps={{ classes: { input: styles[second.get('id')] }, endAdornment: <InputAdornment position="end">{second.get('units')}</InputAdornment>}}
             /> }
 
         </form>

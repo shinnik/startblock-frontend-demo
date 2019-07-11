@@ -4,8 +4,7 @@ import { fromJS } from "immutable";
 
 
 export const initialState = fromJS({
-  name: '',
-  ip: '',
+  mains: [inputTypes.nameInput, inputTypes.IpInput],
   currentGeneratorNumber: '0',
   radios: [
       {
@@ -33,26 +32,26 @@ export const initialState = fromJS({
       }
   ],
   managedLoad: {
-      status: false,
+      status: true,
       items: [{
-              importancy: 0,
+              id: '1',
               name: 'Кухня'
           },
           {
-              importancy: 1,
+              id: '2',
               name: 'Комната'
           },
           {
-              importancy: 2,
+              id: '3',
               name: 'Туалет'
           }]
   },
   p2p: {
-      status: false,
+      status: true,
       strategies: p2pradios,
-      current: 'max-profit'
+      current: '0'
   },
   balance: {
-      status: false
+      status: true
   }
 });
