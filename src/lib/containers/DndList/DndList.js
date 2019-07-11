@@ -6,49 +6,29 @@ import TextField from "@material-ui/core/TextField/TextField";
 import styles from "./DndList.module.scss";
 
 const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
+    const replacing = list.get(startIndex);
+    const removed = list.splice(startIndex, 1);
 
-    return result;
+    return removed.splice(endIndex, 0, replacing);
 };
 
-export const DndList = () => {
-    const state = {
-        items: [
-            {
-                id: '1',
-                content: 'Кухня'
-            },
-            {
-                id: '2',
-                content: 'Комната'
-            },
-            {
-                id: '3',
-                content: 'Туалет'
-            }]
-    };
+export const DndList = ({ items, onReorder, onChange }) => {
 
     const handlerClasses = classNames(
         "material-icons",
         styles['item__icon']
-    )
-
-    const [itemsState, setItems] = useState(state);
+    );
 
     const onDragEnd = result => {
         if (!result.destination) {
             return;
         }
-        const items = reorder(
-            itemsState.items,
+        const newItems = reorder(
+            items,
             result.source.index,
             result.destination.index
         );
-        setItems({
-            items
-        });
+        onReorder(newItems);
     };
 
     return (
@@ -59,24 +39,23 @@ export const DndList = () => {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                     >
-                        {itemsState.items.map((item, index) => (
-                            <Draggable key={item.id} draggableId={item.id} index={index}>
+                        {items.map((item, index) => (
+                            <Draggable key={item.get('id')} draggableId={item.get('id')} index={index}>
                                 {(provided, snapshot) => (
                                     <div className={styles['item__container']} ref={provided.innerRef} {...provided.draggableProps}>
                                         <i className={handlerClasses} {...provided.dragHandleProps}>drag_indicator</i>
                                         <TextField
-                                            id={item.id}
-                                            label={`Название розетки №${item.id}`}
+                                            id={item.get('id')}
+                                            label={`Название розетки №${item.get('id')}`}
                                             margin='normal'
                                             variant='outlined'
-                                            value={item.content}
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
+                                            value={item.get('name')}
+                                            autoComplete='off'
+                                            onChange={(e) => onChange(item.get('id'), e.target.value)}
                                             className={styles['item__textfield']}
                                             InputProps={{ classes: {notchedOutline: styles['item__textfield'],
                                                     root: styles['item__textfield']} }}
-                                            InputLabelProps={{ classes: { root: styles['item__textfield'] } }}
+                                            InputLabelProps={{ classes: { root: styles['item__textfield'] }, shrink: true }}
                                         />
                                     </div>
                                 )}

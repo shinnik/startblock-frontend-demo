@@ -30,31 +30,33 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export const InputPair = ({ first, second }) => {
+export const InputPair = ({ first, second, onTyping }) => {
     const classes = useStyles();
-    const [name, setName] = useState(first.value);
-    const [ip, setIp] = useState(second.value);
     return (
         <form>
-            { !_isEmpty(first) && <TextField
-                {...first}
-                value={name}
+            { <TextField
+                value={first.get('value')}
                 InputLabelProps={{
                     shrink: true,
                 }}
-                onChange={first.onChange || ((event) => setName(event.target.value))}
-                className={classes[first.id]}
-                InputProps={{classes: { root: styles['textfield-input-custom'] }, endAdornment: <InputAdornment position="end">{first.units}</InputAdornment>}}
+                margin='normal'
+                variant='outlined'
+                label={first.get('label')}
+                onInput={(event) => onTyping('0', event.target.value)}
+                className={classes[first.get('id')]}
+                InputProps={{classes: { root: styles['textfield-input-custom'] }, endAdornment: <InputAdornment position="end">{first.get('units')}</InputAdornment>}}
             /> }
-            { !_isEmpty(second) && <TextField
-                {...second}
-                value={ip}
+            { <TextField
+                value={second.get('value')}
                 InputLabelProps={{
                     shrink: true,
                 }}
-                onChange={(event) => setIp(event.target.value)}
-                className={classes[second.id]}
-                InputProps={{ classes: { input: styles[second.id] },endAdornment: <InputAdornment position="end">{second.units}</InputAdornment>}}
+                label={second.get('label')}
+                margin='normal'
+                variant='outlined'
+                onChange={(event) => onTyping('1', event.target.value)}
+                className={classes[second.get('id')]}
+                InputProps={{ classes: { input: styles[second.get('id')] }, endAdornment: <InputAdornment position="end">{second.get('units')}</InputAdornment>}}
             /> }
 
         </form>
