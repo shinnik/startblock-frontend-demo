@@ -9,9 +9,6 @@ import AnimatedNumbers from 'animated-number-react';
 import {Box} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => createStyles({
-    delta: {
-        // backgroundColor: '#0099DC',
-    },
     button1: {
         color: 'black',
         backgroundColor: 'white',
@@ -29,7 +26,7 @@ const useStyles = makeStyles(theme => createStyles({
 function Delta({name, type, money, pullOffFunc}) {
     const classes = useStyles();
 
-    return <Paper elevation={2} className={`${classes.delta} ${styles.Delta}`}>
+    return <Paper elevation={2} className={`${styles.Delta}`}>
             <Typography className={`${styles.Item1}`} variant='h3'> <b> {name} </b> </Typography>
             <Typography className={`${styles.Item5}`} variant='body1'> {type} </Typography>
         <Typography className={`${styles.Item2}`} variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>

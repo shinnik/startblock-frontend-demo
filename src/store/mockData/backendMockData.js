@@ -11,7 +11,7 @@ export const response = {
     neighbors: [
         {
             name: "Alpha",
-            performance: 0,
+            performance: 52,
             cost: 5,
             output: true,
             blocked_money: 8,
@@ -29,34 +29,34 @@ export const response = {
             name: "Gamma",
             performance: 512,
             cost: 59,
-            output: true,
-            blocked_money: 95,
-            state: 'locked'
-        },
-        {
-            name: "Omega",
-            performance: 300,
-            cost: 59,
             output: false,
             blocked_money: 95,
             state: 'locked'
         },
-        {
-            name: "Psi",
-            performance: 0,
-            cost: 0,
-            output: true,
-            blocked_money: 95,
-            state: 'locked'
-        },
-        {
-            name: "Lambda",
-            performance: 3,
-            cost: 2,
-            output: true,
-            blocked_money: 95,
-            state: 'locked'
-        },
+        // {
+        //     name: "Omega",
+        //     performance: 300,
+        //     cost: 59,
+        //     output: false,
+        //     blocked_money: 95,
+        //     state: 'locked'
+        // },
+        // {
+        //     name: "Psi",
+        //     performance: 0,
+        //     cost: 0,
+        //     output: true,
+        //     blocked_money: 95,
+        //     state: 'locked'
+        // },
+        // {
+        //     name: "Lambda",
+        //     performance: 3,
+        //     cost: 2,
+        //     output: true,
+        //     blocked_money: 95,
+        //     state: 'locked'
+        // },
     ],
     load: [
         {
@@ -71,14 +71,14 @@ export const response = {
         },
         {
             name: "Кухня",
-            performance: 512,
+            performance: 0,
             order: 2
         },
-        {
-            name: "Дача",
-            performance: 0,
-            order: 4
-        }
+        // {
+        //     name: "Дача",
+        //     performance: 0,
+        //     order: 4
+        // }
     ],
     profile: {
         name: "Delta",

@@ -37,26 +37,30 @@
 
 .Item1 {
   grid-area: 1/1/1/1;
-  //align-self: start;
-  justify-self: start;
+  padding-left: 32px;
 }
 
 .Item2 {
   grid-area: 1/2/1/2;
-  justify-self: start;
-  align-self: end;
+  position: relative;
+  left: 36px;
+  //justify-self: end;
+  //align-self: end;
 }
 
 .Item3 {
   grid-area: 1/1/1/1;
-  justify-self: start;
+  padding-left: 32px;
+  //justify-self: start;
   //align-self: start;
 }
 
 .Item4 {
   grid-area: 1/2/1/2;
-  justify-self: start;
-  align-self: start;
+  position: relative;
+  left: 36px;
+  //justify-self: start;
+  //align-self: start;
 }
 
 .Item5 {

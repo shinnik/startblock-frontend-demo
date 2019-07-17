@@ -3,15 +3,22 @@ import {responsiveFontSizes} from "@material-ui/core/styles";
 
 let theme = createMuiTheme({
     typography: {
-        allVariants: {
-            color: 'white'
+        h6: {
+            fontSize: '26px'
+        },
+        h5: {
+            fontSize: '38px',
         },
         h3: {
             fontSize: '44px',
-
+            color: 'white'
         },
         body1: {
-            fontSize: '15px'
+            fontSize: '15px',
+            color: 'white'
+        },
+        body2: {
+            fontSize: '24px'
         },
         fontFamily: [
             'Manrope',
