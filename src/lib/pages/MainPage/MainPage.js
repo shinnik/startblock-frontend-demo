@@ -18,7 +18,7 @@ const shift = {
 };
 
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock}) {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     useEffect(() => {
         new Promise(resolve => {
             resolve(response);
