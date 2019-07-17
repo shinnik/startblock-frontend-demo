@@ -82,8 +82,8 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
             <Box className={styles.MoneyInfo}>
                 <Box className={styles.Balance}>
                     <Typography display={"inline"}>Баланс:&nbsp;</Typography>
-                    <Typography style={{fontFamily: 'Roboto Mono'}} display={"inline"} variant='body1'>{`${profile.money}`}&nbsp;</Typography>
-                    <Typography display={"inline"}>{`${currency}`}</Typography>
+                    <Typography style={{fontFamily: 'Roboto Mono'}} display={"inline"} variant='body1'>{`${profile.money}`}</Typography>
+                    <Typography display={"inline"}>&nbsp;{`${currency}`}</Typography>
                 </Box>
                 <Box className={styles.ReadyToRelease}>
                     <Typography display={"inline"} variant='body1' style={{justifySelf: 'start'}}>{`Готово к снятию:`}&nbsp;</Typography>
@@ -94,7 +94,10 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
                 </Box>
             </Box>
             <br/>
-            <Typography variant='body1'>{`${multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
+            <Typography display={"inline"} variant={"body1"} style={{fontFamily: 'Roboto Mono'}}>
+                {multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)}
+            </Typography>
+            <Typography display={"inline"} variant='body1'>&nbsp;{`${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
             <br/>
             <Paper className={styles.Table}>
                 <Table size='small'>
@@ -109,7 +112,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
                         {
                             multidata.map((value, index) => <TableRow className={value.state !== 'locked' ? mystyles.unusual : ''}  key={index}>
                                 <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
-                                <TableCell align='right'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
+                                <TableCell align='right'><Typography style={{fontFamily: 'Roboto Mono'}} color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
                                 <TableCell align='center'> <LockState id={index} istate={value.state} onUnlock={onUnlock} />
                                 </TableCell>
                             </TableRow>)
