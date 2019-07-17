@@ -13,7 +13,7 @@ export const response = {
             name: "Alpha",
             performance: 52,
             cost: 5,
-            output: true,
+            output: false,
             blocked_money: 8,
             state: 'locked'
         },
@@ -21,7 +21,7 @@ export const response = {
             name: "Beta",
             performance: 2,
             cost: 1,
-            output: true,
+            output: false,
             blocked_money: 401,
             state: 'locked'
         },

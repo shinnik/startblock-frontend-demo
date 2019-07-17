@@ -80,9 +80,18 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
             </Box>
             <br/>
             <Box className={styles.MoneyInfo}>
-                <Typography variant='body1'>{`Баланс: ${profile.money} ${currency}`}</Typography>
-                <Typography variant='body1' style={{justifySelf: 'end'}}>{`Готово к снятию:`}</Typography>
-                <Typography variant='body1' color='primary'>{`${profile.money-multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency}`}</Typography>
+                <Box className={styles.Balance}>
+                    <Typography display={"inline"}>Баланс:&nbsp;</Typography>
+                    <Typography style={{fontFamily: 'Roboto Mono'}} display={"inline"} variant='body1'>{`${profile.money}`}&nbsp;</Typography>
+                    <Typography display={"inline"}>{`${currency}`}</Typography>
+                </Box>
+                <Box className={styles.ReadyToRelease}>
+                    <Typography display={"inline"} variant='body1' style={{justifySelf: 'start'}}>{`Готово к снятию:`}&nbsp;</Typography>
+                    <Box className={styles.ReadyToRelease__button}>
+                        <Typography style={{fontFamily: 'Roboto Mono'}} display={"inline"} variant='body1'>{`${profile.money-multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)}`}</Typography>
+                        <Typography display={"inline"} variant='body1' style={{justifySelf: 'start'}}>&nbsp;{`${currency}`}</Typography>
+                    </Box>
+                </Box>
             </Box>
             <br/>
             <Typography variant='body1'>{`${multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>

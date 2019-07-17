@@ -6,6 +6,8 @@ import theme from './styles/theme'
 import './App.scss';
 import {Loader} from "./lib/components/Loader/Loader";
 import useWindowSize from "@rehooks/window-size";
+import './styles/fonts/manrope/web/index.css';
+import './styles/fonts/robotomono/robotomono.css';
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));

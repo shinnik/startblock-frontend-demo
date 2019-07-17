@@ -23,8 +23,22 @@
 
 .MoneyInfo {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: 5px;
+}
+
+.Balance {
+  grid-area: 1/1/1/1;
+}
+
+.ReadyToRelease {
+  grid-area: 1/2/1/4;
+
+  &__button {
+    display: inline-block;
+    color: #0099DC;
+    cursor: pointer;
+  }
 }
 
 .Grid1, .Grid2 {

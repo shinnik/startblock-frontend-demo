@@ -10,8 +10,11 @@ function CellInfo({ name, amount, money, flag }) {
 
     return <div className={styles.CellInfo}>
         {name && <Typography color={'textPrimary'} variant='h5'><b>{name}</b></Typography>}
-        {amount !== undefined && <Typography color={'secondary'} variant='h5'>{`${amount} ${watt}`}</Typography>}
-        {money !== undefined && <Typography color={'textSecondary'} variant='h5'>{`${money} ${cost}`}</Typography>}
+        {amount !== undefined && <Typography style={{fontFamily: 'Roboto Mono'}} display={"inline"} color={'secondary'} variant='h5'>{`${amount}`}</Typography> }
+        {amount !== undefined && <Typography display={"inline"} color={'secondary'} variant='h5'>&nbsp;{`${watt}`}</Typography>}
+        <br/>
+        {money !== undefined && <Typography style={{fontFamily: 'Roboto Mono'}}  display={"inline"} color={'textSecondary'} variant='h5'>{`${money}`}</Typography> }
+        {money !== undefined && <Typography display={"inline"} color={'textSecondary'} variant='h5' > {`${cost}`}</Typography>}
     </div>
 }
 
