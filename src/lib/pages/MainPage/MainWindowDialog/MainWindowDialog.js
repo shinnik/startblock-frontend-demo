@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import Box from "@material-ui/core/Box";
 import styles from "../MainPage.module.scss";
@@ -13,7 +13,6 @@ import { Close } from "@material-ui/icons";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent/DialogContent";
 import LockState from "./LockState";
-import {connect} from "react-redux";
 
 
 
@@ -36,7 +35,7 @@ const DialogTitle = withStyles(styles2)(props => {
     const { children, classes, onClose } = props;
     return (
         <MuiDialogTitle disableTypography className={classes.root}>
-            <Typography variant="h3"><b>{children}</b></Typography>
+            <Typography variant="h4"><b>{children}</b></Typography>
             {onClose ? (
                 <IconButton color='primary' aria-label="Close" className={classes.closeButton} onClick={onClose}>
                     <Close />
@@ -45,12 +44,6 @@ const DialogTitle = withStyles(styles2)(props => {
         </MuiDialogTitle>
     );
 });
-
-const DialogContent = withStyles(theme => ({
-    root: {
-        padding: theme.spacing(2),
-    },
-}))(MuiDialogContent);
 
 const tableRowStyles = theme => ({
     unusual: {
@@ -69,7 +62,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
         onClose={onClose}
     >
         <DialogTitle onClose={onClose}>Вывод токенов</DialogTitle>
-        <DialogContent><Box className={styles.DialogContent}>
+        <MuiDialogContent><Box className={styles.DialogContent}>
 
             <Box className={styles.FieldAndButton}>
                 <TextField
@@ -87,12 +80,12 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
             </Box>
             <br/>
             <Box className={styles.MoneyInfo}>
-                <Typography variant='body2'>{`Баланс: ${profile.money} ${currency}`}</Typography>
-                <Typography variant='body2' style={{justifySelf: 'end'}}>{`Готово к снятию:`}</Typography>
-                <Typography variant='body2' color='primary'>{`${profile.money-multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency}`}</Typography>
+                <Typography variant='body1'>{`Баланс: ${profile.money} ${currency}`}</Typography>
+                <Typography variant='body1' style={{justifySelf: 'end'}}>{`Готово к снятию:`}</Typography>
+                <Typography variant='body1' color='primary'>{`${profile.money-multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency}`}</Typography>
             </Box>
             <br/>
-            <Typography variant='body2'>{`${multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
+            <Typography variant='body1'>{`${multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)} ${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
             <br/>
             <Paper className={styles.Table}>
                 <Table size='small'>
@@ -115,7 +108,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
                     </TableBody>
                 </Table>
             </Paper>
-        </Box></DialogContent>
+        </Box></MuiDialogContent>
 
     </Dialog>
 }

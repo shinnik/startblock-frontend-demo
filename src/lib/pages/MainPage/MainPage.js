@@ -10,6 +10,7 @@ import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 import { connect } from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import * as response from "../../../store/mockData/backendMockData";
+import useWindowSize from '@rehooks/window-size';
 
 const shift = {
     position: 'relative',
@@ -35,8 +36,10 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
                     value.response.profile.money += Math.ceil(Math.random()*10)-5;
                     onFetchData(value);
                 })
-        }, 1000);
+        }, 5000);
     }, []);
+
+
 
 
     return <div className={styles.MainPage}>

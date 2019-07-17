@@ -21,15 +21,6 @@
     }
 }
 
-//.FirstBorder:before, .FirstBorder__grey:before {
-//    content: '';
-//    position: relative;
-//    width: 20px;
-//    border-left: $border-thickness solid $border-color;
-//    left: -$border-thickness;
-//    top: $x4;
-//}
-
 .MediumBorder {
     width: $y1;
     height: $x3;
@@ -51,17 +42,6 @@
     }
 }
 
-//.MediumBorder:before, .MediumBorder__grey:before {
-//    content: '';
-//    position: relative;
-//    height: 2px;
-//    width: 0;
-//    border-left: $border-thickness solid $border-color;
-//    left: -$border-thickness;
-//    top: $x3*0.87;
-//
-//}
-
 .LastBorder {
     width: $y1;
     height: $x3;
@@ -82,7 +62,7 @@
     position: relative;
     width: 0;
     height: 0;
-    top: $x3*0.885;
+    top: $x3*0.9;
     left: $y1*0.6;
     border-top: $triangle-size solid white;
     border-left: 2*$triangle-size solid $border-color;
@@ -125,7 +105,7 @@
     position: relative;
     width: 0;
     height: 0;
-    top: $x3*0.88;
+    top: $x3*0.9;
     left: $y1*0.2;
     border-top: $triangle-size solid transparent;
     border-right: 2*$triangle-size solid $border-color;

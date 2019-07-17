@@ -6,9 +6,9 @@ import styles from './Layout.module.scss';
 
 
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, ...rest }) => {
     return (
-        <div>
+        <div {...rest}>
             <Header/>
             <div className={styles.Layout}>
                 { children }

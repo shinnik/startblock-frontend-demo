@@ -5,17 +5,21 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import theme from './styles/theme'
 import './App.scss';
 import {Loader} from "./lib/components/Loader/Loader";
+import useWindowSize from "@rehooks/window-size";
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));
 
 
 function App() {
+    const windowSize = useWindowSize();
+
     return (
+
         <div className="App">
             <ThemeProvider theme={theme}>
                 <Router basename={process.env.PUBLIC_URL}>
-                        <Layout>
+                        <Layout style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}>
                             <Suspense fallback={<Loader/>}>
                                 <Switch>
                                     <Route path='/current' component={() => <MainPage flag="current" />} />

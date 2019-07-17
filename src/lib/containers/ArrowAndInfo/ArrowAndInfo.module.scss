@@ -7,7 +7,7 @@
 }
 
 .Box {
-  padding-left: 28px;
+  padding-left: 24px;
   padding-top: 24px;
 }
 
@@ -17,23 +17,36 @@
 .TriangleUp {
   width: 0;
   height: 0;
-  position: relative;
-  top: -$x1;
+  position: absolute;
+  top: 0;
   left: -$triangle-size*1.2;
-  border-left: $triangle-size solid transparent;
-  border-right: $triangle-size solid transparent;
+  border-left: $triangle-size solid white;
+  border-right: $triangle-size solid white;
   border-bottom: 2*$triangle-size solid $border-color;
+  border-left-style: dashed;
+  border-right-style: dashed;
 }
 
 .TriangleDown {
   width: 0;
   height: 0;
-  position: relative;
-  top: -8px;
+  position: absolute;
+  bottom: 0;
   left: -$triangle-size*1.2;
   border-left: $triangle-size solid white;
   border-right: $triangle-size solid white;
   border-top: 2*$triangle-size solid $border-color;
-  border-left-style: double;
-  border-right-style: double;
+  border-left-style: dashed;
+  border-right-style: dashed;
 }
+
+.TriangleDown:after {
+  position: absolute;
+  bottom: -4px;
+  left: -3px;
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: white;
+}
+
