@@ -3,19 +3,22 @@ import {createMuiTheme} from "@material-ui/core";
 let theme = createMuiTheme({
     typography: {
         h6: {
-            fontSize: '24px'
+            fontSize: '16px'
         },
         h5: {
+            fontSize: '24px'
+        },
+        h4: {
             fontSize: '32px',
         },
         h3: {
             fontSize: '40px',
         },
         body1: {
-            fontSize: '15px',
+            fontSize: '16px',
         },
         body2: {
-            fontSize: '24px'
+            fontSize: '14px'
         },
         fontFamily: [
             'Manrope',

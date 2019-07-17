@@ -9,9 +9,9 @@ function CellInfo({ name, amount, money, flag }) {
     const {currency, watt, energy, cost} = flag === 'current' ? c1 : c2;
 
     return <div className={styles.CellInfo}>
-        {name && <Typography color={'textPrimary'} variant='body2'><b>{name}</b></Typography>}
-        {amount !== undefined && <Typography color={'secondary'} variant='h6'>{`${amount} ${watt}`}</Typography>}
-        {money !== undefined && <Typography color={'textSecondary'} variant='h6'>{`${money} ${cost}`}</Typography>}
+        {name && <Typography color={'textPrimary'} variant='h5'><b>{name}</b></Typography>}
+        {amount !== undefined && <Typography color={'secondary'} variant='h5'>{`${amount} ${watt}`}</Typography>}
+        {money !== undefined && <Typography color={'textSecondary'} variant='h5'>{`${money} ${cost}`}</Typography>}
     </div>
 }
 

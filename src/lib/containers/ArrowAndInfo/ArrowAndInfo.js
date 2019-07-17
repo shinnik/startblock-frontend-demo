@@ -10,12 +10,12 @@ function ArrowAndInfo({ direction, amount, money, flag }) {
 
     return <div className={styles.ArrowAndInfo}>
         <Box className={styles.Box}>
-            {amount && <Typography style={{display: 'inline-block'}} variant='h5' color='secondary'> {numberSeparator(amount)} </Typography> }
-            {amount && <Typography style={{display: 'inline-block'}} color={"secondary"} variant={'h6'}>&nbsp;{`${watt}`}</Typography>}
+            {amount && <Typography style={{display: 'inline-block'}} variant='h4' color='secondary'> {numberSeparator(amount)} </Typography> }
+            {amount && <Typography style={{display: 'inline-block'}} color={"secondary"} variant={'h5'}>&nbsp;{`${watt}`}</Typography>}
             {!amount && <br/>}
             <br/>
-            {money && <Typography display={"inline"} variant='h5' color="textSecondary" > {numberSeparator(money)} </Typography> }
-            {money && <Typography display={"inline"} variant={'h6'} color={"textSecondary"} >&nbsp;{cost}</Typography>}
+            {money && <Typography display={"inline"} variant='h4' color="textSecondary" > {numberSeparator(money)} </Typography> }
+            {money && <Typography display={"inline"} variant={'h5'} color={"textSecondary"} >&nbsp;{cost}</Typography>}
             {!money && <br/>}
         </Box>
         <div className={direction ? styles.TriangleUp : styles.TriangleDown} />

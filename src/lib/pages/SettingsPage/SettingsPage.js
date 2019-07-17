@@ -42,7 +42,6 @@ const SettingsPage = (
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
                             variant="h4"
-                            component="h1"
                             gutterBottom>
                     Настройка энергетической ячейки
                 </Typography>
@@ -53,7 +52,6 @@ const SettingsPage = (
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
                             variant="h5"
-                            component="h2"
                             gutterBottom>
                     Подключенные генераторы и накопители
                 </Typography>

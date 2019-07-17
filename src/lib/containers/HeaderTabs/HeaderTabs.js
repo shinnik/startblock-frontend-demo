@@ -38,4 +38,4 @@ export const HeaderTabs = ({ specials, tabs }) => {
             {specials}
         </StyledTabs>
     )
-}
+};

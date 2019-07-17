@@ -16,10 +16,10 @@ function App() {
 
     return (
 
-        <div className="App">
+        <div className="App"  style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}>
             <ThemeProvider theme={theme}>
                 <Router basename={process.env.PUBLIC_URL}>
-                        <Layout style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}>
+                        <Layout>
                             <Suspense fallback={<Loader/>}>
                                 <Switch>
                                     <Route path='/current' component={() => <MainPage flag="current" />} />
