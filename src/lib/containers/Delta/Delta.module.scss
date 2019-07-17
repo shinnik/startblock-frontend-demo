@@ -49,17 +49,19 @@
 //@media screen and (min-width: 600px){
   .Delta {
     display: grid;
-    width: 550px;
+    width: 611px;
+    height: 113px;
     //grid-template-columns: 3fr 1.5fr 1fr 1.3fr;
-    grid-template-columns: 220px 100px 130px 70px;
-    grid-template-rows: 1.3fr 1fr;
-    grid-column-gap: 10px;
-    padding: 20px;
+    grid-template-columns: 206px 132px 148px 101px;
+    //grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   .Item1 {
     grid-area: 1/1/1/1;
     align-self: center;
+    padding-top: 24px;
+    padding-left: 24px;
   }
 
   .Item2 {
@@ -67,19 +69,27 @@
     display: flex;
     justify-content: flex-start;
     align-self: center;
+    padding-top: 24px;
+    padding-left: 44px;
   }
 
+  //Пополнить
   .Item3 {
     grid-area: 1/3/1/3;
     width: fit-content;
+    padding-top: 24px;
+    padding-left: 16px;
   }
 
   .Item4 {
     grid-area: 1/4/1/4;
+    padding-top: 24px;
+    padding-left: 16px;
   }
 
   .Item5 {
     grid-area: 2/1/2/1;
+    padding-left: 24px;
   }
 
   .Item6 {
@@ -87,6 +97,7 @@
     display: flex;
     justify-content: flex-start;
     align-self: flex-start;
+    padding-left: 44px;
   }
 
 //}

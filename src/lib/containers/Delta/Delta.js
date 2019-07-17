@@ -6,21 +6,23 @@ import {currency} from "../../constants/names";
 import Button from '@material-ui/core/Button/index';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import AnimatedNumbers from 'animated-number-react';
+import {Box} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => createStyles({
     delta: {
         // backgroundColor: '#0099DC',
     },
-    deltafont: {
-        color: 'white',
-    },
     button1: {
         color: 'black',
         backgroundColor: 'white',
+        width: '132px',
+        height: '40px'
     },
     button2: {
         color: 'white',
         border: '1px solid #FFFFFF',
+        width: '85px',
+        height: '40px'
     }
 }));
 
@@ -28,12 +30,12 @@ function Delta({name, type, money, pullOffFunc}) {
     const classes = useStyles();
 
     return <Paper elevation={2} className={`${classes.delta} ${styles.Delta}`}>
-            <Typography className={`${styles.Item1} ${classes.deltafont}`} variant='h3'> <b> {name} </b> </Typography>
-            <Typography className={`${styles.Item5} ${classes.deltafont}`} variant='body1'> {type} </Typography>
-        <Typography className={`${styles.Item2} ${classes.deltafont}`} variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
-            <Typography className={`${styles.Item6} ${classes.deltafont}`} variant='body1'> {currency} </Typography>
-            <Button className={`${styles.Item3} ${classes.button1}`} variant='contained' color='default'>Пополнить</Button>
-            <Button onClick={pullOffFunc} className={`${styles.Item4} ${classes.button2}`} variant='outlined' color='default' >Снять</Button>
+            <Typography className={`${styles.Item1}`} variant='h3'> <b> {name} </b> </Typography>
+            <Typography className={`${styles.Item5}`} variant='body1'> {type} </Typography>
+        <Typography className={`${styles.Item2}`} variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
+            <Typography className={`${styles.Item6}`} variant='body1'> {currency} </Typography>
+        <Box className={styles.Item3}> <Button className={`${classes.button1}`} variant='contained' color='default'>Пополнить</Button> </Box>
+        <Box className={styles.Item4}> <Button onClick={pullOffFunc} className={`${classes.button2}`} variant='outlined' color='default' >Снять</Button> </Box>
     </Paper>
 }
 

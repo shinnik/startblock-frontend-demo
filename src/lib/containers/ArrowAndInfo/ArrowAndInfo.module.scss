@@ -1,7 +1,9 @@
 @import "../../constants/arrow";
 
 .ArrowAndInfo {
+  position: relative;
   border-left: $border-thickness solid $border-color;
+  height: 132px;
 }
 
 

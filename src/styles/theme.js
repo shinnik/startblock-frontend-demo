@@ -3,6 +3,16 @@ import {responsiveFontSizes} from "@material-ui/core/styles";
 
 let theme = createMuiTheme({
     typography: {
+        allVariants: {
+            color: 'white'
+        },
+        h3: {
+            fontSize: '44px',
+
+        },
+        body1: {
+            fontSize: '15px'
+        },
         fontFamily: [
             'Manrope',
             '-apple-system',
@@ -38,6 +48,7 @@ let theme = createMuiTheme({
         MuiPaper: {
             elevation2: {
                 backgroundColor: '#0099DC',
+                borderRadius: '8px',
             }
         },
         MuiTableCell: {
