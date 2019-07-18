@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c6e1704bc60b69dd97e262fd791adde9",
+    "revision": "b60e5e403ddc8a694e3119d5ae222581",
     "url": "/startblock-frontend-demo/index.html"
   },
   {
-    "revision": "ac51c7be9de101c21ebe",
+    "revision": "1ca093ca3d1085fb90dc",
     "url": "/startblock-frontend-demo/static/css/6.29930ea2.chunk.css"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/startblock-frontend-demo/static/css/7.203edad7.chunk.css"
   },
   {
-    "revision": "8ee1bdd63bee5c1f2c72",
+    "revision": "69accf256ce006792967",
     "url": "/startblock-frontend-demo/static/css/main.36747547.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/startblock-frontend-demo/static/js/0.f33b0946.chunk.js"
   },
   {
-    "revision": "6a0afd64c4b5e9bda966",
-    "url": "/startblock-frontend-demo/static/js/3.e8bb0f96.chunk.js"
+    "revision": "933f0ba21150b8644493",
+    "url": "/startblock-frontend-demo/static/js/3.3958acff.chunk.js"
   },
   {
     "revision": "feeae41267e7433d912f",
@@ -32,20 +32,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/startblock-frontend-demo/static/js/5.3d3ca5b3.chunk.js"
   },
   {
-    "revision": "ac51c7be9de101c21ebe",
-    "url": "/startblock-frontend-demo/static/js/6.402004d6.chunk.js"
+    "revision": "1ca093ca3d1085fb90dc",
+    "url": "/startblock-frontend-demo/static/js/6.37299254.chunk.js"
   },
   {
     "revision": "4ffb56ceb0adcd8f7d44",
     "url": "/startblock-frontend-demo/static/js/7.60dbb64f.chunk.js"
   },
   {
-    "revision": "8ee1bdd63bee5c1f2c72",
-    "url": "/startblock-frontend-demo/static/js/main.7312a6c2.chunk.js"
+    "revision": "69accf256ce006792967",
+    "url": "/startblock-frontend-demo/static/js/main.c5b12250.chunk.js"
   },
   {
-    "revision": "362ad673164281c86891",
-    "url": "/startblock-frontend-demo/static/js/runtime~main.f07ae5fc.js"
+    "revision": "3aa5e7eec3e9e71ed53d",
+    "url": "/startblock-frontend-demo/static/js/runtime~main.3c163d24.js"
   },
   {
     "revision": "df8e9f1e346951c12068011936e980f9",
