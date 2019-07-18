@@ -11,6 +11,6 @@ export default function numberFormat(num) {
         return num;
     return q.map((value, index) => <span key={index}>
         {value}
-        {index < q.length-1 && <span style={{fontSize: '8px'}}> </span>}
+        {index < q.length-1 && <span style={{display: 'inline-block', fontSize: '16px'}}> </span>}
     </span>);
 }
