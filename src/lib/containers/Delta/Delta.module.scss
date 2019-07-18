@@ -24,13 +24,11 @@
   }
 
   .Item2 {
-    grid-area: 1/2/1/2;
-    display: flex;
-    justify-content: flex-start;
-    align-self: center;
+    grid-area: 1/2/3/3;
     padding-top: 24px;
     padding-left: 44px;
     color: white;
+    justify-self: end;
   }
 
   .Item3 {
@@ -52,13 +50,13 @@
     color: white;
   }
 
-  .Item6 {
-    grid-area: 2/2/2/2;
-    display: flex;
-    justify-content: flex-start;
-    align-self: flex-start;
-    padding-left: 44px;
-    color: white;
-  }
+  //.Item6 {
+  //  grid-area: 2/2/2/2;
+  //  display: flex;
+  //  justify-self: start;
+  //  align-self: flex-start;
+  //  padding-left: 36px;
+  //  color: white;
+  //}
 
 

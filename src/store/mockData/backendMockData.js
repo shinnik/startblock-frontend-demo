@@ -82,6 +82,6 @@ export const response = {
     ],
     profile: {
         name: "Delta",
-        money: 1125
+        money: 2442
     }
 };

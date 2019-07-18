@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function numberFormat(num) {
     if (!isFinite(num)) {
         return num;
@@ -5,7 +7,8 @@ export default function numberFormat(num) {
 
     var parts = num.toString().split('.');
 
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
 
     return parts.join('.');
 }

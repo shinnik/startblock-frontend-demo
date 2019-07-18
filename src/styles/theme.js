@@ -65,7 +65,7 @@ let theme = createMuiTheme({
         },
         MuiTableRow: {
             root: {
-                height: '60px'
+                height: '62px'
             }
         }
     }

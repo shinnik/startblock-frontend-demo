@@ -10,7 +10,6 @@ import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 import { connect } from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import * as response from "../../../store/mockData/backendMockData";
-import useWindowSize from '@rehooks/window-size';
 
 const shift = {
     position: 'relative',

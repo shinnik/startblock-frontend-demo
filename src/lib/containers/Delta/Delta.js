@@ -29,8 +29,10 @@ function Delta({name, type, money, pullOffFunc}) {
     return <Paper elevation={2} className={`${styles.Delta}`}>
             <Typography className={`${styles.Item1}`} variant='h3'> <b> {name} </b> </Typography>
             <Typography style={{fontSize:'15px'}} className={`${styles.Item5}`} variant='body1'> {type} </Typography>
-        <Typography style={{fontFamily: 'Roboto Mono'}}  className={`${styles.Item2}`} variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
-            <Typography style={{fontSize:'15px'}}  className={`${styles.Item6}`} variant='body1'> {currency} </Typography>
+        <Box className={`${styles.Item2}`}>
+            <Typography style={{fontFamily: 'Roboto Mono'}}  variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
+            <Typography style={{fontSize:'15px'}} variant='body1'> {currency} </Typography>
+        </Box>
         <Box className={styles.Item3}> <Button className={`${classes.button1}`} variant='contained' color='default'>Пополнить</Button> </Box>
         <Box className={styles.Item4}> <Button onClick={pullOffFunc} className={`${classes.button2}`} variant='outlined' color='default' >Снять</Button> </Box>
     </Paper>

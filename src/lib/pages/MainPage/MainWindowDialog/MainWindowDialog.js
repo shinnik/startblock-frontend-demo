@@ -19,8 +19,8 @@ import LockState from "./LockState";
 const styles2 = theme => ({
     root: {
         margin: 0,
-        paddingTop: theme.spacing(5),
-        paddingLeft: theme.spacing(4)
+        paddingTop: '40px',
+        paddingLeft: '32px'
     },
     closeButton: {
         position: 'absolute',
@@ -45,17 +45,7 @@ const DialogTitle = withStyles(styles2)(props => {
     );
 });
 
-const tableRowStyles = theme => ({
-    unusual: {
-        backgroundColor: '#fdfdfd',
-    }
-});
-
-const useStyles = makeStyles(tableRowStyles);
-
-
 function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
-    const mystyles = useStyles();
 
     return  <Dialog
         open={open}
@@ -99,6 +89,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
             </Typography>
             <Typography display={"inline"} variant='body1'>&nbsp;{`${currency} используются для подключения к другим пользователям. Разблокировать их можно в таблице ниже:`}</Typography>
             <br/>
+            <br/>
             <Paper className={styles.Table}>
                 <Table size='small'>
                     <TableHead>
@@ -110,7 +101,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
                     </TableHead>
                     <TableBody>
                         {
-                            multidata.map((value, index) => <TableRow className={value.state !== 'locked' ? mystyles.unusual : ''}  key={index}>
+                            multidata.map((value, index) => <TableRow key={index}>
                                 <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
                                 <TableCell align='right'><Typography style={{fontFamily: 'Roboto Mono'}} color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
                                 <TableCell align='center'> <LockState id={index} istate={value.state} onUnlock={onUnlock} />
