@@ -44,7 +44,7 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
 
 
     return <div className={styles.MainPage}>
-       <MainWindowDialog style={{zoom: windowSize.innerWidth/700}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
+       <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>
