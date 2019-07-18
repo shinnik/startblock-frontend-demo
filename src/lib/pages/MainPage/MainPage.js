@@ -10,6 +10,7 @@ import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 import { connect } from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import * as response from "../../../store/mockData/backendMockData";
+import useWindowSize from "@rehooks/window-size";
 
 const shift = {
     position: 'relative',
@@ -18,6 +19,7 @@ const shift = {
 
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock}) {
     const [open, setOpen] = useState(false);
+    const windowSize = useWindowSize();
     useEffect(() => {
         new Promise(resolve => {
             resolve(response);
@@ -42,7 +44,7 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
 
 
     return <div className={styles.MainPage}>
-       <MainWindowDialog open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
+       <MainWindowDialog style={{zoom: windowSize.innerWidth/700}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>

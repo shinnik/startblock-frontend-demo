@@ -45,11 +45,12 @@ const DialogTitle = withStyles(styles2)(props => {
     );
 });
 
-function MainWindowDialog ({open, onClose, profile, multidata, onUnlock}) {
+function MainWindowDialog ({open, onClose, profile, multidata, onUnlock, ...rest}) {
 
     return  <Dialog
         open={open}
         onClose={onClose}
+        {...rest}
     >
         <DialogTitle onClose={onClose}>Вывод токенов</DialogTitle>
         <MuiDialogContent><Box className={styles.DialogContent}>
