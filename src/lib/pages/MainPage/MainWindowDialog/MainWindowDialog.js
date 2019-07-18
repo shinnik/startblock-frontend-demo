@@ -7,7 +7,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { currency } from "../../../constants/names";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {makeStyles, Paper, Table, TableBody, TableCell, TableHead, TableRow, withStyles} from "@material-ui/core";
+import { Paper, Table, TableBody, TableCell, TableHead, TableRow, withStyles} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import { Close } from "@material-ui/icons";
 import MuiDialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
