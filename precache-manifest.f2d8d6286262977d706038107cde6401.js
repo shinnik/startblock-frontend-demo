@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0ba3064bef5e0815f0ecab0bbe1e974e",
+    "revision": "9073de2b6808ad87bd070683fc716c2f",
     "url": "/startblock-frontend-demo/index.html"
   },
   {
-    "revision": "99d9c78846ec206cf341",
+    "revision": "4048ba93118497b6416e",
     "url": "/startblock-frontend-demo/static/css/6.f811ef7e.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/startblock-frontend-demo/static/js/5.b6e99af2.chunk.js"
   },
   {
-    "revision": "99d9c78846ec206cf341",
-    "url": "/startblock-frontend-demo/static/js/6.6729908d.chunk.js"
+    "revision": "4048ba93118497b6416e",
+    "url": "/startblock-frontend-demo/static/js/6.6e20b980.chunk.js"
   },
   {
     "revision": "2da44e13f75030e0c1b2",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/startblock-frontend-demo/static/js/main.eda40e0a.chunk.js"
   },
   {
-    "revision": "2a01170eb7ac22f996ab",
-    "url": "/startblock-frontend-demo/static/js/runtime~main.2e15357e.js"
+    "revision": "f6165adda4f2882ff51e",
+    "url": "/startblock-frontend-demo/static/js/runtime~main.ba43c4c2.js"
   },
   {
     "revision": "df8e9f1e346951c12068011936e980f9",
