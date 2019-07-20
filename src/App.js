@@ -13,7 +13,7 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));
 
-const client = new W3CWebSocket('ws://192.168.0.21:8000');
+const client = new W3CWebSocket('ws://192.168.0.21:3000');
 
 function App() {
     const windowSize = useWindowSize();
