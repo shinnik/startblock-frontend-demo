@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Typography from "@material-ui/core/Typography/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch/Switch";
 import { texts } from '../../constants/texts'
-import { p2pradios } from '../../models/radiobuttons';
-import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup';
-
-
 import styles from './ServiceBox.module.scss'
-import {ManagedLoadSpecific} from "../ManagedLoadSpecific/ManagedLoadSpecific";
 
 const StyledSwitch = withStyles({
     switchBase: {

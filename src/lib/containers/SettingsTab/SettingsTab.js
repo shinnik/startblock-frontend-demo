@@ -38,6 +38,7 @@ export default withStyles({
         marginLeft: 'auto',
         minWidth: 'auto !important',
         fontSize: '14px !important',
-        translateX: '1px'
+        translateX: '1px',
+        paddingRight: '8px'
     }
 })(SettingsTab)

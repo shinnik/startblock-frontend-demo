@@ -34,7 +34,7 @@ function App() {
 
     return (
 
-        <div className="App"  style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}>
+        <div className="App"  style={{zoom: Math.min(windowSize.innerWidth/800, 1)}}>
             <ThemeProvider theme={theme}>
                 <Router basename={process.env.PUBLIC_URL}>
                         <Layout>

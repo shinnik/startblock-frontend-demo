@@ -5,6 +5,7 @@ import { Icon } from '../../components/Icon/Icon';
 import { tabs } from '../../constants/navigations';
 
 import styles from './Header.module.scss';
+import FlexHorizontalWrapper from "../../wrappers/flex-horizontal/FlexHorizontalWrapper";
 
 // location is here to let material-ui's
 // Tabs component know that somewhere
@@ -21,8 +22,10 @@ export const Header = (props) => {
     return (
         <div className={styles.container}>
             <Location.Provider value={{ path, setPath }}>
-                <Icon/>
-                <HeaderTabs tabs={tabs} specials={<SettingsTab label='Настройки'/>}/>
+                <FlexHorizontalWrapper>
+                    <Icon/>
+                    <HeaderTabs tabs={tabs} specials={<SettingsTab label='Настройки'/>}/>
+                </FlexHorizontalWrapper>
             </Location.Provider>
         </div>
     )
