@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, {Suspense, useEffect} from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { Layout } from "./lib/components/Layout/Layout";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
@@ -8,13 +8,29 @@ import {Loader} from "./lib/components/Loader/Loader";
 import useWindowSize from "@rehooks/window-size";
 import './styles/fonts/manrope/web/index.css';
 import './styles/fonts/robotomono/robotomono.css';
+import { w3cwebsocket as W3CWebSocket } from "websocket";
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));
 
+const client = new W3CWebSocket('ws://192.168.0.21:8000');
 
 function App() {
     const windowSize = useWindowSize();
+    useEffect(() => {
+        client.onopen = () => {
+            console.log('WebSocket Client Connected');
+        };
+    },[]);
+    useEffect(() => {
+        client.onmessage = (message) => {
+            console.log(message);
+        };
+    });
+
+    const handleClick = () => {
+        client.send('HFASDJGFASDGHFASHGDFJHAGS');
+    };
 
     return (
 
@@ -33,6 +49,7 @@ function App() {
                         </Layout>
                     </Router>
             </ThemeProvider>
+            <button onClick={handleClick} >Hello</button>
         </div>
     );
 }
