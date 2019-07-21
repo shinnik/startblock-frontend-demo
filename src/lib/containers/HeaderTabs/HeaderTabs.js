@@ -9,7 +9,7 @@ import NavigationTab from "../NavigationTab/NavigationTab";
 
 const StyledTabs = withStyles(({ header }) => ({
     root: {
-        width: '100%',
+        width: 'calc(88vw - 32px)',
         ...header
     },
     indicator: {
