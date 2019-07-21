@@ -3,19 +3,19 @@ import { InputPair } from "../../containers/InputPair/InputPair";
 import { capacityInput, costInput, powerInput } from "../../containers/InputPair/inputTypes";
 import Typography from "@material-ui/core/Typography/Typography";
 
-export const ParametersBlock = ({ onTyping, inputs, currentHeader }) => {
+export const ParametersBlock = ({ onTyping, current }) => {
     return (
         <>
-            {inputs && (
+            {current.get('inputTypes') && (
                 <>
                     <Typography style={{fontWeight: 600}}
                                 variant="h5"
                                 component="h2"
                                 gutterBottom>
-                        {currentHeader}
+                        {current.get('header')}
                     </Typography>
-                    <InputPair onTyping={onTyping} first={inputs.get('0')}
-                               second={inputs.get('1')}/>
+                    <InputPair onTyping={onTyping} first={current.getIn(['inputTypes', '0'])}
+                               second={current.getIn(['inputTypes', '1'])}/>
                 </>
             )}
 
