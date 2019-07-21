@@ -38,7 +38,7 @@ const SettingsPage = (
         onRosetteNameChange}) => {
     const currentGenerator = radios.get(currentGeneratorNumber);
     return (
-        <div>
+        <div className={styles.page}>
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
                             variant="h4"
@@ -62,8 +62,6 @@ const SettingsPage = (
            { currentGeneratorNumber !== 0 &&
            <div className={styles.block}>
                 <ParametersBlock onTyping={onParameterChange}
-                                 // inputs={currentGenerator.get('inputTypes')}
-                                 // currentHeader={currentGenerator.get('header')}
                                  current={currentGenerator}/>
             </div> }
             <div className={styles.block}>

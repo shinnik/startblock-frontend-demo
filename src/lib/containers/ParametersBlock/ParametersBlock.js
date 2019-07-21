@@ -1,6 +1,5 @@
 import React from 'react';
 import { InputPair } from "../../containers/InputPair/InputPair";
-import { capacityInput, costInput, powerInput } from "../../containers/InputPair/inputTypes";
 import Typography from "@material-ui/core/Typography/Typography";
 
 export const ParametersBlock = ({ onTyping, current }) => {
