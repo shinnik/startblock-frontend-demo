@@ -52,6 +52,6 @@ export const initialState = fromJS({
       current: '0'
   },
   balance: {
-      status: true
+      status: false
   }
 });
