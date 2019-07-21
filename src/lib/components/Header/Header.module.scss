@@ -1,10 +1,19 @@
 @import "../../constants/header";
 
-.container {
-  display: flex;
-  position: relative;
-  top: 0;
-  height: 48px;
-  width: 100%;
-  background-color: $header-background-color;
+.header {
+  &__outer-container {
+    display: flex;
+    position: relative;
+    top: 0;
+    height: 48px;
+    width: 100%;
+    background-color: $header-background-color;
+  }
+  &__inner-container {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 32px);
+    //padding-right: 32px;
+    //width: 100%;
+  }
 }

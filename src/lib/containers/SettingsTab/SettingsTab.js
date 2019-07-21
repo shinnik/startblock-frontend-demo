@@ -35,10 +35,10 @@ const SettingsTab = ({ label, ...props }) => {
 export default withStyles({
     root: {
         opacity: '1 !important',
-        marginLeft: 'auto',
+        // paddingLeft: '-32px',
+        // marginLeft: 'auto',
         minWidth: 'auto !important',
         fontSize: '14px !important',
-        translateX: '1px',
-        paddingRight: '8px'
+        // paddingRight: '8px'
     }
 })(SettingsTab)

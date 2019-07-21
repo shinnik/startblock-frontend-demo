@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { Layout } from "./lib/components/Layout/Layout";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
@@ -11,7 +11,6 @@ import './styles/fonts/robotomono/robotomono.css';
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));
-
 
 function App() {
     const windowSize = useWindowSize();
