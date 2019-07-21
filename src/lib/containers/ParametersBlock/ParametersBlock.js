@@ -3,7 +3,7 @@ import { InputPair } from "../../containers/InputPair/InputPair";
 import { capacityInput, costInput, powerInput } from "../../containers/InputPair/inputTypes";
 import Typography from "@material-ui/core/Typography/Typography";
 
-export const ParametersBlock = ({ onTyping, inputs }) => {
+export const ParametersBlock = ({ onTyping, inputs, currentHeader }) => {
     return (
         <>
             {inputs && (
@@ -12,7 +12,7 @@ export const ParametersBlock = ({ onTyping, inputs }) => {
                                 variant="h5"
                                 component="h2"
                                 gutterBottom>
-                        Параметры бензогенератора
+                        {currentHeader}
                     </Typography>
                     <InputPair onTyping={onTyping} first={inputs.get('0')}
                                second={inputs.get('1')}/>

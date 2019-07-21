@@ -61,7 +61,9 @@ const SettingsPage = (
             </div>
            { currentGeneratorNumber !== 0 &&
            <div className={styles.block}>
-                <ParametersBlock onTyping={onParameterChange} inputs={currentGenerator.get('inputTypes')} />
+                <ParametersBlock onTyping={onParameterChange}
+                                 inputs={currentGenerator.get('inputTypes')}
+                                 currentHeader={currentGenerator.get('header')}/>
             </div> }
             <div className={styles.block}>
                 <Typography style={{fontWeight: 600}}
