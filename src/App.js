@@ -9,7 +9,7 @@ import useWindowSize from "@rehooks/window-size";
 import './styles/fonts/manrope/web/index.css';
 import './styles/fonts/robotomono/robotomono.css';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
-import {webSocketServer} from "./lib/constants/endpoints";
+import {backendServer, webSocketServer} from "./lib/constants/endpoints";
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));
@@ -25,10 +25,20 @@ function App() {
         client.onmessage = (message) => {
             console.log(message);
         };
+        fetch(backendServer)
+            .then((value => {
+                value.text()
+                    .then(value1 => {
+                        console.log(value1);
+                    })
+            }))
     },[]);
 
     const handleClick = () => {
-        client.send('HFASDJGFASDGHFASHGDFJHAGS');
+        client.send('{\n' +
+            '  "get": "randomString",\n' +
+            '  "length": 12\n' +
+            '}');
     };
 
     return (
