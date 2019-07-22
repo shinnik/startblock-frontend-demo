@@ -8,6 +8,7 @@ import {Loader} from "./lib/components/Loader/Loader";
 import useWindowSize from "@rehooks/window-size";
 import './styles/fonts/manrope/web/index.css';
 import './styles/fonts/robotomono/robotomono.css';
+import LoginPage from "./lib/pages/LoginPage/LoginPage";
 
 const MainPage = React.lazy(() => import("./lib/pages/MainPage/MainPage"));
 const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsPage"));
@@ -20,16 +21,19 @@ function App() {
         <div className="App"  style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}>
             <ThemeProvider theme={theme}>
                 <Router basename={process.env.PUBLIC_URL}>
+                    <Switch>
+                        <Route path='/login' component={() => <LoginPage/>}/>
                         <Layout>
                             <Suspense fallback={<Loader/>}>
-                                <Switch>
+                                {/*<Switch>*/}
                                     <Route path='/current' component={() => <MainPage flag="current" />} />
                                     <Route path='/month' component={() => <MainPage flag="month" />} />
                                     <Route path='/settings' component={() => <SettingsPage />} />
                                     <Redirect to="/current"/>
-                                </Switch>
+                                {/*</Switch>*/}
                             </Suspense>
                         </Layout>
+                    </Switch>
                     </Router>
             </ThemeProvider>
         </div>

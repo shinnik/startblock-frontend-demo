@@ -8,7 +8,7 @@ import A from './icons/A.svg';
 
 import styles from './Icon.module.scss';
 
-export const Icon = () => {
+export const Icon = ({ className }) => {
 
     const logos = [I, D, E, A];
     const [clicked, setClicked] = useState(false);
@@ -23,7 +23,11 @@ export const Icon = () => {
     return (
         <Location.Consumer>
             {({ setPath }) =>
-                <div onClick={() => {setClicked(true); setPath('current')}} className={styles.LogoContainer}>
+                <div onClick={() => {setClicked(true); setPath('current')}}
+                     className={
+                         className
+                        ? className
+                        : styles.LogoContainer }>
                     { clicked && <Redirect to='current'/> }
                     { logos.map((logo, index) => <img key={index} className={styles[stringArr({ I, D, E, A })[index]]} src={logo}/>) }
                 </div>}
