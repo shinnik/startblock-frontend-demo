@@ -1,51 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "15e130cb315c9a6da46e1c92d2fbabf7",
+    "revision": "4bbfd4c64193ce03463a3846a8eb26b2",
     "url": "/startblock-frontend-demo/index.html"
   },
   {
-    "revision": "29cc67bc948fef680e2b",
-    "url": "/startblock-frontend-demo/static/css/6.0657f1f1.chunk.css"
+    "revision": "64fb9ca61397871c1660",
+    "url": "/startblock-frontend-demo/static/css/5.0657f1f1.chunk.css"
   },
   {
-    "revision": "c222d7422fbd9184c1b9",
-    "url": "/startblock-frontend-demo/static/css/7.df1dbf34.chunk.css"
+    "revision": "681f8402fefe1974415f",
+    "url": "/startblock-frontend-demo/static/css/6.df1dbf34.chunk.css"
   },
   {
-    "revision": "b426498346003e0a6c4f",
-    "url": "/startblock-frontend-demo/static/css/main.ab208bd8.chunk.css"
+    "revision": "e82d49070a07c1f796b0",
+    "url": "/startblock-frontend-demo/static/css/main.2d5016c6.chunk.css"
   },
   {
-    "revision": "9fd484bae91cedae42ca",
-    "url": "/startblock-frontend-demo/static/js/0.807bf465.chunk.js"
+    "revision": "54c47b037db7b47d61d5",
+    "url": "/startblock-frontend-demo/static/js/2.333090d8.chunk.js"
   },
   {
-    "revision": "82ce50213376b0a3fee8",
-    "url": "/startblock-frontend-demo/static/js/3.5c01d088.chunk.js"
+    "revision": "00b874520746deebdf98",
+    "url": "/startblock-frontend-demo/static/js/3.b098b0d9.chunk.js"
   },
   {
-    "revision": "9a9460ae1802d27733c0",
-    "url": "/startblock-frontend-demo/static/js/4.740c5a85.chunk.js"
+    "revision": "7218f51db7c355557c7f",
+    "url": "/startblock-frontend-demo/static/js/4.6acd41b0.chunk.js"
   },
   {
-    "revision": "966d66d4e43484199f76",
-    "url": "/startblock-frontend-demo/static/js/5.f36bae10.chunk.js"
+    "revision": "64fb9ca61397871c1660",
+    "url": "/startblock-frontend-demo/static/js/5.5c0da0f9.chunk.js"
   },
   {
-    "revision": "29cc67bc948fef680e2b",
-    "url": "/startblock-frontend-demo/static/js/6.b7b69643.chunk.js"
+    "revision": "681f8402fefe1974415f",
+    "url": "/startblock-frontend-demo/static/js/6.ad7ca238.chunk.js"
   },
   {
-    "revision": "c222d7422fbd9184c1b9",
-    "url": "/startblock-frontend-demo/static/js/7.9de8375c.chunk.js"
+    "revision": "e82d49070a07c1f796b0",
+    "url": "/startblock-frontend-demo/static/js/main.196aec2c.chunk.js"
   },
   {
-    "revision": "b426498346003e0a6c4f",
-    "url": "/startblock-frontend-demo/static/js/main.20b8b891.chunk.js"
-  },
-  {
-    "revision": "d25021c00322f40b40bb",
-    "url": "/startblock-frontend-demo/static/js/runtime~main.e5f05b0b.js"
+    "revision": "8cbd8f3bd591578e7c14",
+    "url": "/startblock-frontend-demo/static/js/runtime~main.74cf0bc6.js"
   },
   {
     "revision": "df8e9f1e346951c12068011936e980f9",
