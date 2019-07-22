@@ -2,6 +2,10 @@
   "name": "webclient",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.11.0"
+  },
   "homepage": "https://shinnik.github.io/startblock-frontend-demo",
   "dependencies": {
     "@material-ui/core": "^4.1.3",
