@@ -2,29 +2,29 @@ export const parseResponse = (response) => {
 
     const data = [{}, {}, {}, {}];
     data[0] = {
-        amount: response.response.generator.performance,
+        amount: response.generator.performance,
         direction: false,
-        type: response.response.generator.name,
-        money: response.response.generator.cost
+        type: response.generator.name,
+        money: response.generator.cost
     };
 
     data[1] = {
-        amount: response.response.net.performance,
-        money: response.response.net.cost,
+        amount: response.net.performance,
+        money: response.net.cost,
         direction: false,
         type: 'Сеть'
     };
 
 
     const profile = {
-        name: response.response.profile.name,
+        name: response.profile.name,
         type: 'Энергетическая ячейка',
-        money: response.response.profile.money,
-        blocked: response.response.neighbors.reduce((acc, curr) => acc + curr.blocked_money, 0)
+        money: response.profile.money,
+        blocked: response.neighbors.reduce((acc, curr) => acc + curr.blocked_money, 0)
     };
 
 
-    const multidata2 = response.response.load.map(
+    const multidata2 = response.load.map(
         (value) => {
             return {
                 name: value.name,
@@ -36,7 +36,7 @@ export const parseResponse = (response) => {
         }
     );
 
-    const multidata = response.response.neighbors.map(value => {
+    const multidata = response.neighbors.map(value => {
         return {
             name: value.name,
             amount: value.performance,
@@ -48,7 +48,7 @@ export const parseResponse = (response) => {
         }
     });
 
-    const tmp = response.response.neighbors.reduce((acc, curr) => acc + (-1)**!curr.output*curr.performance, 0);
+    const tmp = response.neighbors.reduce((acc, curr) => acc + (-1)**!curr.output*curr.performance, 0);
     data[2] = {
         amount: Math.abs(tmp),
         money: multidata.reduce((acc, curr) => acc + curr.active*curr.money*(-1)**!curr.output, 0),
@@ -56,7 +56,7 @@ export const parseResponse = (response) => {
     };
 
     data[3] = {
-        amount: response.response.load.reduce((acc, curr) => acc + curr.performance, 0),
+        amount: response.load.reduce((acc, curr) => acc + curr.performance, 0),
         direction: false
     };
 
