@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isIntervalExist: false,
-    interval: 1000
+    interval: 7000
 };
 
 
