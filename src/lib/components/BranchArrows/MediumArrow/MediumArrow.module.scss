@@ -19,6 +19,14 @@
         border-bottom: $border-thickness solid $border-color-grey;
         border-left: $border-thickness solid $border-color-grey;
     }
+
+    &__AndLast {
+        width: $y1;
+        height: $x4;
+        border-bottom: $border-thickness solid $border-color;
+        border-left: $border-thickness solid $border-color;
+        border-bottom-left-radius: $border-radius;
+    }
 }
 
 .MediumBorder {
@@ -149,9 +157,8 @@
     height: $border-thickness*2;
     position: relative;
     left: -$border-thickness;
-    top: -$x4*0.1;
+    top: -$x4*0.15;
     border-left: $border-thickness solid $border-color;
-
 }
 
 .ExtraBorder {

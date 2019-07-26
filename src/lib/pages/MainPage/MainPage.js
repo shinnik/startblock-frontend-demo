@@ -42,9 +42,6 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
         }, interval);
     }, []);
 
-
-
-
     return <div className={styles.MainPage}>
        <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
 
