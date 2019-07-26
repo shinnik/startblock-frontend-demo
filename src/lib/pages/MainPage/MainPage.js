@@ -19,7 +19,14 @@ const shift = {
 
 async function fetchDataFromServer() {
     const response = await fetch(BACKEND_SERVER);
-    return response.json();
+    return new Promise(resolve => {
+        response.json()
+            .then(value => {
+                let tmp = value;
+                tmp.generator.cost = tmp.generator.propertyType === 'cost' && tmp.generator.propertyValue;
+                resolve(tmp);
+            })
+    })
 }
 
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {
