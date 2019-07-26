@@ -7,41 +7,47 @@ import Typography from '@material-ui/core/Typography';
 import MultiArrow from "../../containers/MultiArrow/MultiArrow";
 import Container from '@material-ui/core/Container';
 import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
-import * as response from "../../../store/mockData/backendMockData";
 import useWindowSize from "@rehooks/window-size";
+import {BACKEND_SERVER} from "../../constants/endpoints";
 
 const shift = {
     position: 'relative',
     left: '-9px'
 };
 
-function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock}) {
+async function fetchDataFromServer() {
+    const response = await fetch(BACKEND_SERVER);
+    return new Promise(resolve => {
+        response.json()
+            .then(value => {
+                let tmp = value;
+                tmp.generator.cost = tmp.generator.propertyType === 'cost' && tmp.generator.propertyValue;
+                resolve(tmp);
+            })
+    })
+}
+
+function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {
     const [open, setOpen] = useState(false);
     const windowSize = useWindowSize();
+
     useEffect(() => {
-        new Promise(resolve => {
-            resolve(response);
-        })
-            .then(value => {
-                onFetchData(value);
-            })
-    }, []);
-    useEffect(() => {
-        setInterval(() => {
-            new Promise(resolve => {
-                resolve(response);
-            })
+        console.log('fetch');
+        fetchDataFromServer()
+           .then(value => {
+               onFetchData(value);
+           });
+        !isIntervalExist && setInterval(() => {
+            onSetInterval();
+            console.log('fetch');
+            fetchDataFromServer()
                 .then(value => {
-                    value.response.profile.money += Math.ceil(Math.random()*10)-5;
                     onFetchData(value);
                 })
-        }, 5000);
+        }, interval);
     }, []);
-
-
-
 
     return <div className={styles.MainPage}>
        <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
@@ -81,7 +87,9 @@ const mapStateToProps = state => {
         multidata: state.mainPage.multidata,
         data: state.mainPage.data,
         multidata2: state.mainPage.multidata2,
-        profile: state.mainPage.profile
+        profile: state.mainPage.profile,
+        isIntervalExist: state.fetcher.isIntervalExist,
+        interval: state.fetcher.interval,
     }
 };
 
@@ -89,6 +97,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onUnlock: (id) => dispatch(actionCreators.handleUnlocked(id)),
         onFetchData: (response) => dispatch(actionCreators.fetchData(response)),
+        onSetInterval: () => dispatch(actionCreators.handleSetInterval())
     }
 };
 

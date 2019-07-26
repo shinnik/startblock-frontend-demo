@@ -5,7 +5,10 @@ import styles from "../MediumArrow.module.scss";
 function Border({last, first, active, children, ggrey}) {
     if (active) {
         if (first)
-            return <div className={styles.FirstBorder}>{children}</div>;
+            if (last)
+                return <div className={styles.FirstBorder__AndLast}>{children}</div>;
+            else
+                return <div className={styles.FirstBorder}>{children}</div>;
         else if (last)
             return <div className={styles.LastBorder}>{children}</div>;
         else
