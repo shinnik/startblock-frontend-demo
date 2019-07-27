@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import Typography from "@material-ui/core/Typography/Typography";
 import TextField from "@material-ui/core/TextField/TextField";
+import Button from "@material-ui/core/Button/Button";
 import styles from "./LoginPage.module.scss";
-import {Icon} from "../../components/Icon/Icon";
-// import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
-
+import { Icon } from "../../components/Icon/Icon";
 
 const LoginPage = (props) => {
     const [value, setValue] = useState('');
     const onInput = (e) => {
         setValue(e.target.value);
+    };
+    const onClick = () => {
+        // axios.post
+        console.log(value);
     };
     return (
         <div className={styles['login-page__container']}>
@@ -25,6 +28,11 @@ const LoginPage = (props) => {
                            label='Пароль'
                            onInput={onInput}
                 />
+            </div>
+            <div>
+                <Button style={{ letterSpacing: '1px' }} color="primary" variant="contained" onClick={onClick}>
+                    Войти
+                </Button>
             </div>
         </div>
     )

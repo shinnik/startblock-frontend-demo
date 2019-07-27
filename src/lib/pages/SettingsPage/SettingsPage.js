@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import { InputPair } from "../../containers/InputPair/InputPair";
@@ -16,7 +16,8 @@ import {
     onChangeTrade,
     onChangeLoad,
     onReorderList,
-    onRosetteNameTyping
+    onRosetteNameTyping,
+    onInit
 } from "../../../store/actions/settingsPage";
 import { ManagedLoadSpecific } from "../../containers/ManagedLoadSpecific/ManagedLoadSpecific";
 
@@ -35,8 +36,10 @@ const SettingsPage = (
         onToggleBalance,
         onToggleLoad,
         onImportancyChange,
-        onRosetteNameChange}) => {
+        onRosetteNameChange,
+        onInitState}) => {
     const currentGenerator = radios.get(currentGeneratorNumber);
+    useEffect(() => onInitState(), []);
     return (
         <div className={styles.page}>
             <div className={styles.block}>
@@ -112,8 +115,8 @@ const mapDispatchToProps = dispatch => {
         onRosetteNameChange: (index, value) => dispatch(onRosetteNameTyping(index, value)),
         onToggleTrade: value => dispatch(onChangeTrade(value)),
         onToggleBalance: value => dispatch(onChangeBalance(value)),
-        onStrategyChange: value => dispatch(onSelectStrategy(value))
-
+        onStrategyChange: value => dispatch(onSelectStrategy(value)),
+        onInitState: () => dispatch(onInit())
     })
 };
 
