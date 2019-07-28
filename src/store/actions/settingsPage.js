@@ -1,4 +1,5 @@
 import * as actions from './actionTypes';
+import axios from 'axios';
 
 export const onGeneratorSelect = selectedValue => {
     return {
@@ -61,5 +62,12 @@ export const onRosetteNameTyping = (id, value) => {
     return {
         type: actions.CHANGE_ROSETTE_NAME,
         payload: { id, value }
+    }
+};
+
+export const onInit = () => {
+    return dispatch => {
+        axios.get('localhost:8888/meters/0xCB32de2b9d1f1Efb4abDE7d24131eBeD6c649ad7/settingsdata')
+            .then(({data}) => console.log(data))
     }
 }

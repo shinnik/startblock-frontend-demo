@@ -25,12 +25,10 @@ function App() {
                         <Route path='/login' component={() => <LoginPage/>}/>
                         <Layout>
                             <Suspense fallback={<Loader/>}>
-                                {/*<Switch>*/}
-                                    <Route path='/current' component={() => <MainPage flag="current" />} />
-                                    <Route path='/month' component={() => <MainPage flag="month" />} />
-                                    <Route path='/settings' component={() => <SettingsPage />} />
-                                    <Redirect to="/current"/>
-                                {/*</Switch>*/}
+                                <Route path='/current' component={() => <MainPage flag="current" />} />
+                                <Route path='/month' component={() => <MainPage flag="month" />} />
+                                <Route path='/settings' component={() => <SettingsPage />} />
+                                <Redirect to="/current"/>
                             </Suspense>
                         </Layout>
                     </Switch>

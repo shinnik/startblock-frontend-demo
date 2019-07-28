@@ -1,22 +1,5 @@
-@import "../../constants/header";
-
-.header {
-  &__outer-container {
-    display: flex;
-    position: relative;
-    top: 0;
-    height: 48px;
-    width: 100%;
-    background-color: $header-background-color;
-  }
-  &__inner-container {
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - 32px);
-    //padding-right: 32px;
-    //width: 100%;
-  }
-  &__saving-button {
+.saving-button {
+  &__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,13 +16,33 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
+    &--loading {
+      &::before {
+        content: '••• СОХРАНЕНИЕ';
+        padding-right: 5px;
+      }
+    }
+    &--success {
+      &::before {
+        content: '✓ СОХРАНЕНО';
+        padding-right: 5px;
+      }
+    }
+    &--failed {
+      &::before {
+        content: 'ОШИБКА!';
+        padding-right: 5px;
+      }
+    }
+    &--initial {
+      &::before {
+        content: 'СОХРАНИТЬ';
+      }
+    }
     &:hover {
       background-color: #0099dc;
       color: #FFFFFF;
       font-weight: 700;
     }
-
-
-    //transform: translate(100 0);
   }
 }
