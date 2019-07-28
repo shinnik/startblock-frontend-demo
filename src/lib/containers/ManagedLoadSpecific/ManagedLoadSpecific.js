@@ -11,7 +11,7 @@ export const ManagedLoadSpecific = ({ items, onReorder, onChange }) => {
             <DndList items={items}
                      onReorder={onReorder}
                      onChange={onChange}/>
-            <img src={arrow} className={styles.Arrow}/>
+            <img alt={''} src={arrow} className={styles.Arrow}/>
             <div className={styles['LabelContainer']}>
                 <div className={styles['text1']}>Нельзя отключать</div>
                 <div className={styles['text2']}>Можно отключать</div>

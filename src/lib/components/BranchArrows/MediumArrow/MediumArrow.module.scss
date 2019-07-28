@@ -76,6 +76,7 @@
     border-left: 2*$triangle-size solid $border-color;
     border-bottom: $triangle-size solid white;
 
+
     &__first {
         position: relative;
         width: 0;
@@ -123,7 +124,7 @@
         position: relative;
         width: 0;
         height: 0;
-        top: $x4*0.625;
+        top: $x4*0.65;
         left: $y1*0.2;
         border-top: $triangle-size solid transparent;
         border-right: 2*$triangle-size solid $border-color;

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 function CellInfo({ name, amount, money, flag }) {
-    const {currency, watt, energy, cost} = flag === 'current' ? c1 : c2;
+    const {watt, cost} = flag === 'current' ? c1 : c2;
 
     return <div className={styles.CellInfo}>
         {name && <Typography color={'textPrimary'} variant='h5'><b>{name}</b></Typography>}

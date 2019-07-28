@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Tab from "@material-ui/core/Tab/Tab";
 import { withStyles } from "@material-ui/styles";
-import {Link, NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Location } from "../../components/Header/Header";
 
 const navigationTabRef = React.forwardRef(({ children, path, ...props }, ref) => {

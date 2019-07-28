@@ -29,7 +29,7 @@ export const Icon = ({ className }) => {
                         ? className
                         : styles.LogoContainer }>
                     { clicked && <Redirect to='current'/> }
-                    { logos.map((logo, index) => <img key={index} className={styles[stringArr({ I, D, E, A })[index]]} src={logo}/>) }
+                    { logos.map((logo, index) => <img alt={''} key={index} className={styles[stringArr({ I, D, E, A })[index]]} src={logo}/>) }
                 </div>}
         </Location.Consumer>
     )

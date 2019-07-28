@@ -10,7 +10,7 @@ import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 import {connect} from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import useWindowSize from "@rehooks/window-size";
-import {BACKEND_SERVER} from "../../constants/endpoints";
+import {BACKEND_SERVER_SETTINGS, BACKEND_SERVER_USERDATA} from "../../constants/endpoints";
 
 const shift = {
     position: 'relative',
@@ -18,7 +18,60 @@ const shift = {
 };
 
 async function fetchDataFromServer() {
-    const response = await fetch(BACKEND_SERVER);
+    const response = await fetch(BACKEND_SERVER_USERDATA);
+    const requestBody = JSON.stringify({
+        mains: ['Gamma', '192.168.0.1'],
+        currentGeneratorName: 'Бензогенератор',
+        radios: [
+            {
+                label: 'Солнечная панель',
+                inputTypes: [50, 1],
+            },
+            {
+                label: 'Бензогенератор',
+                inputTypes: [100, 11],
+            },
+            {
+                label: 'Аккумулятор',
+                inputTypes: [20, 100],
+            },
+        ],
+        managedLoad: {
+            status: true,
+            items: [
+                {
+                    id: 1,
+                    name: 'Kitchen',
+                    priority: 1
+                },
+                {
+                    id: 2,
+                    name: 'Bathroom',
+                    priority: 2
+                },
+                {
+                    id: 3,
+                    name: 'Dacha',
+                    priority: 3
+                }
+            ]
+        },
+        p2p: {
+            status: true,
+            current: '0'
+        },
+        balance: {
+            status: true
+        }
+    });
+
+    const postRequestResponse = await fetch(BACKEND_SERVER_SETTINGS, {
+        method: 'POST',
+        body: requestBody,
+    });
+
+    console.log(await postRequestResponse.json());
+
     return new Promise(resolve => {
         response.json()
             .then(value => {
@@ -34,14 +87,12 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
     const windowSize = useWindowSize();
 
     useEffect(() => {
-        console.log('fetch');
         fetchDataFromServer()
            .then(value => {
                onFetchData(value);
            });
         !isIntervalExist && setInterval(() => {
             onSetInterval();
-            console.log('fetch');
             fetchDataFromServer()
                 .then(value => {
                     onFetchData(value);

@@ -12,7 +12,6 @@ export const handleUnlocked = (id) => {
 };
 
 export const fetchData = (response) => {
-    // console.log('FETCH');
     return {
         type: actionTypes.MAIN_PAGE_FETCH_DATA,
         payload: {

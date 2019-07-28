@@ -6,7 +6,10 @@ export default function numberFormat(num) {
     }
     const parts = num.toString().split('.');
     const p = parts[0].split(/\B(?=(\d{3})+(?!\d))/g);
-    const q = p.slice(0, -1);
+    const q = p;
+    for (let i = 1; i < q.length; i+=1) {
+        q.splice(i, 1);
+    }
     if (q.length < 2)
         return num;
     return q.map((value, index) => <span key={index}>

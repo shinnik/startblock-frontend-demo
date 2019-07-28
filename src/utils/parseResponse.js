@@ -1,4 +1,5 @@
 export const parseResponse = (response) => {
+    console.log('res ', response);
 
     const data = [{}, {}, {}, {}];
     data[0] = {
@@ -20,7 +21,7 @@ export const parseResponse = (response) => {
         name: response.profile.name,
         type: 'Энергетическая ячейка',
         money: response.profile.money,
-        blocked: response.neighbors.reduce((acc, curr) => acc + curr.blocked_money, 0)
+        blocked: response.neighbours.reduce((acc, curr) => acc + curr.blocked_money, 0)
     };
 
 
@@ -30,13 +31,13 @@ export const parseResponse = (response) => {
                 name: value.name,
                 amount: value.performance,
                 order: value.order,
-                active: value.performance !== 0,
+                active: value.active,
                 output: true
             }
         }
     );
 
-    const multidata = response.neighbors.map(value => {
+    const multidata = response.neighbours.map(value => {
         return {
             name: value.name,
             amount: value.performance,
@@ -44,11 +45,11 @@ export const parseResponse = (response) => {
             blocked: value.blocked_money,
             state: value.state,
             output: value.output,
-            active: value.performance !== 0
+            active: value.active
         }
     });
 
-    const tmp = response.neighbors.reduce((acc, curr) => acc + (-1)**!curr.output*curr.performance, 0);
+    const tmp = response.neighbours.reduce((acc, curr) => acc + (-1)**!curr.output*curr.performance*curr.active, 0);
     data[2] = {
         amount: Math.abs(tmp),
         money: multidata.reduce((acc, curr) => acc + curr.active*curr.money*(-1)**!curr.output, 0),

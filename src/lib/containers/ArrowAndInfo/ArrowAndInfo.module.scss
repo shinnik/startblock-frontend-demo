@@ -4,6 +4,12 @@
   position: relative;
   border-left: $border-thickness solid $border-color;
   height: 132px;
+
+  &__grey {
+    position: relative;
+    border-left: $border-thickness solid $border-color-grey;
+    height: 132px;
+  }
 }
 
 .Box {
@@ -39,14 +45,3 @@
   border-left-style: dashed;
   border-right-style: dashed;
 }
-
-.TriangleDown:after {
-  position: absolute;
-  bottom: -5.5px;
-  left: -3px;
-  content: '';
-  width: 6px;
-  height: 6px;
-  background-color: white;
-}
-
