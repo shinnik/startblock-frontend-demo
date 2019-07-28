@@ -1,4 +1,5 @@
 import * as actions from './actionTypes';
+import * as constants from '../../lib/constants/endpoints';
 import axios from 'axios';
 
 export const onGeneratorSelect = selectedValue => {
@@ -67,7 +68,8 @@ export const onRosetteNameTyping = (id, value) => {
 
 export const onInit = () => {
     return dispatch => {
-        axios.get('localhost:8888/meters/0xCB32de2b9d1f1Efb4abDE7d24131eBeD6c649ad7/settingsdata')
+        console.log('!!!');
+        axios.get(constants.BACKEND_SERVER)
             .then(({data}) => console.log(data))
     }
 }
