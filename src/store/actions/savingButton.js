@@ -9,7 +9,7 @@ export const saveSettings = () => {
     return (dispatch, getState) => {
         const { state } = getState();
         dispatch({ type: actions.SAVING });
-        axios.post(constants.BACKEND_SERVER)
+        axios.post(constants.BACKEND_SERVER_SETTINGS)
             .then(() => { dispatch ({ type: actions.SAVING_SUCCESS });
                         setTimeout(() => dispatch({ type: actions.INIT_SAVING_BUTTON }), SAVING_SUCCESS_TIMEOUT)
             })
