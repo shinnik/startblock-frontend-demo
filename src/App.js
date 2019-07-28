@@ -15,9 +15,7 @@ const SettingsPage = React.lazy(() => import("./lib/pages/SettingsPage/SettingsP
 
 function App() {
     const windowSize = useWindowSize();
-
     return (
-
         <div className="App"  style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}>
             <ThemeProvider theme={theme}>
                 <Router basename={process.env.PUBLIC_URL}>

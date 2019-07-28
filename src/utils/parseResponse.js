@@ -1,6 +1,4 @@
 export const parseResponse = (response) => {
-    console.log('res ', response);
-
     const data = [{}, {}, {}, {}];
     data[0] = {
         amount: response.generator.performance,
