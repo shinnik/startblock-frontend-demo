@@ -10,6 +10,7 @@ export const saveSettings = () => {
     return (dispatch, getState) => {
         const { state } = getState();
         dispatch({ type: actions.SAVING });
+        console.log("state: ", state);
         // axios.post('')
         Promise.resolve()
             .then(() => setTimeout(() => {

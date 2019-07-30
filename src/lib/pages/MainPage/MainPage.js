@@ -29,6 +29,10 @@ async function fetchDataFromServer() {
     })
 }
 
+function deletePost() {
+    
+}
+
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {
     const [open, setOpen] = useState(false);
     const windowSize = useWindowSize();
