@@ -1,4 +1,5 @@
 import * as actions from './actionTypes';
+import * as constants from '../../lib/constants/endpoints';
 import axios from 'axios';
 import {BACKEND_SERVER_SETTINGS} from "../../lib/constants/endpoints";
 
@@ -68,7 +69,8 @@ export const onRosetteNameTyping = (id, value) => {
 
 export const onInit = () => {
     return dispatch => {
-        axios.get(BACKEND_SERVER_SETTINGS)
+        console.log('!!!');
+        axios.get(constants.BACKEND_SERVER_SETTINGS)
             .then(({data}) => console.log(data))
     }
 }
