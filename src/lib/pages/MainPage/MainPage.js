@@ -10,7 +10,7 @@ import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 import {connect} from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import useWindowSize from "@rehooks/window-size";
-import { BACKEND_SERVER_USERDATA } from "../../constants/endpoints";
+import {BACKEND_SERVER, BACKEND_SERVER_USERDATA} from "../../constants/endpoints";
 
 const shift = {
     position: 'relative',
@@ -29,8 +29,12 @@ async function fetchDataFromServer() {
     })
 }
 
-function deletePost() {
-    
+async function deleteChannelbyNeighbourId(id) {
+    const response = await fetch(`${BACKEND_SERVER}/closechannel/${id}`, {
+        method: 'DELETE'
+    });
+    const json = await response.json();
+    console.log(json);
 }
 
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {
@@ -52,7 +56,7 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
     }, []);
 
     return <div className={styles.MainPage}>
-       <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={onUnlock} />
+       <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={id => deleteChannelbyNeighbourId(id)} />
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>

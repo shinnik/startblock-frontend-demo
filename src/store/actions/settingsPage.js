@@ -1,7 +1,6 @@
 import * as actions from './actionTypes';
 import * as constants from '../../lib/constants/endpoints';
 import axios from 'axios';
-import {BACKEND_SERVER_SETTINGS} from "../../lib/constants/endpoints";
 
 export const onGeneratorSelect = selectedValue => {
     return {
