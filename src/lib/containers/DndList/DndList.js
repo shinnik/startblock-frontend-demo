@@ -40,7 +40,9 @@ export const DndList = ({ items, onReorder, onChange }) => {
                         ref={provided.innerRef}
                     >
                         {items.map((item, index) => (
-                            <Draggable key={item.get('id')} draggableId={item.get('id')} index={index}>
+                            <Draggable key={item.get('id')} 
+                                        draggableId={item.get('id')} 
+                                        index={index}>
                                 {(provided, snapshot) => (
                                     <div className={styles['item__container']} ref={provided.innerRef} {...provided.draggableProps}>
                                         <i className={handlerClasses} {...provided.dragHandleProps}>drag_indicator</i>
