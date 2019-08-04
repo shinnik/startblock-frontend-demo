@@ -68,8 +68,9 @@ export const onRosetteNameTyping = (id, value) => {
 
 export const onInit = () => {
     return dispatch => {
-        console.log('!!!');
         axios.get(constants.BACKEND_SERVER_SETTINGS)
-            .then(({data}) => console.log(data))
+            .then(({data}) => {
+                dispatch({type: actions.SETTINGS_PAGE_FETCH_DATA, payload: data})
+            })
     }
 }

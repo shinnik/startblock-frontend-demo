@@ -14,7 +14,7 @@ export const initialState = fromJS({
           header: ''
       },
       {
-          value: 'generator',
+          value: 'benz',
           label: config.settingsPage.radioButtons.radios.benz.label,
           header: config.settingsPage.radioButtons.radios.benz.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.costInput]

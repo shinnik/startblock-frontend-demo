@@ -1,5 +1,6 @@
 import * as actions from '../actions/actionTypes';
 import { initialState } from './settingsPageInitialState';
+import {fromJS} from "immutable";
 
 export const settingsPageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -52,6 +53,11 @@ export const settingsPageReducer = (state = initialState, action) => {
                 ['managedLoad', 'items', idx, 'name'],
                 action.payload.value
             );
+        case actions.SETTINGS_PAGE_FETCH_DATA: {
+            console.log('payload: ', action.payload);
+            const response = {"mains":["Alpha","192.168.0.1"],"currentGeneratorName":"benz","radios":[{"label":"absent","inputTypes":[-1,-1]},{"label":"benz","inputTypes":[123,123]},{"label":"sun","inputTypes":[123,123]},{"label":"acc","inputTypes":[321,321]}],"managedLoad":{"status":true,"items":[]},"p2p":{"status":true,"current":"0"},"balance":{"status":false}};
+            return state
+        }
         default:
             return state
 
