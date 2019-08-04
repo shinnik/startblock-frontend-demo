@@ -5,7 +5,7 @@ export const parseResponse = (response) => {
     data[0] = {
         amount: response.generator.performance,
         direction: false,
-        type: response.generator.type,
+        type: response.generator.name,
         money: response.generator.cost
     };
 
