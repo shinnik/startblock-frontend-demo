@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import styles from "./SavingButton.module.scss";
 
 const SavingButton = ({ onClick, isLoading, isSuccessful, isFailed }) => {
-    console.log(isLoading, isSuccessful, isFailed);
     const handleClick = () => {
         onClick();
     };
+    console.log(isLoading, isSuccessful, isFailed);
     const classes = classNames(
         styles['saving-button__button'],
         {   [styles['saving-button__button--initial']]: !isLoading && !isSuccessful && !isFailed,
@@ -26,7 +26,7 @@ const mapStateToProps = state => {
     return ({
         isLoading: state.sb.loading,
         isSuccessful: state.sb.success,
-        isFailed: state.sb.error
+        isFailed: state.sb.failed
     })
 }
 

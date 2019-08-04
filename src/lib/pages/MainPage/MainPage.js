@@ -47,7 +47,6 @@ async function deleteChannelbyNeighbourId(id) {
         method: 'DELETE'
     });
     const json = await response.json();
-    console.log(json);
 }
 
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {

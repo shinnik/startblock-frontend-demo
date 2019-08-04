@@ -3,7 +3,7 @@ import * as actions from '../actions/actionTypes';
 const initialState = {
     loading: false,
     success: false,
-    error: false
+    failed: false
 };
 
 const savingButtonReducer = (state = initialState, action) => {

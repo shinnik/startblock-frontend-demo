@@ -45,9 +45,10 @@ export const onChangeLoad = value => {
 }
 
 export const onChangeBalance = value => {
+    // disable for some time
     return {
         type: actions.TOGGLE_BALANCE,
-        value
+        value: false
     }
 }
 
@@ -59,7 +60,6 @@ export const onReorderList = items => {
 }
 
 export const onRosetteNameTyping = (id, value) => {
-  console.log(id, value);
     return {
         type: actions.CHANGE_ROSETTE_NAME,
         payload: { id, value }

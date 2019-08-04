@@ -45,8 +45,8 @@ export default function RadioButtonsGroup({ onChange, currentValue, radios }) {
                         const label = typeof radio.get('label') === 'string' ? radio.get('label') : radio.get('label').toJS();
                         return (
                             <FormControlLabel
-                            key={radio.get('label')}
-                            value={index.toString()}
+                            key={index}
+                            value={radio.get('value')}
                             control={radio.get('color') !== 'white' ? <Radio key={index} color="default" disableRipple />
                                 : <WhiteRadio key={index} disableRipple/>}
                             label={label}

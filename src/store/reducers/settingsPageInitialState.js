@@ -6,10 +6,10 @@ import {config} from "../../loc/current/config";
 
 export const initialState = fromJS({
   mains: [inputTypes.nameInput, inputTypes.IpInput],
-  currentGeneratorNumber: '0',
+  currentGeneratorName: 'absent',
   radios: [
       {
-          value: '',
+          value: 'absent',
           label: config.settingsPage.radioButtons.radios.nothing.label,
           header: ''
       },

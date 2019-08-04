@@ -8,7 +8,6 @@ export const saveSettings = () => {
     return (dispatch, getState) => {
         const {settings}  = getState();
         const jsonState = settings.toJS();
-        console.log('jsonState: ', jsonState);
         const currentState = {
             mains: [settings.get('mains').get(0).get('value'), settings.get('mains').get(1).get('value')],
             currentGeneratorName: ['absent', 'benz', 'sun', 'acc'][settings.get('currentGeneratorNumber')],
@@ -25,16 +24,15 @@ export const saveSettings = () => {
             p2p: jsonState.p2p,
             balance: jsonState.balance
         };
-        console.log(currentState);
         dispatch({ type: actions.SAVING });
         fetch(constants.BACKEND_SERVER_SETTINGS, {
             method: 'POST',
             body: JSON.stringify(currentState)
-        })
+            })
             .then(() => { dispatch ({ type: actions.SAVING_SUCCESS });
                 setTimeout(() => dispatch({ type: actions.INIT_SAVING_BUTTON }), SAVING_SUCCESS_TIMEOUT)
             })
-            .catch(() => { dispatch ({ type: actions.SAVING_FAILED });
+            .catch(() => { console.log('HERE@!'); dispatch ({ type: actions.SAVING_FAILED });
                 setTimeout(() => dispatch({ type: actions.INIT_SAVING_BUTTON }), SAVING_FAILED_TIMEOUT)
             })
 

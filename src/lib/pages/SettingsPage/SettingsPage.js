@@ -20,10 +20,10 @@ import {
     onInit
 } from "../../../store/actions/settingsPage";
 import { ManagedLoadSpecific } from "../../containers/ManagedLoadSpecific/ManagedLoadSpecific";
-import {config} from "../../../loc/current/config";
+import { config } from "../../../loc/current/config";
 
 const SettingsPage = (
-    { currentGeneratorNumber,
+    { currentGeneratorName,
         radios,
         onGeneratorChoose,
         onParameterChange,
@@ -39,7 +39,7 @@ const SettingsPage = (
         onImportancyChange,
         onRosetteNameChange,
         onInitState}) => {
-    const currentGenerator = radios.get(currentGeneratorNumber);
+    const currentGenerator = radios.find(radio => radio.get('value') === currentGeneratorName);
     useEffect(() => onInitState(), []);
     return (
         <div className={styles.page}>
@@ -60,10 +60,10 @@ const SettingsPage = (
                     {config.settingsPage.radioButtons.heading.label}
                 </Typography>
                 <RadioButtonsGroup radios={radios}
-                                   currentValue={currentGeneratorNumber}
+                                   currentValue={currentGeneratorName}
                                    onChange={onGeneratorChoose} />
             </div>
-           { currentGeneratorNumber !== 0 &&
+           { currentGeneratorName !== 'absent' &&
            <div className={styles.block}>
                 <ParametersBlock onTyping={onParameterChange}
                                  current={currentGenerator}/>
@@ -98,7 +98,7 @@ const SettingsPage = (
 const mapStateToProps = state => {
     return ({
         mainInputs: state.settings.get('mains'),
-        currentGeneratorNumber: state.settings.get('currentGeneratorNumber'),
+        currentGeneratorName: state.settings.get('currentGeneratorName'),
         radios: state.settings.get('radios'),
         managedLoad: state.settings.get('managedLoad'),
         p2p: state.settings.get('p2p'),
