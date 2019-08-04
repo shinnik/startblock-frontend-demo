@@ -55,7 +55,7 @@ export const settingsPageReducer = (state = initialState, action) => {
             );
         case actions.SETTINGS_PAGE_FETCH_DATA: {
             console.log('payload: ', action.payload);
-            const response = {"mains":["Alpha","192.168.0.1"],"currentGeneratorName":"benz","radios":[{"label":"absent","inputTypes":[-1,-1]},{"label":"benz","inputTypes":[123,123]},{"label":"sun","inputTypes":[123,123]},{"label":"acc","inputTypes":[321,321]}],"managedLoad":{"status":true,"items":[]},"p2p":{"status":true,"current":"0"},"balance":{"status":false}};
+            const response = {"mains":["Alpha","192.168.0.1"],"currentGeneratorName":"benz","radios":[{"label":"absent","inputTypes":[-1,-1]},{"label":"benz","inputTypes":[123,123]},{"label":"sun","inputTypes":[123,123]},{"label":"acc","inputTypes":[321,321]}],"managedLoad":{"status":true,"items":[{"id":1,"name":"Kitchen","priority":1},{"id":2,"name":"Bathroom","priority":2},{"id":3,"name":"Room","priority":3}]},"p2p":{"status":true,"current":"0"},"balance":{"status":false}};
             return state
         }
         default:
