@@ -1,3 +1,5 @@
+// benz, sol, acc
+
 export const response = {
     generator: {
         type: 1,
