@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
     ip: {
         width: '128px',
         fontFamily: theme.typography.fontFamily,
-        outlineColor: '#0099DC'
+        outlineColor: '#0099DC',
+        display: 'none'
     },
     power: {
         marginRight: '32px',
