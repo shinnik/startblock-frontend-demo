@@ -1,7 +1,7 @@
-const generatorNames = {
+export const generatorNames = {
     gasGenerator: 'Бензогенератор',
     solarPanel: 'Солнечная панель',
-    accumulator: 'Аккумулятор'
+    accumulator: 'Аккумулятор',
 };
 
 export const config = {
@@ -36,6 +36,9 @@ export const config = {
             },
             load: {
                 label: 'Нагрузка'
+            },
+            net: {
+                label: 'Сеть'
             }
         },
         generators: {
@@ -99,56 +102,79 @@ export const config = {
             heading: {
                 label: 'Подключенные генераторы и накопители'
             },
+            inputs: {
+                power: {
+                    label: 'Мощность'
+                },
+                cost: {
+                    label: 'Минимальная цена'
+                },
+                capacity: {
+                    label: 'Ёмкость'
+                }
+            },
             radios: {
                 nothing: {
                     label: 'Ничего нет'
                 },
                 gasGenerator: {
-                    label: generatorNames.gasGenerator
+                    label: generatorNames.gasGenerator,
+                    heading: 'Параметры бензогенератора',
                 },
                 solarPanel: {
-                    label: generatorNames.solarPanel
+                    label: generatorNames.solarPanel,
+                    heading: 'Параметры солнечной панели',
                 },
                 accumulator: {
-                    label: generatorNames.accumulator
+                    label: generatorNames.accumulator,
+                    heading: 'Параметры аккумуляторной батареи',
                 }
             },
-            services: {
-                heading: 'Сервисы',
-                service1: {
-                    heading: 'Управляемая нагрузка',
-                    text: 'Чтобы сэкономить, умные розетки будут выключаться при подорожании энергии. Перетащите наверх списка те, что должны отключаться реже:',
-                    formName: 'Название розетки',
-                    arrowTop: {
-                        label: 'Нельзя отключать'
-                    },
-                    arrowBottom: {
-                        label: 'Можно отключать'
-                    }
+        },
+        services: {
+            heading: {
+                label: 'Сервисы'
+            },
+            service1: {
+                heading: 'Управляемая нагрузка',
+                textActive: 'Чтобы сэкономить, умные розетки будут выключаться при\n' +
+                    'подорожании энергии. Перетащите наверх списка те, что\n должны отключаться реже:',
+                textInactive: 'Чтобы сэкономить, умные розетки будут выключаться при подорожании энергии.',
+                formName: 'Название розетки',
+                arrowTop: {
+                    label: 'Нельзя отключать'
                 },
-                service2: {
-                    heading: 'P2P торговля энергией',
-                    text: 'TODO Написать пояснение',
-                    radios: [
-                        {
-                            label: 'Максимальный доход',
-                            caption: 'TODO описание'
-                        },
-                        {
-                            label: 'Минимальный риск отклонения',
-                            caption: 'Держать аккумулятор заряженным'
-                        }
-                    ]
-                },
-                service3: {
-                    heading: 'Баланс спроса и предложения',
-                    text: 'TODO Написать пояснение'
+                arrowBottom: {
+                    label: 'Можно отключать'
                 }
+            },
+            service2: {
+                heading: 'P2P торговля энергией',
+                textActive: 'TODO\nНаписать пояснение',
+                textInactive: 'TODO\nНаписать пояснение',
+                radios: [
+                    {
+                        label: 'Максимальный доход',
+                        caption: 'TODO описание'
+                    },
+                    {
+                        label: 'Минимальный риск отклонения',
+                        caption: 'Держать аккумулятор заряженным'
+                    }
+                ]
+            },
+            service3: {
+                heading: 'Баланс спроса и предложения',
+                textActive: 'TODO\nНаписать пояснение',
+                textInactive: 'TODO\nНаписать пояснение'
             }
         },
         saveButton: {
             defaultLabel: 'Сохранить',
             handlingLabel: 'Сохранение'
         }
+    },
+    units: {
+
     }
 };
