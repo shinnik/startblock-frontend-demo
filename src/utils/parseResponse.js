@@ -1,9 +1,11 @@
+import {config} from "../loc/current/config";
+
 export const parseResponse = (response) => {
     const data = [{}, {}, {}, {}];
     data[0] = {
         amount: response.generator.performance,
         direction: false,
-        type: response.generator.name,
+        type: response.generator.type,
         money: response.generator.cost
     };
 
@@ -17,7 +19,7 @@ export const parseResponse = (response) => {
 
     const profile = {
         name: response.profile.name,
-        type: 'Энергетическая ячейка',
+        type: config.mainPage.delta.energyCell.label,
         money: response.profile.money,
         blocked: response.neighbours.reduce((acc, curr) => acc + curr.blocked_money, 0)
     };

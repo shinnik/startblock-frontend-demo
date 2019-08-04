@@ -11,6 +11,9 @@ import {connect} from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import useWindowSize from "@rehooks/window-size";
 import {BACKEND_SERVER, BACKEND_SERVER_USERDATA} from "../../constants/endpoints";
+import {config, generatorNames} from "../../../loc/current/config";
+import {response} from "../../../store/mockData/backendMockData";
+
 
 const shift = {
     position: 'relative',
@@ -18,15 +21,16 @@ const shift = {
 };
 
 async function fetchDataFromServer() {
-    const response = await fetch(BACKEND_SERVER_USERDATA);
-    return new Promise(resolve => {
-        response.json()
-            .then(value => {
-                let tmp = value;
-                tmp.generator.cost = tmp.generator.propertyType === 'cost' && tmp.generator.propertyValue;
-                resolve(tmp);
-            })
-    })
+    // const response = await fetch(BACKEND_SERVER_USERDATA);
+    return response;
+    // return new Promise(resolve => {
+    //     response.json()
+    //         .then(value => {
+    //             let tmp = value;
+    //             tmp.generator.cost = tmp.generator.propertyType === 'cost' && tmp.generator.propertyValue;
+    //             resolve(tmp);
+    //         })
+    // })
 }
 
 async function deleteChannelbyNeighbourId(id) {
@@ -60,11 +64,11 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>
-                <Typography style={shift} variant='h4'><b>{data[0].type && data[0].type}</b></Typography>
+                <Typography style={shift} variant='h4'><b>{data[0].type && Object.keys(generatorNames).map(value => generatorNames[value])[data[0].type]}</b></Typography>
                 <ArrowAndInfo {...data[0]} flag={flag} />
             </Box>
             <Box className={styles.Item2}>
-                <Typography style={shift} variant='h4'><b>{data[1].type && data[1].type}</b></Typography>
+                <Typography style={shift} variant='h4'><b>{config.mainPage.headings.net.label}</b></Typography>
                 <ArrowAndInfo {...data[1]} flag={flag} />
             </Box>
         </Container>
@@ -76,12 +80,12 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
         <Container className={styles.Grid2} >
             <Box className={styles.Item3}>
                 <ArrowAndInfo {...data[2]} flag={flag} />
-                <Typography style={shift} variant='h4'><b>Соседние ячейки</b></Typography>
+                <Typography style={shift} variant='h4'><b>{config.mainPage.headings.neighbours.label}</b></Typography>
                 <MultiArrow data={multidata} flag={flag} />
             </Box>
             <Box className={styles.Item4}>
                 <ArrowAndInfo {...data[3]} flag={flag} />
-                <Typography style={shift} variant='h4'><b>Нагрузка</b></Typography>
+                <Typography style={shift} variant='h4'><b>{config.mainPage.headings.load.label}</b></Typography>
                 <MultiArrow data={multidata2} flag={flag} />
             </Box>
         </Container>

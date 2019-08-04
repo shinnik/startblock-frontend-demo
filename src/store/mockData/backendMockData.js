@@ -1,6 +1,6 @@
 export const response = {
     generator: {
-        name: "Солнечная панель",
+        type: 1,
         performance: 612291,
         cost: 91
     },
@@ -8,7 +8,7 @@ export const response = {
         performance: 612291,
         cost: 91
     },
-    neighbors: [
+    neighbours: [
         {
             name: "Alpha",
             performance: 52,

@@ -20,6 +20,7 @@ import {
     onInit
 } from "../../../store/actions/settingsPage";
 import { ManagedLoadSpecific } from "../../containers/ManagedLoadSpecific/ManagedLoadSpecific";
+import {config} from "../../../loc/current/config";
 
 const SettingsPage = (
     { currentGeneratorNumber,
@@ -46,7 +47,7 @@ const SettingsPage = (
                 <Typography style={{fontWeight: 600}}
                             variant="h4"
                             gutterBottom>
-                    Настройка энергетической ячейки
+                    {config.settingsPage.heading.label}
                 </Typography>
                 <InputPair first={mainInputs.get(0)}
                            second={mainInputs.get(1)}
@@ -56,7 +57,7 @@ const SettingsPage = (
                 <Typography style={{fontWeight: 600}}
                             variant="h5"
                             gutterBottom>
-                    Подключенные генераторы и накопители
+                    {config.settingsPage.radioButtons.heading.label}
                 </Typography>
                 <RadioButtonsGroup radios={radios}
                                    currentValue={currentGeneratorNumber}
@@ -72,7 +73,7 @@ const SettingsPage = (
                             variant="h5"
                             component="h2"
                             gutterBottom>
-                    Сервисы
+                    {config.settingsPage.services.heading.label}
                 </Typography>
                 <ServiceBox variant='load'
                             active={managedLoad.get('status')}

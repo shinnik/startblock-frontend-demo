@@ -1,6 +1,7 @@
 import * as inputTypes from '../../lib/containers/InputPair/inputTypes';
 import { p2pradios } from "../../lib/models/radiobuttons";
 import { fromJS } from "immutable";
+import {config} from "../../loc/current/config";
 
 
 export const initialState = fromJS({
@@ -9,25 +10,25 @@ export const initialState = fromJS({
   radios: [
       {
           value: '',
-          label: 'Ничего нет',
+          label: config.settingsPage.radioButtons.radios.nothing.label,
           header: ''
       },
       {
           value: 'generator',
-          label: 'Бензогенератор',
-          header: 'Параметры бензогенератора',
+          label: config.settingsPage.radioButtons.radios.gasGenerator.label,
+          header: config.settingsPage.radioButtons.radios.gasGenerator.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.costInput]
       },
       {
           value: 'sun',
-          label: 'Солнечная панель',
-          header: 'Параметры солнечной панели',
+          label: config.settingsPage.radioButtons.radios.solarPanel.label,
+          header: config.settingsPage.radioButtons.radios.solarPanel.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.costInput]
       },
       {
           value: 'acc',
-          label: 'Аккумуляторная батарея',
-          header: 'Параметры аккумуляторной батареи',
+          label: config.settingsPage.radioButtons.radios.accumulator.label,
+          header: config.settingsPage.radioButtons.radios.accumulator.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.capacityInput]
       }
   ],

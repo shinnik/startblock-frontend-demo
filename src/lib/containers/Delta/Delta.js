@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button/index';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import AnimatedNumbers from 'animated-number-react';
 import {Box} from "@material-ui/core";
+import {config} from "../../../loc/current/config";
 
 const useStyles = makeStyles(theme => createStyles({
     button1: {
@@ -33,8 +34,8 @@ function Delta({name, type, money, pullOffFunc}) {
             <Typography style={{fontFamily: 'Roboto Mono'}}  variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
             <Typography style={{fontSize:'15px'}} variant='body1'> {currency} </Typography>
         </Box>
-        <Box className={styles.Item3}> <Button className={`${classes.button1}`} variant='contained' color='default'>Пополнить</Button> </Box>
-        <Box className={styles.Item4}> <Button onClick={pullOffFunc} className={`${classes.button2}`} variant='outlined' color='default' >Снять</Button> </Box>
+        <Box className={styles.Item3}> <Button className={`${classes.button1}`} variant='contained' color='default'>{config.mainPage.delta.buttons.button1.label}</Button> </Box>
+        <Box className={styles.Item4}> <Button onClick={pullOffFunc} className={`${classes.button2}`} variant='outlined' color='default' >{config.mainPage.delta.buttons.button2.label}</Button> </Box>
     </Paper>
 }
 
