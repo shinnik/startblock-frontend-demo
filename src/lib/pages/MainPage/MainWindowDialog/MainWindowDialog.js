@@ -105,7 +105,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock, ...rest
                             multidata.map((value, index) => <TableRow key={index}>
                                 <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
                                 <TableCell align='right'><Typography style={{fontFamily: 'Roboto Mono'}} color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
-                                <TableCell align='center'> <LockState id={index} istate={value.state} onUnlock={onUnlock} />
+                                <TableCell align='center'> <LockState id={index+1} istate={value.state} onUnlock={onUnlock} />
                                 </TableCell>
                             </TableRow>)
                         }

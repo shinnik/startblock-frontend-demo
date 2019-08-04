@@ -31,7 +31,7 @@ async function fetchDataFromServer() {
 
 async function deleteChannelbyNeighbourId(id) {
     const response = await fetch(`${BACKEND_SERVER}/closechannel/${id}`, {
-        method: 'DELETE'
+        method: 'POST'
     });
     const json = await response.json();
     console.log(json);
