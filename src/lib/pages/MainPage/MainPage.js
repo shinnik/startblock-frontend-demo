@@ -12,7 +12,7 @@ import * as actionCreators from '../../../store/actions/index';
 import useWindowSize from "@rehooks/window-size";
 import {BACKEND_SERVER, BACKEND_SERVER_USERDATA} from "../../constants/endpoints";
 import {config, generatorNames} from "../../../loc/current/config";
-import {response} from "../../../store/mockData/backendMockData";
+import {response as mockResponse} from "../../../store/mockData/backendMockData";
 
 
 const shift = {
@@ -20,17 +20,26 @@ const shift = {
     left: '-9px'
 };
 
+const GETTING_MOCK_DATA = false;
+
 async function fetchDataFromServer() {
-    // const response = await fetch(BACKEND_SERVER_USERDATA);
-    return response;
-    // return new Promise(resolve => {
-    //     response.json()
-    //         .then(value => {
-    //             let tmp = value;
-    //             tmp.generator.cost = tmp.generator.propertyType === 'cost' && tmp.generator.propertyValue;
-    //             resolve(tmp);
-    //         })
-    // })
+    if (GETTING_MOCK_DATA) {
+        const result = Object.assign({}, mockResponse);
+        result.generator.cost = mockResponse.generator.propertyType === 'cost' && mockResponse.generator.propertyValue;
+        return result;
+    }
+    else {
+        const response = await fetch(BACKEND_SERVER_USERDATA);
+        return new Promise(resolve => {
+            response.json()
+                .then(value => {
+                    let tmp = value;
+                    tmp.generator.cost = tmp.generator.propertyType === 'cost' && tmp.generator.propertyValue;
+                    resolve(tmp);
+                })
+        })
+    }
+
 }
 
 async function deleteChannelbyNeighbourId(id) {
@@ -64,7 +73,7 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
 
         <Container className={styles.Grid1} >
             <Box className={styles.Item1}>
-                <Typography style={shift} variant='h4'><b>{data[0].type && Object.keys(generatorNames).map(value => generatorNames[value])[data[0].type]}</b></Typography>
+                <Typography style={shift} variant='h4'><b>{data[0].type && generatorNames[ data[0].type ]}</b></Typography>
                 <ArrowAndInfo {...data[0]} flag={flag} />
             </Box>
             <Box className={styles.Item2}>

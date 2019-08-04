@@ -13,7 +13,7 @@ export const parseResponse = (response) => {
         amount: response.net.performance,
         money: response.net.cost,
         direction: false,
-        type: 'Сеть'
+        type: config.mainPage.headings.load.label
     };
 
 

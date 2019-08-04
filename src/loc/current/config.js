@@ -1,7 +1,7 @@
 export const generatorNames = {
-    gasGenerator: 'Бензогенератор',
-    solarPanel: 'Солнечная панель',
-    accumulator: 'Аккумулятор',
+    benz: 'Бензогенератор',
+    sun: 'Солнечная панель',
+    acc: 'Аккумулятор',
 };
 
 export const config = {
@@ -42,14 +42,14 @@ export const config = {
             }
         },
         generators: {
-            gasGenerator: {
-                label: generatorNames.gasGenerator
+            benz: {
+                label: generatorNames.benz
             },
-            solarPanel: {
-                label: generatorNames.solarPanel
+            sun: {
+                label: generatorNames.sun
             },
-            accumulator: {
-                label: generatorNames.accumulator
+            acc: {
+                label: generatorNames.acc
             }
         },
         dialog: {
@@ -117,16 +117,16 @@ export const config = {
                 nothing: {
                     label: 'Ничего нет'
                 },
-                gasGenerator: {
-                    label: generatorNames.gasGenerator,
+                benz: {
+                    label: generatorNames.benz,
                     heading: 'Параметры бензогенератора',
                 },
-                solarPanel: {
-                    label: generatorNames.solarPanel,
+                sun: {
+                    label: generatorNames.sun,
                     heading: 'Параметры солнечной панели',
                 },
-                accumulator: {
-                    label: generatorNames.accumulator,
+                acc: {
+                    label: generatorNames.acc,
                     heading: 'Параметры аккумуляторной батареи',
                 }
             },

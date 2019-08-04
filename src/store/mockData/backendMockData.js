@@ -1,10 +1,11 @@
-// benz, sol, acc
+// benz, sun, acc
 
 export const response = {
     generator: {
-        type: 1,
+        type: 'sun',
         performance: 612291,
-        cost: 91
+        propertyType: 'cost',
+        propertyValue: 91,
     },
     net: {
         performance: 612291,

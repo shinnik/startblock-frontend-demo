@@ -15,20 +15,20 @@ export const initialState = fromJS({
       },
       {
           value: 'generator',
-          label: config.settingsPage.radioButtons.radios.gasGenerator.label,
-          header: config.settingsPage.radioButtons.radios.gasGenerator.heading,
+          label: config.settingsPage.radioButtons.radios.benz.label,
+          header: config.settingsPage.radioButtons.radios.benz.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.costInput]
       },
       {
           value: 'sun',
-          label: config.settingsPage.radioButtons.radios.solarPanel.label,
-          header: config.settingsPage.radioButtons.radios.solarPanel.heading,
+          label: config.settingsPage.radioButtons.radios.sun.label,
+          header: config.settingsPage.radioButtons.radios.sun.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.costInput]
       },
       {
           value: 'acc',
-          label: config.settingsPage.radioButtons.radios.accumulator.label,
-          header: config.settingsPage.radioButtons.radios.accumulator.heading,
+          label: config.settingsPage.radioButtons.radios.acc.label,
+          header: config.settingsPage.radioButtons.radios.acc.heading,
           inputTypes: [inputTypes.powerInput, inputTypes.capacityInput]
       }
   ],
