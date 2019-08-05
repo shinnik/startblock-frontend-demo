@@ -9,8 +9,8 @@ export const saveSettings = () => {
         const {settings}  = getState();
         const jsonState = settings.toJS();
         const currentState = {
-            mains: [settings.get('mains').get(0).get('value'), settings.get('mains').get(1).get('value')],
-            currentGeneratorName: ['absent', 'benz', 'sun', 'acc'][settings.get('currentGeneratorNumber')],
+            mains: [jsonState.mains[0].value, jsonState.mains[1].value],
+            currentGeneratorName: jsonState.currentGeneratorName,
             radios: jsonState.radios.map(value => {
                 return {
                     label: value.value,

@@ -33,22 +33,11 @@ export const initialState = fromJS({
       }
   ],
   managedLoad: {
-      status: true,
-      items: [{
-              id: '1',
-              name: 'Кухня'
-          },
-          {
-              id: '2',
-              name: 'Комната'
-          },
-          {
-              id: '3',
-              name: 'Туалет'
-          }]
+      status: false,
+      items: []
   },
   p2p: {
-      status: true,
+      status: false,
       strategies: p2pradios,
       current: '0'
   },

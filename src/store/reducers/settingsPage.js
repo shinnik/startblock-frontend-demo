@@ -4,51 +4,36 @@ import sortByKey from '../../utils/sortByKey';
 import { fromJS } from 'immutable';
 
 const response = {
-    mains:["Alpha","192.168.0.1"],
-    currentGeneratorName:"benz",
+    mains:["",""],
+    currentGeneratorName:"absent",
     radios: [{
         label: "absent",
         inputTypes: [-1,-1]
     },
     {
         label: "benz",
-        inputTypes: [123,123]
+        inputTypes: [-1,-1]
     },
     {
         label: "sun",
-        inputTypes: [123,123]
+        inputTypes: [-1,-1]
     },
     {
         label: "acc",
-        inputTypes: [321,321]
+        inputTypes: [-1,-1]
     }],
     managedLoad: {
         status: true,
-        items: [
-            {
-                id: 1,
-                name: "Kitchen", 
-                priority: 1
-            },
-            {
-                id: 2,
-                name: "Bathroom",
-                priority: 2
-            },
-            {
-                id: 3, 
-                name: "Room",
-                priority: 3
-            }]
+        items: []
         },
     p2p: {
-        status: true, 
+        status: false,
         current: "0"
     },
     balance: {
         status: false
     }
-    };
+};
 
 
 export const settingsPageReducer = (state = initialState, action) => {
@@ -106,14 +91,14 @@ export const settingsPageReducer = (state = initialState, action) => {
                 action.payload.value
             );
         case actions.SETTINGS_PAGE_FETCH_DATA: {
-            const { 
-                mains, 
-                currentGeneratorName, 
-                radios, 
-                managedLoad, 
-                p2p, 
-                balance 
-            } = response;
+            const {
+                mains,
+                currentGeneratorName,
+                radios,
+                managedLoad,
+                p2p,
+                balance
+            } = action.payload;
             return state
                 .setIn(['mains', 0, 'value'], mains[0])
                 .setIn(['mains', 1, 'value'], mains[1])
