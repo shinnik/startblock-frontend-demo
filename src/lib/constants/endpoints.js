@@ -10,4 +10,3 @@ const uri = undefined;
 export const BACKEND_SERVER_USERDATA = `http://${ip}${port ? `:${port}` : ''}${uri ? `/${uri}` : ''}/meters/${upstreamAccount}/userdata`;
 export const BACKEND_SERVER_SETTINGS = `http://${ip}${port ? `:${port}` : ''}${uri ? `/${uri}` : ''}/meters/${upstreamAccount}/settingsdata`;
 export const BACKEND_SERVER = `http://${ip}${port ? `:${port}` : ''}${uri ? `/${uri}` : ''}/meters/${upstreamAccount}`;
-
