@@ -1,3 +1,5 @@
+@import "../../../loc/current/config";
+
 .saving-button {
   &__button {
     display: flex;
@@ -18,25 +20,25 @@
     cursor: pointer;
     &--loading {
       &::before {
-        content: '••• СОХРАНЕНИЕ';
+        content: $saving-button--loading-content;
         padding-right: 5px;
       }
     }
     &--success {
       &::before {
-        content: '✓ СОХРАНЕНО';
+        content: $saving-button--success-content;
         padding-right: 5px;
       }
     }
     &--failed {
       &::before {
-        content: 'ОШИБКА!';
+        content: $saving-button--failed-content;
         padding-right: 5px;
       }
     }
     &--initial {
       &::before {
-        content: 'СОХРАНИТЬ';
+        content: $saving-button--initial-content;
       }
     }
     &:hover {

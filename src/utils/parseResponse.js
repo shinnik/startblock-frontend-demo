@@ -1,3 +1,5 @@
+import {config} from "../loc/current/config";
+
 export const parseResponse = (response) => {
     const data = [{}, {}, {}, {}];
     data[0] = {
@@ -11,13 +13,13 @@ export const parseResponse = (response) => {
         amount: response.net.performance,
         money: response.net.cost,
         direction: false,
-        type: 'Сеть'
+        type: config.mainPage.headings.load.label
     };
 
 
     const profile = {
         name: response.profile.name,
-        type: 'Энергетическая ячейка',
+        type: config.mainPage.delta.energyCell.label,
         money: response.profile.money,
         blocked: response.neighbours.reduce((acc, curr) => acc + curr.blocked_money, 0)
     };
@@ -37,6 +39,7 @@ export const parseResponse = (response) => {
 
     const multidata = response.neighbours.map(value => {
         return {
+            id: value.id,
             name: value.name,
             amount: value.performance,
             money: value.cost,

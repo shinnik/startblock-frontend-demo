@@ -19,6 +19,14 @@ function LockState({istate, id, onUnlock}) {
         }
     });
 
+    if (state) {
+        return <IconButton onClick={() => setState('unlocking')} color='primary'> <LockOpen/>
+        </IconButton>;
+    }
+    else {
+        return <Typography align={'center'} variant={'body1'} color={'textSecondary'}>Готово</Typography>;
+    }
+
     switch (state) {
         case 'locked':
             return <IconButton onClick={() => setState('unlocking')} color='primary'> <LockOpen/>

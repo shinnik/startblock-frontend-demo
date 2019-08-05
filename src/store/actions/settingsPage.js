@@ -45,9 +45,10 @@ export const onChangeLoad = value => {
 }
 
 export const onChangeBalance = value => {
+    // disable for some time
     return {
         type: actions.TOGGLE_BALANCE,
-        value
+        value: false
     }
 }
 
@@ -59,7 +60,6 @@ export const onReorderList = items => {
 }
 
 export const onRosetteNameTyping = (id, value) => {
-  console.log(id, value);
     return {
         type: actions.CHANGE_ROSETTE_NAME,
         payload: { id, value }
@@ -68,8 +68,9 @@ export const onRosetteNameTyping = (id, value) => {
 
 export const onInit = () => {
     return dispatch => {
-        console.log('!!!');
         axios.get(constants.BACKEND_SERVER_SETTINGS)
-            .then(({data}) => console.log(data))
+            .then(({data}) => {
+                dispatch({type: actions.SETTINGS_PAGE_FETCH_DATA, payload: data})
+            })
     }
 }

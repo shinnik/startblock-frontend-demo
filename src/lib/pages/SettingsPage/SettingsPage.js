@@ -20,9 +20,10 @@ import {
     onInit
 } from "../../../store/actions/settingsPage";
 import { ManagedLoadSpecific } from "../../containers/ManagedLoadSpecific/ManagedLoadSpecific";
+import { config } from "../../../loc/current/config";
 
 const SettingsPage = (
-    { currentGeneratorNumber,
+    { currentGeneratorName,
         radios,
         onGeneratorChoose,
         onParameterChange,
@@ -38,7 +39,7 @@ const SettingsPage = (
         onImportancyChange,
         onRosetteNameChange,
         onInitState}) => {
-    const currentGenerator = radios.get(currentGeneratorNumber);
+    const currentGenerator = radios.find(radio => radio.get('value') === currentGeneratorName);
     useEffect(() => onInitState(), []);
     return (
         <div className={styles.page}>
@@ -46,7 +47,7 @@ const SettingsPage = (
                 <Typography style={{fontWeight: 600}}
                             variant="h4"
                             gutterBottom>
-                    Настройка энергетической ячейки
+                    {config.settingsPage.heading.label}
                 </Typography>
                 <InputPair first={mainInputs.get(0)}
                            second={mainInputs.get(1)}
@@ -56,13 +57,13 @@ const SettingsPage = (
                 <Typography style={{fontWeight: 600}}
                             variant="h5"
                             gutterBottom>
-                    Подключенные генераторы и накопители
+                    {config.settingsPage.radioButtons.heading.label}
                 </Typography>
                 <RadioButtonsGroup radios={radios}
-                                   currentValue={currentGeneratorNumber}
+                                   currentValue={currentGeneratorName}
                                    onChange={onGeneratorChoose} />
             </div>
-           { currentGeneratorNumber !== 0 &&
+           { currentGeneratorName !== 'absent' &&
            <div className={styles.block}>
                 <ParametersBlock onTyping={onParameterChange}
                                  current={currentGenerator}/>
@@ -72,7 +73,7 @@ const SettingsPage = (
                             variant="h5"
                             component="h2"
                             gutterBottom>
-                    Сервисы
+                    {config.settingsPage.services.heading.label}
                 </Typography>
                 <ServiceBox variant='load'
                             active={managedLoad.get('status')}
@@ -97,7 +98,7 @@ const SettingsPage = (
 const mapStateToProps = state => {
     return ({
         mainInputs: state.settings.get('mains'),
-        currentGeneratorNumber: state.settings.get('currentGeneratorNumber'),
+        currentGeneratorName: state.settings.get('currentGeneratorName'),
         radios: state.settings.get('radios'),
         managedLoad: state.settings.get('managedLoad'),
         p2p: state.settings.get('p2p'),

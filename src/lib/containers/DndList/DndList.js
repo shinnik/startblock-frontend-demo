@@ -4,6 +4,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import TextField from "@material-ui/core/TextField/TextField";
 
 import styles from "./DndList.module.scss";
+import {config} from "../../../loc/current/config";
 
 const reorder = (list, startIndex, endIndex) => {
     const replacing = list.get(startIndex);
@@ -40,13 +41,15 @@ export const DndList = ({ items, onReorder, onChange }) => {
                         ref={provided.innerRef}
                     >
                         {items.map((item, index) => (
-                            <Draggable key={item.get('id')} draggableId={item.get('id')} index={index}>
+                            <Draggable key={item.get('id')}
+                                        draggableId={item.get('id')}
+                                        index={index}>
                                 {(provided, snapshot) => (
                                     <div className={styles['item__container']} ref={provided.innerRef} {...provided.draggableProps}>
                                         <i className={handlerClasses} {...provided.dragHandleProps}>drag_indicator</i>
                                         <TextField
                                             id={item.get('id')}
-                                            label={`Название розетки №${item.get('id')}`}
+                                            label={`${config.settingsPage.services.service1.formName} №${item.get('id')}`}
                                             margin='normal'
                                             variant='outlined'
                                             value={item.get('name')}

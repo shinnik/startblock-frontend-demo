@@ -1,8 +1,9 @@
 import { energy, cost, power } from '../../constants/names';
+import {config} from "../../../loc/current/config";
 
 export const nameInput = {
     id: 'name',
-    label: 'Название',
+    label: config.settingsPage.form1.name,
     margin: 'normal',
     variant: 'outlined',
     value: '',
@@ -11,7 +12,7 @@ export const nameInput = {
 
 export const IpInput = {
     id: 'ip',
-    label: 'IP адрес',
+    label: config.settingsPage.form2.name,
     margin: 'normal',
     variant: 'outlined',
     value: '',
@@ -20,7 +21,7 @@ export const IpInput = {
 
 export const powerInput = {
     id: 'power',
-    label: 'Мощность',
+    label: config.settingsPage.radioButtons.inputs.power.label,
     margin: 'normal',
     variant: 'outlined',
     value: '',
@@ -29,7 +30,7 @@ export const powerInput = {
 
 export const costInput = {
     id: 'cost',
-    label: 'Минимальная цена',
+    label: config.settingsPage.radioButtons.inputs.cost.label,
     margin: 'normal',
     variant: 'outlined',
     value: '',
@@ -38,7 +39,7 @@ export const costInput = {
 
 export const capacityInput = {
     id: 'cap',
-    label: 'Ёмкость',
+    label: config.settingsPage.radioButtons.inputs.capacity.label,
     margin: 'normal',
     variant: 'outlined',
     value: '',

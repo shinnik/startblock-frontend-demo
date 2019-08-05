@@ -1,14 +1,17 @@
+// benz, sun, acc
+
 export const response = {
     generator: {
-        name: "Солнечная панель",
+        type: 'sun',
         performance: 612291,
-        cost: 91
+        propertyType: 'cost',
+        propertyValue: 91,
     },
     net: {
         performance: 612291,
         cost: 91
     },
-    neighbors: [
+    neighbours: [
         {
             name: "Alpha",
             performance: 52,

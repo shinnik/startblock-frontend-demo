@@ -6,6 +6,7 @@ import { tabs } from '../../constants/navigations';
 
 import styles from './Header.module.scss';
 import SavingButton from "../../containers/SavingButton/SavingButton";
+import {config} from "../../../loc/current/config";
 
 // location is here to let material-ui's
 // Tabs component know that somewhere
@@ -28,7 +29,7 @@ export const Header = (props) => {
             <div className={styles['header__inner-container']}>
                 <Location.Provider value={{ path, setPath }}>
                     <Icon/>
-                    <HeaderTabs tabs={tabs} specials={<SettingsTab label='Настройки'/>}/>
+                    <HeaderTabs tabs={tabs} specials={<SettingsTab label={config.header.settings.label}/>}/>
                     { path === 'settings' && <SavingButton/> }
                 </Location.Provider>
             </div>

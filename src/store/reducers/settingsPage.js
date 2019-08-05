@@ -1,17 +1,55 @@
 import * as actions from '../actions/actionTypes';
 import { initialState } from './settingsPageInitialState';
+import sortByKey from '../../utils/sortByKey';
+import { fromJS } from 'immutable';
+
+const response = {
+    mains:["",""],
+    currentGeneratorName:"absent",
+    radios: [{
+        label: "absent",
+        inputTypes: [-1,-1]
+    },
+    {
+        label: "benz",
+        inputTypes: [-1,-1]
+    },
+    {
+        label: "sun",
+        inputTypes: [-1,-1]
+    },
+    {
+        label: "acc",
+        inputTypes: [-1,-1]
+    }],
+    managedLoad: {
+        status: true,
+        items: []
+        },
+    p2p: {
+        status: false,
+        current: "0"
+    },
+    balance: {
+        status: false
+    }
+};
+
 
 export const settingsPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case actions.SELECT_RADIO:
             return state.setIn(
-                ['currentGeneratorNumber'],
+                ['currentGeneratorName'],
                 action.selectedGenerator
             );
         case actions.CHANGE_PARAMETER_VALUE:
-            const curGen = state.get('currentGeneratorNumber');
+            const curGen = state.get('currentGeneratorName');
+            const changedRadioIdx = state
+                .get('radios')
+                .findIndex(radio => radio.get('value') === curGen)
             return state.setIn(
-                ['radios', curGen, 'inputTypes', action.payload.param, 'value'],
+                ['radios', changedRadioIdx, 'inputTypes', action.payload.param, 'value'],
                 action.payload.value
             );
         case actions.TYPE_INFO:
@@ -52,6 +90,31 @@ export const settingsPageReducer = (state = initialState, action) => {
                 ['managedLoad', 'items', idx, 'name'],
                 action.payload.value
             );
+        case actions.SETTINGS_PAGE_FETCH_DATA: {
+            const {
+                mains,
+                currentGeneratorName,
+                radios,
+                managedLoad,
+                p2p,
+                balance
+            } = action.payload;
+            return state
+                .setIn(['mains', 0, 'value'], mains[0])
+                .setIn(['mains', 1, 'value'], mains[1])
+                .setIn(['currentGeneratorName'], currentGeneratorName)
+                .setIn(['radios', 1, 'inputTypes', 0, 'value'], radios[1]['inputTypes'][0])
+                .setIn(['radios', 1, 'inputTypes', 1, 'value'], radios[1]['inputTypes'][1])
+                .setIn(['radios', 2, 'inputTypes', 0, 'value'], radios[2]['inputTypes'][0])
+                .setIn(['radios', 2, 'inputTypes', 1, 'value'], radios[2]['inputTypes'][1])
+                .setIn(['radios', 3, 'inputTypes', 0, 'value'], radios[3]['inputTypes'][0])
+                .setIn(['radios', 3, 'inputTypes', 1, 'value'], radios[3]['inputTypes'][1])
+                .setIn(['managedLoad', 'status'], managedLoad.status)
+                .setIn(['managedLoad', 'items'], fromJS(sortByKey(managedLoad.items, 'priority')))
+                .setIn(['p2p', 'status'], p2p.status)
+                .setIn(['p2p', 'current'], p2p.current)
+                .setIn(['balance', 'status'], balance.status)
+        }
         default:
             return state
 

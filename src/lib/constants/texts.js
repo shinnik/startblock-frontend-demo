@@ -1,18 +1,19 @@
+import {config} from "../../loc/current/config";
+
 export const texts = {
     load: {
-        header: 'Управляемая нагрузка',
-        textActive: 'Чтобы сэкономить, умные розетки будут выключаться при\n' +
-            'подорожании энергии. Перетащите наверх списка те, что\n должны отключаться реже:',
-        textInactive: 'Чтобы сэкономить, умные розетки будут выключаться при подорожании энергии.'
+        header: config.settingsPage.services.service1.heading,
+        textActive: config.settingsPage.services.service1.textActive,
+        textInactive: config.settingsPage.services.service1.textInactive,
     },
     p2p: {
-        header: 'P2P торговля энергией',
-        textActive: 'TODO\nНаписать пояснение',
-        textInactive: 'TODO\nНаписать пояснение'
+        header: config.settingsPage.services.service2.heading,
+        textActive: config.settingsPage.services.service2.textActive,
+        textInactive: config.settingsPage.services.service2.textInactive
     },
     balance: {
-        header: 'Баланс спроса и предложения',
-        textActive: 'TODO\nНаписать пояснение',
-        textInactive: 'TODO\nНаписать пояснение'
+        header: config.settingsPage.services.service3.heading,
+        textActive: config.settingsPage.services.service3.textActive,
+        textInactive: config.settingsPage.services.service3.textInactive
     }
 };
