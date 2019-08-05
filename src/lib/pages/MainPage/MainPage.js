@@ -13,6 +13,7 @@ import useWindowSize from "@rehooks/window-size";
 import {BACKEND_SERVER, BACKEND_SERVER_USERDATA} from "../../constants/endpoints";
 import {config, generatorNames} from "../../../loc/current/config";
 import {response as mockResponse} from "../../../store/mockData/backendMockData";
+import Hider from "../../containers/Hider/Hider";
 
 
 const shift = {
@@ -44,9 +45,10 @@ async function fetchDataFromServer() {
 
 async function deleteChannelbyNeighbourId(id) {
     const response = await fetch(`${BACKEND_SERVER}/closechannel/${id}`, {
-        method: 'DELETE'
+        method: 'POST'
     });
     const json = await response.json();
+    console.log('Closing channels result: ', json);
 }
 
 function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {
@@ -71,14 +73,18 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
        <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={id => deleteChannelbyNeighbourId(id)} />
 
         <Container className={styles.Grid1} >
-            <Box className={styles.Item1}>
-                <Typography style={shift} variant='h4'><b>{data[0].type && generatorNames[ data[0].type ]}</b></Typography>
-                <ArrowAndInfo {...data[0]} flag={flag} />
-            </Box>
-            <Box className={styles.Item2}>
-                <Typography style={shift} variant='h4'><b>{config.mainPage.headings.net.label}</b></Typography>
-                <ArrowAndInfo {...data[1]} flag={flag} />
-            </Box>
+            <Hider predicate={data[0].type === undefined || data[0].type === 'absent'}>
+                <Box className={styles.Item1}>
+                    <Typography style={shift} variant='h4'><b>{data[0].type && generatorNames[ data[0].type ]}</b></Typography>
+                    <ArrowAndInfo {...data[0]} flag={flag} />
+                </Box>
+            </Hider>
+            <Hider predicate={data[1].type === undefined}>
+                <Box className={styles.Item2}>
+                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.net.label}</b></Typography>
+                    <ArrowAndInfo {...data[1]} flag={flag} />
+                </Box>
+            </Hider>
         </Container>
 
         <Box className={styles.Item5}>
@@ -86,16 +92,20 @@ function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUn
         </Box>
 
         <Container className={styles.Grid2} >
-            <Box className={styles.Item3}>
-                <ArrowAndInfo {...data[2]} flag={flag} />
-                <Typography style={shift} variant='h4'><b>{config.mainPage.headings.neighbours.label}</b></Typography>
-                <MultiArrow data={multidata} flag={flag} />
-            </Box>
-            <Box className={styles.Item4}>
-                <ArrowAndInfo {...data[3]} flag={flag} />
-                <Typography style={shift} variant='h4'><b>{config.mainPage.headings.load.label}</b></Typography>
-                <MultiArrow data={multidata2} flag={flag} />
-            </Box>
+            <Hider predicate={data[2].amount === undefined}>
+                <Box className={styles.Item3}>
+                    <ArrowAndInfo {...data[2]} flag={flag} />
+                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.neighbours.label}</b></Typography>
+                    <MultiArrow data={multidata} flag={flag} />
+                </Box>
+            </Hider>
+            <Hider predicate={data[3].amount === undefined}>
+                <Box className={styles.Item4}>
+                    <ArrowAndInfo {...data[3]} flag={flag} />
+                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.load.label}</b></Typography>
+                    <MultiArrow data={multidata2} flag={flag} />
+                </Box>
+            </Hider>
         </Container>
     </div>;
 }

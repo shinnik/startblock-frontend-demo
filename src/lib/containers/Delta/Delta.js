@@ -8,6 +8,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import AnimatedNumbers from 'animated-number-react';
 import {Box} from "@material-ui/core";
 import {config} from "../../../loc/current/config";
+import Hider from "../Hider/Hider";
 
 const useStyles = makeStyles(theme => createStyles({
     button1: {
@@ -28,8 +29,8 @@ function Delta({name, type, money, pullOffFunc}) {
     const classes = useStyles();
 
     return <Paper elevation={2} className={`${styles.Delta}`}>
-            <Typography className={`${styles.Item1}`} variant='h3'> <b> {name} </b> </Typography>
-            <Typography style={{fontSize:'15px'}} className={`${styles.Item5}`} variant='body1'> {type} </Typography>
+        <Typography className={`${styles.Item1}`} variant='h3'> <b> {name} </b> </Typography>
+        <Typography style={{fontSize:'15px'}} className={`${styles.Item5}`} variant='body1'> {type} </Typography>
         <Box className={`${styles.Item2}`}>
             <Typography style={{fontFamily: 'Roboto Mono'}}  variant='h3'> <b> <AnimatedNumbers value={money} formatValue={(x) => x.toFixed(0)} /> </b> </Typography>
             <Typography style={{fontSize:'15px'}} variant='body1'> {currency} </Typography>
