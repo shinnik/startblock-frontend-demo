@@ -17,13 +17,13 @@ import Hider from "../../containers/Hider/Hider";
 
 
 const shift = {
-    position: 'relative',
-    left: '-9px'
+    position: "relative",
+    left: "-9px"
 };
 
 const GETTING_MOCK_DATA = false;
 
-async function fetchDataFromServer() {
+async function getUserDataFromBackend() {
     if (GETTING_MOCK_DATA) {
         const result = Object.assign({}, mockResponse);
         result.generator.cost = mockResponse.generator.propertyType === 'cost' && mockResponse.generator.propertyValue;
@@ -51,62 +51,65 @@ async function deleteChannelbyNeighbourId(id) {
     console.log('Closing channels result: ', json);
 }
 
-function MainPage({flag, multidata, multidata2, data, profile, onFetchData, onUnlock, onSetInterval, isIntervalExist, interval}) {
-    const [open, setOpen] = useState(false);
+function MainPage({flag, multidata, multidata2, data, profile, handleUserDataFromBackend, onUnlock, setDataFetchingInterval, isIntervalExist, interval}) {
+    const [isMainWindowDialogOpened, setIsMainWindowDialogOpened] = useState(false);
     const windowSize = useWindowSize();
 
     useEffect(() => {
-        fetchDataFromServer()
-           .then(value => {
-               onFetchData(value);
+        getUserDataFromBackend()
+           .then(fetchedData => {
+               handleUserDataFromBackend(fetchedData);
            });
         !isIntervalExist && setInterval(() => {
-            onSetInterval();
-            fetchDataFromServer()
-                .then(value => {
-                    onFetchData(value);
+            setDataFetchingInterval(true);
+            getUserDataFromBackend()
+                .then(fetchedData => {
+                    handleUserDataFromBackend(fetchedData);
                 })
         }, interval);
     }, []);
 
     return <div className={styles.MainPage}>
-       <MainWindowDialog style={{zoom: Math.min(windowSize.innerWidth/700, 1)}} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} profile={profile} multidata={multidata} onUnlock={id => deleteChannelbyNeighbourId(id)} />
-
-        <Container className={styles.Grid1} >
-            <Hider predicate={data[0].type === undefined || data[0].type === 'absent'}>
-                <Box className={styles.Item1}>
-                    <Typography style={shift} variant='h4'><b>{data[0].type && generatorNames[ data[0].type ]}</b></Typography>
-                    <ArrowAndInfo {...data[0]} flag={flag} />
-                </Box>
-            </Hider>
-            <Hider predicate={data[1].type === undefined}>
-                <Box className={styles.Item2}>
-                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.net.label}</b></Typography>
-                    <ArrowAndInfo {...data[1]} flag={flag} />
-                </Box>
-            </Hider>
-        </Container>
-
-        <Box className={styles.Item5}>
-            <Delta {...profile} pullOffFunc={() => setOpen(true)}/>
-        </Box>
-
-        <Container className={styles.Grid2} >
-            <Hider predicate={data[2].amount === undefined}>
-                <Box className={styles.Item3}>
-                    <ArrowAndInfo {...data[2]} flag={flag} />
-                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.neighbours.label}</b></Typography>
-                    <MultiArrow data={multidata} flag={flag} />
-                </Box>
-            </Hider>
-            <Hider predicate={data[3].amount === undefined}>
-                <Box className={styles.Item4}>
-                    <ArrowAndInfo {...data[3]} flag={flag} />
-                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.load.label}</b></Typography>
-                    <MultiArrow data={multidata2} flag={flag} />
-                </Box>
-            </Hider>
-        </Container>
+       <MainWindowDialog
+           style={{zoom: Math.min(windowSize.innerWidth/700, 1)}}
+           open={isMainWindowDialogOpened}
+           onClose={() => setIsMainWindowDialogOpened(false)}
+           onOpen={() => setIsMainWindowDialogOpened(true)}
+           profile={profile} multidata={multidata}
+           onUnlock={id => deleteChannelbyNeighbourId(id)} />
+           <Container className={styles.Grid1} >
+               <Hider predicate={data[0].type === undefined || data[0].type === 'absent'}>
+                   <Box className={styles.Item1}>
+                       <Typography style={shift} variant='h4'><b>{data[0].type && generatorNames[ data[0].type ]}</b></Typography>
+                       <ArrowAndInfo {...data[0]} flag={flag} />
+                   </Box>
+               </Hider>
+               <Hider predicate={data[1].type === undefined}>
+                   <Box className={styles.Item2}>
+                       <Typography style={shift} variant='h4'><b>{config.mainPage.headings.net.label}</b></Typography>
+                       <ArrowAndInfo {...data[1]} flag={flag} />
+                   </Box>
+               </Hider>
+           </Container>
+       <Box className={styles.Item5}>
+           <Delta {...profile} pullOffFunc={() => setIsMainWindowDialogOpened(true)}/>
+       </Box>
+       <Container className={styles.Grid2} >
+           <Hider predicate={data[2].amount === undefined}>
+               <Box className={styles.Item3}>
+                   <ArrowAndInfo {...data[2]} flag={flag} />
+                   <Typography style={shift} variant='h4'><b>{config.mainPage.headings.neighbours.label}</b></Typography>
+                   <MultiArrow data={multidata} flag={flag} />
+               </Box>
+           </Hider>
+           <Hider predicate={data[3].amount === undefined}>
+               <Box className={styles.Item4}>
+                   <ArrowAndInfo {...data[3]} flag={flag} />
+                   <Typography style={shift} variant='h4'><b>{config.mainPage.headings.load.label}</b></Typography>
+                   <MultiArrow data={multidata2} flag={flag} />
+               </Box>
+           </Hider>
+       </Container>
     </div>;
 }
 
@@ -124,8 +127,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onUnlock: (id) => dispatch(actionCreators.handleUnlocked(id)),
-        onFetchData: (response) => dispatch(actionCreators.fetchData(response)),
-        onSetInterval: () => dispatch(actionCreators.handleSetInterval())
+        handleUserDataFromBackend: (response) => dispatch(actionCreators.fetchData(response)),
+        setDataFetchingInterval: (value) => dispatch(actionCreators.handleSetInterval(value))
     }
 };
 

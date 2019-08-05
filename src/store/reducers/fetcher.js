@@ -13,7 +13,7 @@ function fetcherReducer(state=initialState, action) {
         case actionTypes.SET_INTERVAL: {
             return {
                 ...state,
-                isIntervalExist: true
+                isIntervalExist: action.payload.value
             }
         }
         default:
