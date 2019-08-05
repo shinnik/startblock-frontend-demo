@@ -1,6 +1,7 @@
 import * as actions from '../actions/actionTypes';
 import { initialState } from './settingsPageInitialState';
 import sortByKey from '../../utils/sortByKey';
+import { fromJS } from 'immutable';
 
 const response = {
     mains:["Alpha","192.168.0.1"],
@@ -124,7 +125,7 @@ export const settingsPageReducer = (state = initialState, action) => {
                 .setIn(['radios', 3, 'inputTypes', 0, 'value'], radios[3]['inputTypes'][0])
                 .setIn(['radios', 3, 'inputTypes', 1, 'value'], radios[3]['inputTypes'][1])
                 .setIn(['managedLoad', 'status'], managedLoad.status)
-                .setIn(['managedLoad', 'items'], sortByKey(managedLoad.items, 'priority'))
+                .setIn(['managedLoad', 'items'], fromJS(sortByKey(managedLoad.items, 'priority')))
                 .setIn(['p2p', 'status'], p2p.status)
                 .setIn(['p2p', 'current'], p2p.current)
                 .setIn(['balance', 'status'], balance.status)
