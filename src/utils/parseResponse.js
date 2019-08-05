@@ -39,6 +39,7 @@ export const parseResponse = (response) => {
 
     const multidata = response.neighbours.map(value => {
         return {
+            id: value.id,
             name: value.name,
             amount: value.performance,
             money: value.cost,
