@@ -21,7 +21,7 @@ const shift = {
     left: "-9px"
 };
 
-const GETTING_MOCK_DATA = false;
+const GETTING_MOCK_DATA = true;
 
 async function getUserDataFromBackend() {
     if (GETTING_MOCK_DATA) {
