@@ -7,7 +7,24 @@ const SAVING_FAILED_TIMEOUT = 1000;
 export const saveSettings = () => {
     return (dispatch, getState) => {
         const {settings}  = getState();
-        const jsonState = settings.toJS();
+        let jsonState = settings.toJS();
+
+        let p2p_fix = undefined;
+        switch (jsonState.p2p.current) {
+            case '1':
+                p2p_fix = 'opt_cost';
+                break;
+            case '2':
+                p2p_fix = 'no';
+                break;
+            case '3':
+                p2p_fix = 'opt_storage';
+                break;
+            default:
+                throw new Error('Invalid strategy number');
+        }
+        jsonState.p2p.current = p2p_fix;
+
         const currentState = {
             mains: [jsonState.mains[0].value, jsonState.mains[1].value],
             currentGeneratorName: jsonState.currentGeneratorName,
@@ -25,6 +42,7 @@ export const saveSettings = () => {
             balance: jsonState.balance
         };
         dispatch({ type: actions.SAVING });
+        console.log(currentState);
         fetch(constants.BACKEND_SERVER_SETTINGS, {
             method: 'POST',
             body: JSON.stringify(currentState)

@@ -8,19 +8,19 @@ const response = {
     currentGeneratorName:"absent",
     radios: [{
         label: "absent",
-        inputTypes: [-1,-1]
+        inputTypes: [0,0]
     },
     {
         label: "benz",
-        inputTypes: [-1,-1]
+        inputTypes: [0,0]
     },
     {
         label: "sun",
-        inputTypes: [-1,-1]
+        inputTypes: [0,0]
     },
     {
         label: "acc",
-        inputTypes: [-1,-1]
+        inputTypes: [0,0]
     }],
     managedLoad: {
         status: true,
@@ -28,7 +28,7 @@ const response = {
         },
     p2p: {
         status: false,
-        current: "0"
+        current: "no"
     },
     balance: {
         status: false
@@ -99,20 +99,38 @@ export const settingsPageReducer = (state = initialState, action) => {
                 p2p,
                 balance
             } = action.payload;
+
+            console.log('p2p: ', p2p);
+
+            let p2p_fix = undefined;
+            switch (p2p.current) {
+                case 'no':
+                    p2p_fix = '2';
+                    break;
+                case 'opt_cost':
+                    p2p_fix = '1';
+                    break;
+                case 'opt_storage':
+                    p2p_fix = '3';
+                    break;
+                default:
+                    throw new Error(`Unknown strategy ${p2p.current}`);
+            }
+
             return state
                 .setIn(['mains', 0, 'value'], mains[0])
                 .setIn(['mains', 1, 'value'], mains[1])
                 .setIn(['currentGeneratorName'], currentGeneratorName)
                 .setIn(['radios', 1, 'inputTypes', 0, 'value'], radios[1]['inputTypes'][0])
                 .setIn(['radios', 1, 'inputTypes', 1, 'value'], radios[1]['inputTypes'][1])
-                .setIn(['radios', 2, 'inputTypes', 0, 'value'], radios[2]['inputTypes'][0])
+                .setIn(['radios', 2, 'inputT    ypes', 0, 'value'], radios[2]['inputTypes'][0])
                 .setIn(['radios', 2, 'inputTypes', 1, 'value'], radios[2]['inputTypes'][1])
                 .setIn(['radios', 3, 'inputTypes', 0, 'value'], radios[3]['inputTypes'][0])
                 .setIn(['radios', 3, 'inputTypes', 1, 'value'], radios[3]['inputTypes'][1])
                 .setIn(['managedLoad', 'status'], managedLoad.status)
                 .setIn(['managedLoad', 'items'], fromJS(sortByKey(managedLoad.items, 'priority')))
                 .setIn(['p2p', 'status'], p2p.status)
-                .setIn(['p2p', 'current'], p2p.current)
+                .setIn(['p2p', 'current'], p2p_fix)
                 .setIn(['balance', 'status'], balance.status)
         }
         default:
