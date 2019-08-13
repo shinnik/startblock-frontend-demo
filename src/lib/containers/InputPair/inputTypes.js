@@ -1,4 +1,4 @@
-import { energy, cost, power } from '../../../loc/current/names';
+import { energy, cost, power } from '../../constants/names';
 import {config} from "../../../loc/current/config";
 
 export const nameInput = {

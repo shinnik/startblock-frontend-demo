@@ -2,7 +2,7 @@
 
 export const response = {
     generator: {
-        name: 'sun',
+        type: 'sun',
         performance: 612291,
         propertyType: 'cost',
         propertyValue: 91,
@@ -18,8 +18,7 @@ export const response = {
             cost: 5,
             output: false,
             blocked_money: 8,
-            state: 'locked',
-            active: false,
+            state: 'locked'
         },
         {
             name: "Beta",
@@ -27,8 +26,7 @@ export const response = {
             cost: 1,
             output: false,
             blocked_money: 401,
-            state: 'locked',
-            active: false,
+            state: 'locked'
         },
         {
             name: "Gamma",
@@ -36,8 +34,7 @@ export const response = {
             cost: 59,
             output: false,
             blocked_money: 95,
-            state: 'locked',
-            active: false,
+            state: 'locked'
         },
         // {
         //     name: "Omega",

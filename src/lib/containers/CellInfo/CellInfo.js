@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CellInfo.module.scss';
-import * as c1 from "../../../loc/current/names";
-import * as c2 from "../../../loc/current/names2";
+import * as c1 from "../../constants/names";
+import * as c2 from "../../constants/names2";
 import Typography from '@material-ui/core/Typography';
 
 

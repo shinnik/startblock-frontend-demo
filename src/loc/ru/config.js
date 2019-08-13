@@ -1,7 +1,7 @@
 export const generatorNames = {
     benz: 'Бензогенератор',
     sun: 'Солнечная панель',
-    acc: 'Накопитель',
+    acc: 'Аккумулятор',
 };
 
 export const config = {
@@ -43,13 +43,13 @@ export const config = {
         },
         generators: {
             benz: {
-                label: generatorNames.benz
+                label: generatorNames.gasGenerator
             },
             sun: {
-                label: generatorNames.sun
+                label: generatorNames.solarPanel
             },
             acc: {
-                label: generatorNames.acc
+                label: generatorNames.accumulator
             }
         },
         dialog: {
@@ -66,7 +66,7 @@ export const config = {
                     },
                 },
                 balance: {
-                    label: 'Баланс:'
+                    label: 'Баланс: '
                 },
                 readyToWithdraw: {
                     label: 'Готово к снятию: '
@@ -118,16 +118,16 @@ export const config = {
                     label: 'Ничего нет'
                 },
                 benz: {
-                    label: generatorNames.benz,
+                    label: generatorNames.gasGenerator,
                     heading: 'Параметры бензогенератора',
                 },
                 sun: {
-                    label: generatorNames.sun,
+                    label: generatorNames.solarPanel,
                     heading: 'Параметры солнечной панели',
                 },
                 acc: {
-                    label: generatorNames.acc,
-                    heading: 'Параметры накопителя',
+                    label: generatorNames.accumulator,
+                    heading: 'Параметры аккумуляторной батареи',
                 }
             },
         },
@@ -159,7 +159,7 @@ export const config = {
                     },
                     {
                         label: 'Минимальный риск отклонения',
-                        caption: 'Держать накопитель заряженным'
+                        caption: 'Держать аккумулятор заряженным'
                     }
                 ]
             },
