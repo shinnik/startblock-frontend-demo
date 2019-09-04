@@ -100,8 +100,6 @@ export const settingsPageReducer = (state = initialState, action) => {
                 balance
             } = action.payload;
 
-            console.log('p2p: ', p2p);
-
             let p2p_fix = undefined;
             switch (p2p.current) {
                 case 'no':
@@ -123,7 +121,7 @@ export const settingsPageReducer = (state = initialState, action) => {
                 .setIn(['currentGeneratorName'], currentGeneratorName)
                 .setIn(['radios', 1, 'inputTypes', 0, 'value'], radios[1]['inputTypes'][0])
                 .setIn(['radios', 1, 'inputTypes', 1, 'value'], radios[1]['inputTypes'][1])
-                .setIn(['radios', 2, 'inputT    ypes', 0, 'value'], radios[2]['inputTypes'][0])
+                .setIn(['radios', 2, 'inputTypes', 0, 'value'], radios[2]['inputTypes'][0])
                 .setIn(['radios', 2, 'inputTypes', 1, 'value'], radios[2]['inputTypes'][1])
                 .setIn(['radios', 3, 'inputTypes', 0, 'value'], radios[3]['inputTypes'][0])
                 .setIn(['radios', 3, 'inputTypes', 1, 'value'], radios[3]['inputTypes'][1])

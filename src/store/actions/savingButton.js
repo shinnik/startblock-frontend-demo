@@ -36,11 +36,13 @@ export const saveSettings = () => {
             }),
             managedLoad: {
                 status: jsonState.managedLoad.status,
-                items: jsonState.managedLoad.items
+                items: jsonState.managedLoad.items.map((value, index) => {return {...value, priority: index+1}})
             },
             p2p: jsonState.p2p,
             balance: jsonState.balance
         };
+
+
         dispatch({ type: actions.SAVING });
         console.log(currentState);
         fetch(constants.BACKEND_SERVER_SETTINGS, {
