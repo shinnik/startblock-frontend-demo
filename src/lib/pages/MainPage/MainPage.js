@@ -10,7 +10,7 @@ import MainWindowDialog from "./MainWindowDialog/MainWindowDialog";
 import {connect} from "react-redux";
 import * as actionCreators from '../../../store/actions/index';
 import useWindowSize from "@rehooks/window-size";
-import {BACKEND_SERVER, BACKEND_SERVER_USERDATA} from "../../constants/endpoints";
+import {BACKEND_SERVER, BACKEND_SERVER_USERDATA, BACKEND_SERVER_USERFULLDATA} from "../../constants/endpoints";
 import {config, generatorNames} from "../../../loc/current/config";
 import {response as mockResponse} from "../../../store/mockData/backendMockData";
 import Hider from "../../containers/Hider/Hider";
@@ -23,14 +23,17 @@ const shift = {
 
 const GETTING_MOCK_DATA = false;
 
-async function getUserDataFromBackend() {
+
+
+async function getUserDataFromBackend(endpoint) {
+    console.log('getting data');
     if (GETTING_MOCK_DATA) {
         const result = Object.assign({}, mockResponse);
         result.generator.cost = mockResponse.generator.propertyType === 'cost' && mockResponse.generator.propertyValue;
         return result;
     }
     else {
-        const response = await fetch(BACKEND_SERVER_USERDATA);
+        const response = await fetch(endpoint);
         return new Promise(resolve => {
             response.json()
                 .then(value => {
@@ -40,7 +43,6 @@ async function getUserDataFromBackend() {
                 })
         })
     }
-
 }
 
 async function deleteChannelbyNeighbourId(id) {
@@ -51,22 +53,22 @@ async function deleteChannelbyNeighbourId(id) {
     console.log('Closing channels result: ', json);
 }
 
-function MainPage({flag, multidata, multidata2, data, profile, handleUserDataFromBackend, onUnlock, setDataFetchingInterval, isIntervalExist, interval}) {
+function MainPage({endpoint, flag, multidata, multidata2, data, profile, handleUserDataFromBackend, onUnlock, setDataFetchingInterval, isIntervalExist, interval, intervalID}) {
     const [isMainWindowDialogOpened, setIsMainWindowDialogOpened] = useState(false);
     const windowSize = useWindowSize();
 
     useEffect(() => {
-        getUserDataFromBackend()
-           .then(fetchedData => {
-               handleUserDataFromBackend(fetchedData);
-           });
-        !isIntervalExist && setInterval(() => {
-            setDataFetchingInterval(true);
-            getUserDataFromBackend()
+        getUserDataFromBackend(endpoint)
+            .then(fetchedData => {
+                handleUserDataFromBackend(fetchedData, endpoint);
+            });
+        clearInterval(intervalID);
+        setDataFetchingInterval(true, setInterval(() => {
+            getUserDataFromBackend(endpoint)
                 .then(fetchedData => {
-                    handleUserDataFromBackend(fetchedData);
+                    handleUserDataFromBackend(fetchedData, endpoint);
                 })
-        }, interval);
+        }, interval));
     }, []);
 
     return <div className={styles.MainPage}>
@@ -121,14 +123,16 @@ const mapStateToProps = state => {
         profile: state.mainPage.profile,
         isIntervalExist: state.fetcher.isIntervalExist,
         interval: state.fetcher.interval,
+        intervalID: state.fetcher.intervalID,
+        flag: state.mainPage.flag
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onUnlock: (id) => dispatch(actionCreators.handleUnlocked(id)),
-        handleUserDataFromBackend: (response) => dispatch(actionCreators.fetchData(response)),
-        setDataFetchingInterval: (value) => dispatch(actionCreators.handleSetInterval(value))
+        handleUserDataFromBackend: (response, endpoint) => dispatch(actionCreators.fetchData(response, endpoint)),
+        setDataFetchingInterval: (value, id) => dispatch(actionCreators.handleSetInterval(value, id)),
     }
 };
 

@@ -4,5 +4,6 @@ export {
 } from './mainPage';
 
 export {
-    handleSetInterval
+    handleSetInterval,
+    handleSetEndpoint
 } from './fetcher'

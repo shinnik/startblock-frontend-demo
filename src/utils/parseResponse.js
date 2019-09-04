@@ -21,6 +21,7 @@ export const parseResponse = (response) => {
         name: response.profile.name,
         type: config.mainPage.delta.energyCell.label,
         money: response.profile.money,
+        ethAddress: response.profile.ethAddress,
         blocked: response.neighbours.reduce((acc, curr) => acc + curr.blocked_money, 0)
     };
 

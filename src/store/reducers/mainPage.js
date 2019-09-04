@@ -4,7 +4,8 @@ const initialState = {
     data: [{}, {}, {}, {}],
     multidata: [],
     multidata2: [],
-    profile: {}
+    profile: {},
+    flag: 'current'
 };
 
 const mainPageReducer = (state = initialState, action) => {
@@ -17,7 +18,7 @@ const mainPageReducer = (state = initialState, action) => {
             return tmp;
         }
         case actionTypes.MAIN_PAGE_FETCH_DATA: {
-            return action.payload;
+            return action.payload
         }
         default:
             return state;

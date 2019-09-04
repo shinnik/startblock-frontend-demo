@@ -48,16 +48,21 @@ const DialogTitle = withStyles(styles2)(props => {
 
 function MainWindowDialog ({open, onClose, profile, multidata, onUnlock, ...rest}) {
     const [sum, setSum] = useState();
-    const moneyToRelease = profile.money-multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0);
+    const moneyToRelease = profile.money-multidata.reduce((acc, curr) => acc + curr.state*curr.blocked, 0);
 
     return  <Dialog
         open={open}
         onClose={onClose}
         {...rest}
     >
-        <DialogTitle onClose={onClose}>{config.mainPage.dialog.heading.label}</DialogTitle>
-        <MuiDialogContent><Box className={styles.DialogContent}>
-
+        <DialogTitle onClose={onClose}>
+            {config.mainPage.dialog.heading.label}
+            <Typography variant='body1'>
+                {`EthAddress: ${profile.ethAddress}`}
+            </Typography>
+        </DialogTitle>
+        <MuiDialogContent>
+            <Box className={styles.DialogContent}>
             <Box className={styles.FieldAndButton}>
                 <TextField
                     id="outlined-name"
@@ -91,7 +96,7 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock, ...rest
             </Box>
             <br/>
             <Typography display={"inline"} variant={"body1"} style={{fontFamily: 'Roboto Mono'}}>
-                {multidata.reduce((acc, curr) => acc + ((curr.state === 'locked') ? curr.blocked : 0), 0)}
+                {multidata.reduce((acc, curr) => acc + curr.state*curr.blocked, 0)}
             </Typography>
             <Typography display={"inline"} variant='body1'>&nbsp;{`${currency} ${config.mainPage.dialog.content.text.label}`}</Typography>
             <br/>
@@ -108,8 +113,8 @@ function MainWindowDialog ({open, onClose, profile, multidata, onUnlock, ...rest
                     <TableBody>
                         {
                             multidata.map((value, index) => <TableRow key={index}>
-                                <TableCell align='left'><Typography color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
-                                <TableCell align='right'><Typography style={{fontFamily: 'Roboto Mono'}} color={value.state !== 'locked' ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
+                                <TableCell align='left'><Typography color={!value.state ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.name} </Typography> </TableCell>
+                                <TableCell align='right'><Typography style={{fontFamily: 'Roboto Mono'}} color={!value.state ? 'textSecondary' : 'textPrimary'} variant='body1'>{value.blocked} </Typography> </TableCell>
                                 <TableCell align='center'> <LockState id={value.id} istate={value.state} onUnlock={onUnlock} />
                                 </TableCell>
                             </TableRow>)

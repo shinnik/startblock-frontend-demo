@@ -54,7 +54,7 @@ export const config = {
         },
         dialog: {
             heading: {
-                label: 'Вывод токенов'
+                label: 'Вывод токенов',
             },
             content: {
                 form: {
