@@ -79,3 +79,36 @@
 ### Директория utils
 
 Хранит вспомогательные функции. Как правило небольшие. Для использования в компонентах и контейнерах.
+
+## Инструкция по деплоингу на удаленный сервер совместно с ONDER
+* Перейти в директорию с UI
+* Открыть файл `src/lib/constants/endpoints.js`
+* Выставить serverName удаленного сервера
+* Выставить ethAddress ячейки
+* `port` и `uri` должны быть выставлены на `null`
+* Запустить `yarn build`. Эта команда займет время. Появится папка build с собранными файлами UI. Настройка UI окончена
+* Открываем PostgreSQL, создаем базу данных `onder`
+* Переходим в папку с ONDER
+* Открываем `seller-virtual.json`
+* Выставляем нужные значения `cellName`, эфирного адреса ячейки, `tradeHost`. Последнее – это серый ip удаленного сервера. Его можно узнать командой `ifconfig`.
+* Соберем ONDER командой `yarn build`. Ждем окончания. Тоже небыстрая процедура
+* Команда `DEBUG=* node packages/metering-kit-node/dist/bin/main.js --config ./config/seller-virtual.json` запустит ONDER.
+* Настроим nginx. Открываем конфиг.
+* Добавляем следующее:
+
+```
+location /meters {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_http_version 1.1;
+        proxy_pass http://localhost:8881;	
+        proxy_connect_timeout 600s;
+        proxy_read_timeout 600s;
+        proxy_send_timeout 600s;
+    }
+```
+
+Обратите внимание на то, что проксирование идет на тот же порт, что и порт `webInterfacePort` в конфиге ONDER
+* Ставим root равным тому пути, который ведет к папке `build` с собранным UI
+* Перезапускаем nginx
+
