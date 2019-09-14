@@ -1,0 +1,81 @@
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 64px;
+}
+
+.Table {
+  width: fit-content;
+}
+
+.DialogContent {
+  padding-left: 12px;
+  padding-bottom: 40px;
+  padding-right: 24px;
+}
+
+.FieldAndButton {
+  display: grid;
+  grid-template-columns: 200px 130px;
+  grid-column-gap: 20px;
+}
+
+.MoneyInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5px;
+}
+
+.Balance {
+  grid-area: 1/1/1/1;
+}
+
+.ReadyToRelease {
+  grid-area: 1/2/1/4;
+
+  &__button {
+    display: inline-block;
+    color: #0099DC;
+    cursor: pointer;
+  }
+}
+
+.Grid1, .Grid2 {
+  display: grid;
+  grid-template-columns: 335px 235px;
+  grid-column-gap: 40px;
+  justify-content: center;
+  position: relative;
+  left: 0;
+  white-space: pre;
+}
+
+.Item1 {
+  grid-area: 1/1/1/1;
+  padding-left: 30px;
+}
+
+.Item2 {
+  grid-area: 1/2/1/2;
+  position: relative;
+  left: 44px;
+}
+
+.Item3 {
+  grid-area: 1/1/1/1;
+  padding-left: 30px;
+}
+
+.Item4 {
+  grid-area: 1/2/1/2;
+  position: relative;
+  left: 44px;
+}
+
+.Item5 {
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+  z-index: 1;
+}

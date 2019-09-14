@@ -1,0 +1,171 @@
+@import "../../../constants/arrow";
+
+.FirstBorder {
+    width: $y1;
+    height: $x4;
+    border-bottom: $border-thickness solid $border-color;
+    border-left: $border-thickness solid $border-color;
+
+    &__grey {
+        width: $y1;
+        height: $x4;
+        border-bottom: $border-thickness solid $border-color-grey;
+        border-left: $border-thickness solid $border-color;
+    }
+
+    &__ggrey {
+        width: $y1;
+        height: $x4;
+        border-bottom: $border-thickness solid $border-color-grey;
+        border-left: $border-thickness solid $border-color-grey;
+    }
+
+    &__AndLast {
+        width: $y1;
+        height: $x4;
+        border-bottom: $border-thickness solid $border-color;
+        border-left: $border-thickness solid $border-color;
+        border-bottom-left-radius: $border-radius;
+    }
+}
+
+.MediumBorder {
+    width: $y1;
+    height: $x3;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+
+    &__grey {
+        width: $y1;
+        height: $x3;
+        border-left: $border-thickness solid $border-color;
+        border-bottom: $border-thickness solid $border-color-grey;
+    }
+
+    &__ggrey {
+        width: $y1;
+        height: $x3;
+        border-left: $border-thickness solid $border-color-grey;
+        border-bottom: $border-thickness solid $border-color-grey;
+    }
+}
+
+.LastBorder {
+    width: $y1;
+    height: $x3;
+    border-left: $border-thickness solid $border-color;
+    border-bottom: $border-thickness solid $border-color;
+    border-bottom-left-radius: $border-radius;
+
+    &__grey, &__ggrey {
+        width: $y1;
+        height: $x3;
+        border-left: $border-thickness solid $border-color-grey;
+        border-bottom: $border-thickness solid $border-color-grey;
+        border-bottom-left-radius: $border-radius;
+    }
+}
+
+.RightTriangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: $x3*0.9;
+    left: $y1*0.6;
+    border-top: $triangle-size solid white;
+    border-left: 2*$triangle-size solid $border-color;
+    border-bottom: $triangle-size solid white;
+
+
+    &__first {
+        position: relative;
+        width: 0;
+        height: 0;
+        top: $x4*0.6;
+        left: $y1*0.6;
+        border-top: $triangle-size solid white;
+        border-left: 2*$triangle-size solid $border-color;
+        border-bottom: $triangle-size solid white;
+
+        &__grey {
+            position: relative;
+            width: 0;
+            height: 0;
+            left: $y1*0.6;
+            border-top: $triangle-size solid transparent;
+            border-left: 2*$triangle-size solid transparent;
+            border-bottom: $triangle-size solid transparent;
+        }
+    }
+
+    &__grey {
+        position: relative;
+        width: 0;
+        height: 0;
+        top: $x3*0.885;
+        left: $y1*0.5;
+        border-top: $triangle-size solid transparent;
+        border-left: 2*$triangle-size solid transparent;
+        border-bottom: $triangle-size solid transparent;
+    }
+}
+
+.LeftTriangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: $x3*0.9;
+    left: $y1*0.2;
+    border-top: $triangle-size solid transparent;
+    border-right: 2*$triangle-size solid $border-color;
+    border-bottom: $triangle-size solid transparent;
+
+    &__first {
+        position: relative;
+        width: 0;
+        height: 0;
+        top: $x4*0.65;
+        left: $y1*0.2;
+        border-top: $triangle-size solid transparent;
+        border-right: 2*$triangle-size solid $border-color;
+        border-bottom: $triangle-size solid transparent;
+
+        &__grey {
+            position: relative;
+            width: 0;
+            height: 0;
+            top: $x4*0.6;
+            left: $y1*0.2;
+            border-top: $triangle-size solid transparent;
+            border-right: 2*$triangle-size solid transparent;
+            border-bottom: $triangle-size solid transparent;
+        }
+    }
+
+    &__grey {
+        position: relative;
+        width: 0;
+        height: 0;
+        top: $x3*0.88;
+        left: $y1*0.2;
+        border-top: $triangle-size solid transparent;
+        border-right: 2*$triangle-size solid transparent;
+        border-bottom: $triangle-size solid transparent;
+    }
+}
+
+.FirstExtraBorder {
+    height: $border-thickness*2;
+    position: relative;
+    left: -$border-thickness;
+    top: -$x4*0.15;
+    border-left: $border-thickness solid $border-color;
+}
+
+.ExtraBorder {
+    height: $border-thickness*2;
+    position: relative;
+    left: -$border-thickness;
+    top: $x3*0.67;
+    border-left: $border-thickness solid $border-color;
+}

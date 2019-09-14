@@ -1,0 +1,62 @@
+@import "../../constants/arrow";
+
+.Box {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+  .Delta {
+    display: grid;
+    width: 611px;
+    height: 113px;
+    grid-template-columns: 206px 132px 148px 125px;
+    grid-template-rows: 1fr 1fr;
+
+  }
+
+  .Item1 {
+    grid-area: 1/1/1/1;
+    align-self: center;
+    padding-top: 24px;
+    padding-left: 24px;
+    color: white;
+  }
+
+  .Item2 {
+    grid-area: 1/2/3/3;
+    padding-top: 24px;
+    padding-left: 44px;
+    color: white;
+    justify-self: end;
+  }
+
+  .Item3 {
+    grid-area: 1/3/1/3;
+    width: fit-content;
+    padding-top: 24px;
+    padding-left: 16px;
+  }
+
+  .Item4 {
+    grid-area: 1/4/1/4;
+    padding-top: 24px;
+    padding-left: 16px;
+  }
+
+  .Item5 {
+    grid-area: 2/1/2/1;
+    padding-left: 24px;
+    color: white;
+  }
+
+  //.Item6 {
+  //  grid-area: 2/2/2/2;
+  //  display: flex;
+  //  justify-self: start;
+  //  align-self: flex-start;
+  //  padding-left: 36px;
+  //  color: white;
+  //}
+
+

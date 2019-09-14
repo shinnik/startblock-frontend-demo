@@ -1,0 +1,50 @@
+@import "../../../loc/current/config";
+
+.saving-button {
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 32px;
+    width: 138px;
+    top: 60px;
+    border: 1px solid #0099DC;
+    box-sizing: border-box;
+    border-radius: 99px;
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    &--loading {
+      &::before {
+        content: $saving-button--loading-content;
+        padding-right: 5px;
+      }
+    }
+    &--success {
+      &::before {
+        content: $saving-button--success-content;
+        padding-right: 5px;
+      }
+    }
+    &--failed {
+      &::before {
+        content: $saving-button--failed-content;
+        padding-right: 5px;
+      }
+    }
+    &--initial {
+      &::before {
+        content: $saving-button--initial-content;
+      }
+    }
+    &:hover {
+      background-color: #0099dc;
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+  }
+}

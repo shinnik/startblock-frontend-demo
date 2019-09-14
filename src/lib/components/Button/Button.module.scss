@@ -1,0 +1,42 @@
+.btn {
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  border: 0;
+  &__modal {
+    width: 139px;
+    height: 56px;
+    background: #0099DC;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    color: #FFFFFF;
+  }
+  &__cellinfoput {
+    width: 132px;
+    height: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(48, 79, 254, 0.24);
+    border-radius: 3px;
+  }
+  &__cellinfotake {
+    width: 85px;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    background: #0099DC;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+}
+
+.disabled {
+  background-color: grey
+}
+
+.modalButton {
+
+
+}

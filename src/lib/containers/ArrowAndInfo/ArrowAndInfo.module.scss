@@ -1,0 +1,47 @@
+@import "../../constants/arrow";
+
+.ArrowAndInfo {
+  position: relative;
+  border-left: $border-thickness solid $border-color;
+  height: 132px;
+
+  &__grey {
+    position: relative;
+    border-left: $border-thickness solid $border-color-grey;
+    height: 132px;
+  }
+}
+
+.Box {
+  padding-left: 24px;
+  padding-top: 24px;
+}
+
+
+
+///@todo This triangle goes down in phones
+.TriangleUp {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -$triangle-size*1.2;
+  border-left: $triangle-size solid white;
+  border-right: $triangle-size solid white;
+  border-bottom: 2*$triangle-size solid $border-color;
+  border-left-style: dashed;
+  border-right-style: dashed;
+}
+
+.TriangleDown {
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: -$triangle-size*1.2;
+  border-left: $triangle-size solid white;
+  border-right: $triangle-size solid white;
+  border-top: 2*$triangle-size solid $border-color;
+  border-left-style: dashed;
+  border-right-style: dashed;
+}

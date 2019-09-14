@@ -8,7 +8,6 @@ build/
 *~.nib
 
 # misc
-*.css
 .DS_Store
 .env
 .env.local
