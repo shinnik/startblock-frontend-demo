@@ -83,13 +83,13 @@ function MainPage({endpoint, flag, multidata, multidata2, data, profile, handleU
                <Hider predicate={data[0].type === undefined || data[0].type === 'absent'}>
                    <Box className={styles.Item1}>
                        <Typography style={shift} variant='h4'><b>{data[0].type && generatorNames[ data[0].type ]}</b></Typography>
-                       <ArrowAndInfo {...data[0]} flag={flag} />
+                       <ArrowAndInfo {...data[0]} flag={flag} active={data[0].amount !== 0} />
                    </Box>
                </Hider>
                <Hider predicate={data[1].type === undefined}>
                    <Box className={styles.Item2}>
                        <Typography style={shift} variant='h4'><b>{config.mainPage.headings.net.label}</b></Typography>
-                       <ArrowAndInfo {...data[1]} flag={flag} />
+                       <ArrowAndInfo {...data[1]} flag={flag} active={data[1].amount !== 0} />
                    </Box>
                </Hider>
            </Container>
@@ -99,14 +99,14 @@ function MainPage({endpoint, flag, multidata, multidata2, data, profile, handleU
        <Container className={styles.Grid2} >
            <Hider predicate={data[2].amount === undefined}>
                <Box className={styles.Item3}>
-                   <ArrowAndInfo {...data[2]} flag={flag} />
+                   <ArrowAndInfo {...data[2]} flag={flag} active={multidata.reduce((acc, curr) => acc || curr.active , false)} />
                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.neighbours.label}</b></Typography>
                    <MultiArrow data={multidata} flag={flag} />
                </Box>
            </Hider>
            <Hider predicate={data[3].amount === undefined}>
                <Box className={styles.Item4}>
-                   <ArrowAndInfo {...data[3]} flag={flag} />
+                   <ArrowAndInfo {...data[3]} flag={flag} active={multidata2.reduce((acc, curr) => acc || curr.active , false)} />
                    <Typography style={shift} variant='h4'><b>{config.mainPage.headings.load.label}</b></Typography>
                    <MultiArrow data={multidata2} flag={flag} />
                </Box>
