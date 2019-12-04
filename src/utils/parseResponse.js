@@ -52,10 +52,15 @@ export const parseResponse = (response) => {
     });
 
     const tmp = response.neighbours.reduce((acc, curr) => acc + (-1)**!curr.output*curr.performance*curr.active, 0);
-    const amountOfActiveNeighbours = multidata.reduce((previousValue, currentValue) => previousValue + currentValue.active, 0);
+    let sum1 = 0;
+    let sum2 = 0;
+    for (const neighbour of response.neighbours) {
+        sum1 += neighbour.active*neighbour.performance*neighbour.cost*((-1)**neighbour.output);
+        sum2 += neighbour.active*neighbour.performance;
+    }
     data[2] = {
         amount: Math.abs(tmp),
-        money: amountOfActiveNeighbours ? multidata.reduce((acc, curr) => acc + curr.active*curr.money*(-1)**!curr.output, 0)/amountOfActiveNeighbours : 0,
+        money: sum2 !== 0 ? sum1/sum2 : 0,
         direction: tmp <= 0
     };
 
