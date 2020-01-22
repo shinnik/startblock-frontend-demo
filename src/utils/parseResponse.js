@@ -10,7 +10,7 @@ export const parseResponse = (response) => {
     };
 
     data[1] = {
-        amount: response.net.performance,
+        amount: response.net.performance*1000,
         money: response.net.cost,
         direction: false,
         type: config.mainPage.headings.load.label
